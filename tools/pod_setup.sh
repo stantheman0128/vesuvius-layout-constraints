@@ -28,13 +28,17 @@ prepare() {
     fi
     if [ ! -d "$WORK/villa/.git" ]; then
         git clone -q --filter=blob:none --sparse https://github.com/ScrollPrize/villa "$WORK/villa"
-        (cd "$WORK/villa" && git sparse-checkout set spiral-fitting vc_object_store && git checkout -q "$VILLA_COMMIT")
+        # vesuvius/src holds vc3d_fiber_format, imported at fit_spiral.py start-up via
+        # vc3d_fiber_format_adapter.py (it searches ../vesuvius/src); without it the fit dies at import.
+        (cd "$WORK/villa" && git sparse-checkout set spiral-fitting vc_object_store vesuvius/src && git checkout -q "$VILLA_COMMIT")
     fi
     command -v uv >/dev/null || curl -LsSf https://astral.sh/uv/install.sh | sh
     export PATH="$HOME/.local/bin:$PATH"
     # On Linux the lock already pins the CUDA torch build, so a plain uv sync is right here
     # (the opposite of tasks/LOCAL_CPU_SETUP.md, which is about Windows CPU).
     (cd "$SPIRAL" && uv sync --frozen --group dev)
+    # run_arm.py's memory watcher needs psutil, which the spiral lock does not carry on Linux.
+    uv pip install -q --python "$SPIRAL/.venv/bin/python" psutil
     "$SPIRAL/.venv/bin/python" -c "import torch, vc_spiral.spiral_sampling; print('torch', torch.__version__, 'cuda', torch.cuda.is_available(), torch.cuda.get_device_name(0))"
     mkdir -p "$DATA"
     [ -f "$DATA/manifest_full.json" ] || python3 -I "$REPO/tools/list_spiral.py" "$DATA/manifest_full.json" --with-lasagna
@@ -68,7 +72,7 @@ arm() {  # arm A|B steps tag
     local arm=$1 steps=$2 tag=$3 ds
     [ "$arm" = A ] && ds=$DATA/phercparis4 || ds=$DATA/phercparis4_plus_layout
     export SPIRAL_FITTING_DIR=$SPIRAL SPIRAL_FITTING_PYTHON=$SPIRAL/.venv/bin/python
-    # run_arm.py needs psutil, which the spiral lock installs on Linux, so run it with the venv python
+    # run_arm.py needs psutil (installed into the venv by prepare), so run it with the venv python
     FIT_SPIRAL_DEVICE=cuda "$SPIRAL/.venv/bin/python" "$REPO/tools/run_arm.py" --arm "$arm" --dataset "$ds" \
         --steps "$steps" --seed "$SEED" --out "$REPO/runs" --tag "$tag" --extra "$FULL" \
         2>&1 | tee "$REPO/runs/${tag}_arm${arm}.stdout"
