@@ -39,7 +39,7 @@ def main():
     os.makedirs(run_dir, exist_ok=True)
     env = dict(os.environ)
     env.update({
-        "FIT_SPIRAL_DEVICE": "cpu",
+        "FIT_SPIRAL_DEVICE": os.environ.get("FIT_SPIRAL_DEVICE", "cpu"),
         "FIT_SPIRAL_CONFIG_OVERRIDES": json.dumps(overrides),
         "FIT_SPIRAL_RUN_DIR": run_dir,
         "FIT_SPIRAL_RUN_TAG": run_name,
