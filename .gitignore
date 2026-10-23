@@ -1,0 +1,14 @@
+# downloaded team data; sources and sizes are in README "What is not in this repo"
+data/spiral_datasets/
+data/mesh/
+data/w116/
+data/ink_ds8.jpg
+# fitter checkpoints, 977 MB each; the metrics JSON and fit.log next to them are kept
+runs/**/checkpoint_fitted.ckpt
+runs/**/meshes/
+# local only
+drafts/
+.benchmarks/
+__pycache__/
+.pytest_cache/
+*.pyc

@@ -1,0 +1,634 @@
+C:\Users\stans\Projects\villa\spiral-fitting\.venv\Lib\site-packages\pyro\ops\stats.py:527: SyntaxWarning: "\g" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\g"? A raw string is also an option.
+  we have :math:`ES^{*}(P,Q) \ge ES^{*}(Q,Q)` with equality holding if and only if :math:`P=Q`, i.e.
+scaled per-step counts by 0.105 for the 1000-slice z-range [10500, 11500) (reference 9500 slices):
+  sample_count_patches_per_step=38
+  sample_count_patches_per_step_for_dt=25
+  sample_count_relative_winding_pcls=5
+  sample_count_absolute_winding_pcls=5
+  sample_count_unattached_pcls_per_step=9
+  sample_count_tracks_per_step=5053
+  sample_count_dense_normal_points=6316
+  sample_count_fiber_direction_points=6316
+  sample_count_winding_model_relative_pairs=13474
+  sample_count_winding_model_density_pairs=13474
+  sample_count_regularisation_points=474
+  sample_count_shell_samples=2587
+PROGRESS Loading umbilicus — elapsed 0s
+PROGRESS Loading fiber direction samples — elapsed 0s
+PROGRESS Loading outer shell — elapsed 0s
+PROGRESS Loading and filtering verified patches — 0/22,563 patches (0.0%) — elapsed 0s
+PROGRESS Loading and filtering verified patches — 0/22,563 patches (0.0%) — elapsed 31s
+C:\Users\stans\Projects\villa\spiral-fitting\.venv\Lib\site-packages\pyro\ops\stats.py:527: SyntaxWarning: "\g" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\g"? A raw string is also an option.
+  we have :math:`ES^{*}(P,Q) \ge ES^{*}(Q,Q)` with equality holding if and only if :math:`P=Q`, i.e.
+C:\Users\stans\Projects\villa\spiral-fitting\.venv\Lib\site-packages\pyro\ops\stats.py:527: SyntaxWarning: "\g" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\g"? A raw string is also an option.
+  we have :math:`ES^{*}(P,Q) \ge ES^{*}(Q,Q)` with equality holding if and only if :math:`P=Q`, i.e.
+C:\Users\stans\Projects\villa\spiral-fitting\.venv\Lib\site-packages\pyro\ops\stats.py:527: SyntaxWarning: "\g" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\g"? A raw string is also an option.
+  we have :math:`ES^{*}(P,Q) \ge ES^{*}(Q,Q)` with equality holding if and only if :math:`P=Q`, i.e.
+C:\Users\stans\Projects\villa\spiral-fitting\.venv\Lib\site-packages\pyro\ops\stats.py:527: SyntaxWarning: "\g" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\g"? A raw string is also an option.
+  we have :math:`ES^{*}(P,Q) \ge ES^{*}(Q,Q)` with equality holding if and only if :math:`P=Q`, i.e.
+C:\Users\stans\Projects\villa\spiral-fitting\.venv\Lib\site-packages\pyro\ops\stats.py:527: SyntaxWarning: "\g" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\g"? A raw string is also an option.
+  we have :math:`ES^{*}(P,Q) \ge ES^{*}(Q,Q)` with equality holding if and only if :math:`P=Q`, i.e.
+C:\Users\stans\Projects\villa\spiral-fitting\.venv\Lib\site-packages\pyro\ops\stats.py:527: SyntaxWarning: "\g" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\g"? A raw string is also an option.
+  we have :math:`ES^{*}(P,Q) \ge ES^{*}(Q,Q)` with equality holding if and only if :math:`P=Q`, i.e.
+C:\Users\stans\Projects\villa\spiral-fitting\.venv\Lib\site-packages\pyro\ops\stats.py:527: SyntaxWarning: "\g" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\g"? A raw string is also an option.
+  we have :math:`ES^{*}(P,Q) \ge ES^{*}(Q,Q)` with equality holding if and only if :math:`P=Q`, i.e.
+C:\Users\stans\Projects\villa\spiral-fitting\.venv\Lib\site-packages\pyro\ops\stats.py:527: SyntaxWarning: "\g" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\g"? A raw string is also an option.
+  we have :math:`ES^{*}(P,Q) \ge ES^{*}(Q,Q)` with equality holding if and only if :math:`P=Q`, i.e.
+C:\Users\stans\Projects\villa\spiral-fitting\.venv\Lib\site-packages\pyro\ops\stats.py:527: SyntaxWarning: "\g" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\g"? A raw string is also an option.
+  we have :math:`ES^{*}(P,Q) \ge ES^{*}(Q,Q)` with equality holding if and only if :math:`P=Q`, i.e.
+C:\Users\stans\Projects\villa\spiral-fitting\.venv\Lib\site-packages\pyro\ops\stats.py:527: SyntaxWarning: "\g" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\g"? A raw string is also an option.
+  we have :math:`ES^{*}(P,Q) \ge ES^{*}(Q,Q)` with equality holding if and only if :math:`P=Q`, i.e.
+PROGRESS Loading and filtering verified patches — 0/22,563 patches (0.0%) — elapsed 1m 01s
+C:\Users\stans\Projects\villa\spiral-fitting\.venv\Lib\site-packages\pyro\ops\stats.py:527: SyntaxWarning: "\g" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\g"? A raw string is also an option.
+  we have :math:`ES^{*}(P,Q) \ge ES^{*}(Q,Q)` with equality holding if and only if :math:`P=Q`, i.e.
+C:\Users\stans\Projects\villa\spiral-fitting\.venv\Lib\site-packages\pyro\ops\stats.py:527: SyntaxWarning: "\g" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\g"? A raw string is also an option.
+  we have :math:`ES^{*}(P,Q) \ge ES^{*}(Q,Q)` with equality holding if and only if :math:`P=Q`, i.e.
+PROGRESS Loading and filtering verified patches — 0/22,563 patches (0.0%) — elapsed 1m 32s
+PROGRESS Loading and filtering verified patches — 2,560/22,563 patches (11.3%) — elapsed 2m 01s — ETA 15m 44s
+PROGRESS Loading and filtering verified patches — 2,816/22,563 patches (12.5%) — elapsed 2m 07s — ETA 14m 54s
+PROGRESS Loading and filtering verified patches — 3,072/22,563 patches (13.6%) — elapsed 2m 13s — ETA 14m 01s
+PROGRESS Loading and filtering verified patches — 4,608/22,563 patches (20.4%) — elapsed 2m 18s — ETA 9m 00s
+PROGRESS Loading and filtering verified patches — 5,632/22,563 patches (25.0%) — elapsed 2m 28s — ETA 7m 25s
+PROGRESS Loading and filtering verified patches — 6,144/22,563 patches (27.2%) — elapsed 2m 35s — ETA 6m 54s
+PROGRESS Loading and filtering verified patches — 7,168/22,563 patches (31.8%) — elapsed 2m 41s — ETA 5m 46s
+PROGRESS Loading and filtering verified patches — 8,704/22,563 patches (38.6%) — elapsed 2m 58s — ETA 4m 43s
+PROGRESS Loading and filtering verified patches — 8,960/22,563 patches (39.7%) — elapsed 3m 03s — ETA 4m 38s
+PROGRESS Loading and filtering verified patches — 9,216/22,563 patches (40.8%) — elapsed 3m 09s — ETA 4m 34s
+PROGRESS Loading and filtering verified patches — 10,496/22,563 patches (46.5%) — elapsed 3m 16s — ETA 3m 46s
+PROGRESS Loading and filtering verified patches — 11,520/22,563 patches (51.1%) — elapsed 3m 22s — ETA 3m 14s
+PROGRESS Loading and filtering verified patches — 12,288/22,563 patches (54.5%) — elapsed 3m 27s — ETA 2m 53s
+PROGRESS Loading and filtering verified patches — 13,568/22,563 patches (60.1%) — elapsed 3m 32s — ETA 2m 21s
+PROGRESS Loading and filtering verified patches — 13,824/22,563 patches (61.3%) — elapsed 3m 38s — ETA 2m 18s
+PROGRESS Loading and filtering verified patches — 15,360/22,563 patches (68.1%) — elapsed 3m 45s — ETA 1m 46s
+PROGRESS Loading and filtering verified patches — 16,640/22,563 patches (73.7%) — elapsed 3m 51s — ETA 1m 22s
+PROGRESS Loading and filtering verified patches — 16,896/22,563 patches (74.9%) — elapsed 3m 56s — ETA 1m 19s
+PROGRESS Loading and filtering verified patches — 18,176/22,563 patches (80.6%) — elapsed 4m 01s — ETA 58s
+PROGRESS Loading and filtering verified patches — 19,712/22,563 patches (87.4%) — elapsed 4m 10s — ETA 36s
+PROGRESS Loading and filtering verified patches — 20,259/22,563 patches (89.8%) — elapsed 4m 15s — ETA 29s
+PROGRESS Loading and filtering verified patches — 21,795/22,563 patches (96.6%) — elapsed 4m 21s — ETA 9s
+z ROI prefilter skipped 19955/22563 verified patches entries before full TIFF decode
+erosion removed 52/22563 verified patches entries
+erosion moved 67/22563 verified patches entries outside the z ROI
+loaded and filtered 2,489/22,563 verified patches (264.3s)
+ loaded 2489 patches
+PROGRESS Loading point collections — 0/4 inputs (0.0%) — elapsed 0s
+Loaded point collection with 6 collections (59 points)
+Loaded point collection with 300 collections (2173 points)
+Loaded point collection with 250 collections (30256 points)
+WARNING: point collection file not found, skipping: C:/Users/stans/Projects/_scratch/2026-10-22-layout-constraints/data/spiral_datasets/phercparis4_plus_layout/drawn_control_points.json
+PROGRESS Loading fiber point collections — elapsed 0s
+PROGRESS Linking points to patches — 556 collections, 2,489 patches — elapsed 0s
+linking points to patches with vc_spiral.surface_index (2489 patches)
+linking points to patches:   0%|          | 0/556 [00:00<?, ?it/s]linking points to patches: 100%|██████████| 556/556 [00:00<00:00, 8843.34it/s]
+WARNING: winding_is_absolute pcl 0 ('correction1') has 39 of 48 points not attached to any patch; dropping the unattached points
+WARNING: winding_is_absolute pcl 1 ('col1') has 1 of 1 points not attached to any patch; dropping the unattached points
+WARNING: winding_is_absolute pcl 2 ('col2') has 1 of 1 points not attached to any patch; dropping the unattached points
+WARNING: winding_is_absolute pcl 4 ('col4') has 8 of 8 points not attached to any patch; dropping the unattached points
+dropped 361 unattached pcls with <2 points in z-roi
+fiber links: 0 resolved
+pcls: 193 cross-patch, 91 unattached
+  cross-patch sampling groups: abs_winding: 6, relative_windings: 125, same_windings: 62
+  unattached sampling groups: relative_windings: 53, same_windings: 38
+PROGRESS Preparing patch sampling — 0/2,489 patches (0.0%) — elapsed 0s
+fitting 2489 patches
+patch atlas: 890.8 MB
+compact patch topology: 3,198,988 quads, 0.05 GiB host ()
+PROGRESS Loading winding-inference supervision — winding_inference — elapsed 0s
+loaded winding inference: 1,147,551 rays (129,307 intersect z-range [10500, 11500)), 22,706,484 crossings, 4,850 inward rays flipped
+PROGRESS Building verified-patch GPU atlas — 2,489 patches — elapsed 0s
+PROGRESS Loading fit checkpoint — checkpoint_fitted.ckpt — elapsed 0s
+PROGRESS Constructing spiral model — elapsed 0s
+shell polar table: 1321 z bins x 720 theta bins, 14571/951120 occupied (1.5%)
+using configured shell_outer_winding_idx = 130
+PROGRESS Creating optimizer — elapsed 0s
+resuming from C:/Users/stans/Projects/_scratch/2026-10-22-layout-constraints/runs/main_armA_s1_n4000/checkpoint_fitted.ckpt at iteration 4000
+PROGRESS Restoring model and optimizer — checkpoint_fitted.ckpt — elapsed 0s
+PROGRESS Synchronizing model across GPU workers — elapsed 0s
+flow field: no fused kernel on cpu, using the upsampled field (model_flow_field_direct_lr applies only where the kernel runs)
+theta topology ready (27.6s)
+trainable parameters: 81,448,362 (325.8 MB) - gradient volume all-reduced every step in distributed mode
+PROGRESS Optimizing — elapsed 0s
+PROGRESS Saving final checkpoint — checkpoint_fitted.ckpt — elapsed 0s
+PROGRESS Computing satisfaction metrics and outputs — elapsed 0s
+PROGRESS Evaluating verified patches — 2,489 patches — elapsed 0s
+Warning: patch 1 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 3 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 4 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 5 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 10 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 13 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 14 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 18 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 20 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 24 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 25 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 27 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 28 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 30 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 36 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 37 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 38 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 39 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 40 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 44 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 47 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 49 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 51 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 56 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 57 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 58 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 59 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 61 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 62 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 69 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 70 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 72 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 77 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 78 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 84 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 86 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 89 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 90 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 91 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 92 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 93 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 94 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 95 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 96 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 97 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 103 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 110 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 112 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 116 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 117 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 122 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 124 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 130 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 135 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 136 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 137 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 138 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 141 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 145 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 148 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 149 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 150 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 152 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 158 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 164 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 166 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 167 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 168 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 169 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 170 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 171 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 174 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 177 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 184 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 187 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 198 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 199 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 202 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 207 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 208 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 216 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 224 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 230 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 233 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 234 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 236 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 244 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 245 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 246 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 248 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 249 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 250 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 251 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 266 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 268 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 269 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 272 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 277 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 280 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 297 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 302 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 303 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 309 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 319 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 321 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 325 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 327 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 334 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 342 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 343 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 345 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 354 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 358 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 363 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 377 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 379 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 381 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 382 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 385 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 386 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 393 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 394 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 399 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 402 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 406 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 408 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 410 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 413 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 416 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 426 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 433 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 438 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 439 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 441 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 443 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 445 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 447 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 459 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 464 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 466 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 470 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 482 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 492 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 499 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 501 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 502 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 511 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 520 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 522 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 528 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 534 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 535 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 537 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 542 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 547 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 554 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 567 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 571 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 574 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 581 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 586 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 590 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 591 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 600 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 604 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 610 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 612 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 617 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 622 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 624 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 629 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 634 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 636 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 644 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 645 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 646 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 647 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 648 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 650 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 651 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 658 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 661 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 663 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 668 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 669 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 671 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 685 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 703 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 704 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 724 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 731 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 735 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 741 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 753 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 755 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 756 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 759 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 763 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 766 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 770 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 779 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 804 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 810 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 821 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 832 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 836 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 841 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 847 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 849 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 851 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 854 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 855 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 856 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 857 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 858 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 859 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 864 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 865 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 867 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 872 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 874 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 878 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 880 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 886 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 891 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 893 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 897 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 898 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 900 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 901 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 910 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 911 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 916 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 917 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 921 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 925 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 926 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 937 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 939 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 949 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 959 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 992 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1004 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1031 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1043 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1052 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1058 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1063 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1071 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1081 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1087 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1089 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1093 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1098 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1099 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1105 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1117 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1118 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1142 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1161 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1163 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1172 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1189 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1196 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1197 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1198 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1203 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1204 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1212 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1215 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1224 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1230 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1240 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1243 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1247 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1249 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1251 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1252 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1256 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1258 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1267 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1273 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1277 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1281 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1283 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1290 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1291 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1293 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1300 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1305 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1309 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1312 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1321 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1323 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1327 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1347 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1358 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1361 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1368 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1372 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1379 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1382 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1386 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1389 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1391 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1394 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1396 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1403 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1407 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1411 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1413 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1414 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1416 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1425 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1430 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1434 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1436 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1445 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1448 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1453 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1469 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1472 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1474 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1476 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1478 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1480 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1489 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1497 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1505 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1513 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1518 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1520 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1524 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1529 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1531 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1540 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1546 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1548 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1565 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1566 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1574 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1576 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1585 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1586 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1587 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1588 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1592 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1594 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1598 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1599 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1601 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1602 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1610 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1611 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1627 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1629 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1646 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1651 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1661 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1664 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1670 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1679 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1686 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1690 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1692 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1718 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1738 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1739 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1747 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1749 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1757 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1762 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1767 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1769 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1770 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1774 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1775 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1787 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1794 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1798 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1808 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1814 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1816 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1835 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1840 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1842 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1845 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1863 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1866 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1879 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1884 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1885 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1894 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1928 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1934 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1935 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1948 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1951 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1967 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1973 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1975 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1979 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1982 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1991 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1997 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2005 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2007 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2010 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2016 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2021 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2025 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2043 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2062 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2064 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2071 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2074 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2080 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2084 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2099 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2103 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2104 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2112 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2113 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2114 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2118 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2130 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2132 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2133 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2134 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2138 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2156 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2162 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2165 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2169 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2180 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2186 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2189 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2194 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2199 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2200 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2201 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2202 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2205 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2206 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2208 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2221 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2226 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2232 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2237 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2245 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2247 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2248 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2256 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2257 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2262 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2263 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2276 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2280 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2291 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2292 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2293 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2296 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2310 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2318 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2321 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2328 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2330 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2331 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2334 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2338 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2340 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2346 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2349 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2357 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2365 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2368 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2372 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2385 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2390 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2391 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2392 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2394 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2404 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2415 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2423 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2428 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2431 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2435 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2436 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2438 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2441 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2455 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2461 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2462 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2467 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2471 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2474 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2475 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2476 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2480 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2482 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2486 has multiple disconnected subrow components; using only the component containing the center column
+PROGRESS Evaluating verified patches — 2,489 patches — elapsed 30s
+PROGRESS Evaluating verified patches — 2,489 patches — elapsed 1m 00s
+patch satisfaction: 2,489 patches, 3,327,561 quad centers, 60 forward + 60 inverse batches, 62.20s
+satisfied_patches = 623/2489 (25.0%)
+satisfied_patches_area_weighted = 245350000.0/1331024400.0 (18.4%)
+boundary_satisfied_patches = 675/2489 (27.1%)
+satisfied_area = 726266000.0/1331024400.0 (54.6%)
+PROGRESS Evaluating point collections — 91 collections — elapsed 0s
+satisfied_unattached_pcls = 41/91 (45.1%)
+satisfied_unattached_pcl_points = 1075/2030 (53.0%)
+save_mesh fitted: winding range [10, 130)
+PROGRESS Transforming final mesh — 0/43 chunks (0.0%) — elapsed 0s
+PROGRESS Transforming final mesh — 14/43 chunks (32.6%) — elapsed 5s — ETA 11s
+PROGRESS Transforming final mesh — 28/43 chunks (65.1%) — elapsed 10s — ETA 5s
+PROGRESS Transforming final mesh — 41/43 chunks (95.3%) — elapsed 15s — ETA 1s
+splice rasterization: 1,631,867 eligible quads, 1,777,945 transformed unique vertices in 100 batches, 15.95s
+PROGRESS Writing final mesh windings — 0/260 windings (0.0%) — elapsed 0s
+PROGRESS Writing final mesh windings — 260/260 windings (100.0%) — elapsed 2s — ETA 0s
