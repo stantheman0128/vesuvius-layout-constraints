@@ -49,6 +49,9 @@ prepare() {
     for z in las_008_nx.ome.zarr las_008_ny.ome.zarr las_008_grad_mag.ome.zarr; do
         mkdir -p "$DATA/phercparis4/lasagna_inputs/$z"
     done
+    # spiral-scroll.json is not in the bucket; it is the scroll spec written for the CPU arms
+    # (tracked in this repo under data/, see README "spiral-scroll.json").
+    cp -n "$REPO/data/spiral-scroll.json" "$DATA/phercparis4/spiral-scroll.json"
     if [ ! -f "$DATA/phercparis4_plus_layout/same_windings.json" ]; then
         python3 "$REPO/tools/make_arm_b.py" "$DATA/phercparis4" "$DATA/phercparis4_plus_layout" \
             "$REPO"/data/out/20230702185753_text_lines.json \
