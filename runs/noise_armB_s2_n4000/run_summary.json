@@ -1,0 +1,24 @@
+{
+ "arm": "B",
+ "dataset": "C:\\Users\\stans\\Projects\\_scratch\\2026-10-22-layout-constraints\\data\\spiral_datasets\\phercparis4_plus_layout",
+ "steps": 4000,
+ "seed": 2,
+ "overrides": {
+  "z_begin": 10500,
+  "z_end": 11500,
+  "optimizer_num_training_steps": 4000,
+  "optimizer_random_seed": 2,
+  "input_use_normals": false,
+  "input_use_fibers": false
+ },
+ "run_dir": "C:\\Users\\stans\\Projects\\_scratch\\2026-10-22-layout-constraints\\runs\\noise_armB_s2_n4000",
+ "returncode": 0,
+ "wall_s": 16619.1,
+ "peak_rss_gib": 7.45,
+ "cmd": [
+  "C:\\Users\\stans\\Projects\\villa\\spiral-fitting\\.venv\\Scripts\\python.exe",
+  "fit_spiral.py",
+  "--dataset",
+  "C:\\Users\\stans\\Projects\\_scratch\\2026-10-22-layout-constraints\\data\\spiral_datasets\\phercparis4_plus_layout"
+ ]
+}

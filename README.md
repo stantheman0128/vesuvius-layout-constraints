@@ -2,10 +2,11 @@
 
 Summary (2026-10-22). Ink layout on two segments (text lines, column gaps, margins read from ds8 ink
 renders) was turned into 96 same-winding point collections in the spiral fitter's own JSON format
-(slices 1, 2, 2b). An A/B fit of the team's `spiral-fitting` on CPU (z 10500..11500, 4,000 steps, one
-seed, normals and fibres off; protocol pre-registered in `tasks/PROTOCOL.md`) came out **hurts** under
+(slices 1, 2, 2b). An A/B fit of the team's `spiral-fitting` on CPU (z 10500..11500, 4,000 steps, normals
+and fibres off; protocol pre-registered in `tasks/PROTOCOL.md`) came out **hurts** under
 the pre-registered rule: verified-patch satisfaction 24.7% to 22.5%, human point satisfaction down, our
-own points up from 38.5% to 57.0% (slice 3). Two follow-up measurements say what that does and does not
+own points up from 38.5% to 57.0% (slice 3). A second seed, run afterwards, repeats it: 24.9% to 22.5%,
+with the two seeds of one arm 0.2 points apart. Two follow-up measurements say what that does and does not
 mean: the segment meshes coincide with the verified patches wherever both exist (no offset; a shifted
 mesh scores worse), and our lines mostly run through regions with no verified patch, where the baseline
 spiral is interpolated. Deciding whether the lines or the interpolation is right needs the team's full
@@ -296,8 +297,8 @@ Numbers from `data/qa/slice3_metrics.md` (written by `tools/read_metrics.py`, no
 
 Verdict under the pre-registered rule: **hurts** (primary down 2.2 points, over the 1.0 threshold; human
 secondaries down 5.6 and 13.5 points). The noise check (seed 2) is not triggered by the rule, which only
-calls for it when the primary differs by under 1 point; so this is one seed per arm and the run-to-run
-spread is unmeasured. Satisfied area went up 3 points while satisfied patches went down; the two
+calls for it when the primary differs by under 1 point; it was run anyway, after the verdict, and is
+reported below under "Seed 2". Satisfied area went up 3 points while satisfied patches went down; the two
 disagree, and the rule names the patch fraction as primary.
 
 Where the human losses are (`satisfied_fitted.json` of both arms, per collection, window points only): 21
@@ -356,10 +357,36 @@ long tails are regions the verified patches do not cover. Control (`--shift`, ev
 unshifted mesh is the best alignment of the five. The segment-to-patch mapping is not offset. Our constraints mostly sit where the patches are absent, which is also where the
 spiral is least constrained and where moving it costs the most elsewhere.
 
-Reading of Slice 3, then: on this weakened CPU setting (4,000 steps, normals and fibres off, one seed) the
+Reading of Slice 3, then: on this weakened CPU setting (4,000 steps, normals and fibres off) the
 baseline honours only 24.7% of the verified patches, and adding our 16 in-window collections lowered that
-to 22.5% while raising our own points from 38.5% to 57.0%. The pre-registered verdict is "hurts". What it
+to 22.5% while raising our own points from 38.5% to 57.0%, the same on both seeds. The pre-registered verdict is "hurts". What it
 does not show is that the lines are wrong: the segments agree with the patches wherever both exist, and the
 disagreement is between our lines and a spiral interpolated across patch-free regions. Settling that needs
 the team's own setting (GPU, normals on, the 30,000-step default in `config.py:408`), which this machine
 cannot run in useful time (about 37 hours per arm at 4.5 s per step).
+
+### Seed 2 (post-hoc, not called for by the protocol)
+
+Both arms were rerun with `optimizer_random_seed: 2` and nothing else changed (`runs/noise_seed2.sh`,
+`runs/noise_arm{A,B}_s2_n4000/`, table in `data/qa/slice3_metrics_seed2.md`). The protocol only asks for a
+second seed when the primary differs by under 1 point, so this is extra, decided after the verdict, and
+it is there to put a number on run-to-run spread rather than to change the verdict.
+
+| metric | A seed 1 | A seed 2 | B seed 1 | B seed 2 |
+|---|---|---|---|---|
+| verified patches satisfied (primary) | 24.71% | 24.91% | 22.50% | 22.54% |
+| boundary satisfied patches | 27.12% | 26.44% | 25.27% | 24.95% |
+| satisfied patches, area weighted | 18.39% | 17.61% | 12.39% | 9.54% |
+| satisfied area fraction | 54.53% | 52.25% | 57.58% | 51.89% |
+| human relative_windings points satisfied | 71.15% | 70.00% | 57.69% | 60.38% |
+| human same_windings points satisfied | 75.00% | 79.90% | 69.41% | 72.55% |
+| our same_windings points satisfied | n/a | n/a | 57.01% | 62.77% |
+| wall / peak RSS | 15,671 s / 7.23 GiB | 16,013 s / 7.42 GiB | 15,568 s / 7.48 GiB | 16,619 s / 7.45 GiB |
+
+On the primary, the two seeds of one arm are 0.20 points apart (A) and 0.04 points apart (B), while the
+arms are 2.21 (seed 1) and 2.37 (seed 2) points apart. The human secondaries move more between seeds
+(up to 4.9 points on same_windings in arm A), but keep their sign: B is below A on both of them on both
+seeds, by 9.6 and 7.4 points on seed 2. Applying the pre-registered rule to seed 2 alone gives the same
+verdict, hurts. The area-weighted patch fraction and the plain area fraction are the noisiest metrics here
+(spread of 2.9 and 5.7 points within arm B), which is one more reason the rule names the patch count as
+primary.
