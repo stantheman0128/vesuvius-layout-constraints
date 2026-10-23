@@ -38,7 +38,17 @@ prepare() {
     "$SPIRAL/.venv/bin/python" -c "import torch, vc_spiral.spiral_sampling; print('torch', torch.__version__, 'cuda', torch.cuda.is_available(), torch.cuda.get_device_name(0))"
     mkdir -p "$DATA"
     [ -f "$DATA/manifest_full.json" ] || python3 -I "$REPO/tools/list_spiral.py" "$DATA/manifest_full.json" --with-lasagna
-    python3 -I "$REPO/tools/fetch.py" "$DATA/manifest_full.json" "$DATA/phercparis4" --workers 32
+    # The root listing also carries fibers.afv (11.1 GB) and fiber_directions.npz (2.7 GB). Neither is read
+    # by this commit: the catalog's "fibers" input is a directory named fibers/ (absent on S3) and
+    # fiber_directions only loads when loss_weight_fiber_directions > 0 (default 0). Skip both.
+    python3 -I "$REPO/tools/fetch.py" "$DATA/manifest_full.json" "$DATA/phercparis4" --workers 32 \
+        --regex '^(?!fibers\.afv$|fiber_directions\.npz$)'
+    # The fitter loads normals and gradient magnitude only from the packed sidecars
+    # (lasagna_data.py: "there is no other loading path"), but input validation still wants the
+    # three source zarr paths to be directories (fit_session.py optional_dir), so give it empty ones.
+    for z in las_008_nx.ome.zarr las_008_ny.ome.zarr las_008_grad_mag.ome.zarr; do
+        mkdir -p "$DATA/phercparis4/lasagna_inputs/$z"
+    done
     if [ ! -f "$DATA/phercparis4_plus_layout/same_windings.json" ]; then
         python3 "$REPO/tools/make_arm_b.py" "$DATA/phercparis4" "$DATA/phercparis4_plus_layout" \
             "$REPO"/data/out/20230702185753_text_lines.json \
