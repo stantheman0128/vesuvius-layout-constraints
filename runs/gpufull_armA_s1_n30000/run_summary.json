@@ -1,0 +1,25 @@
+{
+ "arm": "A",
+ "dataset": "/root/work/vesuvius-layout-constraints/data/spiral_datasets/phercparis4",
+ "steps": 30000,
+ "seed": 1,
+ "overrides": {
+  "z_begin": 10500,
+  "z_end": 11500,
+  "optimizer_num_training_steps": 30000,
+  "optimizer_random_seed": 1,
+  "input_use_normals": true,
+  "input_use_fibers": false,
+  "input_use_gradient_magnitude": true
+ },
+ "run_dir": "/root/work/vesuvius-layout-constraints/runs/gpufull_armA_s1_n30000",
+ "returncode": 0,
+ "wall_s": 1806.7,
+ "peak_rss_gib": 9.93,
+ "cmd": [
+  "/root/work/villa/spiral-fitting/.venv/bin/python",
+  "fit_spiral.py",
+  "--dataset",
+  "/root/work/vesuvius-layout-constraints/data/spiral_datasets/phercparis4"
+ ]
+}
