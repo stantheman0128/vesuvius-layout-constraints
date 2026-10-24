@@ -9,8 +9,11 @@ own points up from 38.5% to 57.0% (slice 3). A second seed, run afterwards, repe
 with the two seeds of one arm 0.2 points apart. Two follow-up measurements say what that does and does not
 mean: the segment meshes coincide with the verified patches wherever both exist (no offset; a shifted
 mesh scores worse), and our lines mostly run through regions with no verified patch, where the baseline
-spiral is interpolated. Deciding whether the lines or the interpolation is right needs the team's full
-setting (GPU, normals on, 30,000 steps), which this machine cannot run in useful time.
+spiral is interpolated. The team's full setting (GPU, normals on, 30,000 steps) was then run on a rented
+RTX 3090 with two seeds (2026-10-24): the baseline rises to 54.1% and 54.7%, the layout arm sits at 53.6%
+and 52.8%, so the cost shrinks to 0.6 and 2.0 points (seed spread within one arm 0.6 to 0.8) while 98 to
+99% of our own points are satisfied. Under the rule that is neutral on seed 1 and hurts on seed 2: the
+constraints are nearly free at the team's setting but show no gain on any metric the protocol names.
 
 Turns the 2D page layout visible on a flattened PHerc. Paris 4 segment (text-line centre paths and column
 margins) into point collections in the spiral fitter's JSON format, mapped back to 3D in the spiral dataset
@@ -19,7 +22,8 @@ intercolumnar gaps on the two-winding band `20260701183145-w116-117` (section at
 
 The ScrollPrize page `docs/39_winding_annotations.md` lists ink rows/columns, intercolumnar gaps and drawn
 paths under "Things we have not tried". This is a generator for that idea. It is ink-derived, like
-Nicodol's `ink-constraints`. On the one CPU A/B run so far it did not help the fit (slice 3).
+Nicodol's `ink-constraints`. On the A/B runs so far (CPU weak setting, then the team's GPU setting) it
+did not help the fit (slice 3).
 
 **See the caveat on wraps below: multi-turn chains are valid strips for the fitter.**
 
@@ -363,7 +367,8 @@ to 22.5% while raising our own points from 38.5% to 57.0%, the same on both seed
 does not show is that the lines are wrong: the segments agree with the patches wherever both exist, and the
 disagreement is between our lines and a spiral interpolated across patch-free regions. Settling that needs
 the team's own setting (GPU, normals on, the 30,000-step default in `config.py:408`), which this machine
-cannot run in useful time (about 37 hours per arm at 4.5 s per step).
+cannot run in useful time (about 37 hours per arm at 4.5 s per step); it was run on a rented GPU
+afterwards, see "Team defaults on a GPU" below.
 
 ### Seed 2 (post-hoc, not called for by the protocol)
 
@@ -390,3 +395,45 @@ seeds, by 9.6 and 7.4 points on seed 2. Applying the pre-registered rule to seed
 verdict, hurts. The area-weighted patch fraction and the plain area fraction are the noisiest metrics here
 (spread of 2.9 and 5.7 points within arm B), which is one more reason the rule names the patch count as
 primary.
+
+### Team defaults on a GPU (30,000 steps, normals on, two seeds)
+
+Run on 2026-10-24 on a rented RTX 3090 24 GB (GPUtw.ai, Ubuntu 22.04, torch 2.11 cu128, villa at the
+same commit 862142652) with `tools/pod_setup.sh`: the same z window, the same two dataset dirs, but the
+fitter's own defaults, `input_use_normals` and `input_use_gradient_magnitude` on and 30,000 steps
+(`FIT_SPIRAL_DEVICE=cuda`). Fibres stay off because the published dataset has no `fibers/` directory
+(the `fibers.afv` file in the bucket is not read by this commit). Data came straight from the public
+bucket to the pod, about 20 GB with the packed normal and gradient pools (`tasks/gpu-plan.md`). Each arm
+took about 30 minutes at 17.6 steps per second; the 300-step smoke run is `runs/gpusmoke_armA_s1_n300/`.
+Seed 2 was run because the rule asks for it when the primary differs by under 1 point, which seed 1 did.
+Tables: `data/qa/slice3_metrics_gpufull_s1.md`, `data/qa/slice3_metrics_gpufull_s2.md`; runs:
+`runs/gpufull_arm{A,B}_s{1,2}_n30000/` (checkpoints and meshes left on the pod).
+
+| metric | A seed 1 | A seed 2 | B seed 1 | B seed 2 |
+|---|---|---|---|---|
+| verified patches satisfied (primary) | 54.12% (1347/2489) | 54.72% (1362/2489) | 53.56% (1333/2489) | 52.75% (1313/2489) |
+| boundary satisfied patches | 56.49% | 56.57% | 56.53% | 55.16% |
+| satisfied patches, area weighted | 55.36% | 58.06% | 50.39% | 54.66% |
+| satisfied area fraction | 82.11% | 81.27% | 81.87% | 81.55% |
+| human relative_windings points satisfied | 95.00% (247/260) | 99.23% (258/260) | 98.08% (255/260) | 95.38% (248/260) |
+| human same_windings points satisfied | 97.20% (556/572) | 99.48% (569/572) | 100.00% (572/572) | 100.00% (572/572) |
+| our same_windings points satisfied | n/a | n/a | 99.33% (1190/1198) | 98.33% (1178/1198) |
+| wall / peak RSS | 1,807 s / 9.93 GiB | 1,748 s / 9.88 GiB | 1,754 s / 10.36 GiB | 1,752 s / 9.87 GiB |
+
+The baseline more than doubles against the CPU setting (24.7% to 54.1% of the verified patches), so the
+CPU numbers were a weak fit, as suspected. On the primary, B is below A on both seeds, by 0.56 points
+(seed 1) and 1.97 points (seed 2), while the two seeds of one arm are 0.60 (A) and 0.81 (B) points apart.
+Applying the pre-registered rule to each seed on its own: seed 1 is **neutral** (primary down under 1
+point, no secondary down over 1 point, our own points over 80% satisfied), seed 2 is **hurts** (primary
+down 1.97, human relative-winding points down 3.85). The human secondaries now sit at 95 to 100% and move
+by up to 4.2 points between seeds of the same arm (relative-winding, arm A), so they no longer
+discriminate between the arms. The area-weighted fraction is again the noisiest metric (2.7 and 4.3 points
+within an arm).
+
+Reading: at the team's setting the layout collections cost 0.6 to 2.0 points of verified-patch
+satisfaction on this window, down from 2.2 to 2.4 points on the weak CPU setting, and the sign has been the
+same in all four pairs. 98 to 99% of our own points are satisfied in arm B, so the fitter can honour them
+nearly for free, but nothing the protocol measures gets better. The CPU reading stands: our lines mostly
+constrain regions without verified patches, and where the two disagree the fit pays a little on the patches.
+Whether the lines or the interpolation is right there is still not decided by these runs; it would take
+ground truth in the patch-free regions (new verified patches, or the fibre inputs), not more seeds.

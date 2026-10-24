@@ -1,9 +1,14 @@
-# Full-setting A/B on a rented GPU (planned 2026-10-23, not run)
+# Full-setting A/B on a rented GPU (planned 2026-10-23, run 2026-10-24)
 
 The CPU arms (tasks/PROTOCOL.md) ran 4,000 steps with normals and gradient magnitude off, and the
 baseline honoured only a quarter of the verified patches. This plan reruns both arms at the fitter's
 defaults so the verdict is about the constraints and not about a weak fit. Everything is scripted in
 `tools/pod_setup.sh`; this file is the budget and the stop rules.
+
+Status: run on 2026-10-24 (GPUtw.ai RTX 3090 24 GB, machine with a Ryzen 7 9700X, NT$11.28/h, two seeds).
+Results and verdict in the README section "Team defaults on a GPU"; tables in
+data/qa/slice3_metrics_gpufull_s{1,2}.md. Pod time 11.0 h in all: about 1.5 h of setup and fixes, 2.5 h of
+fits (smoke plus four arms), 7 h idle after the first pair; about NT$124.
 
 ## What changes against the CPU arms
 

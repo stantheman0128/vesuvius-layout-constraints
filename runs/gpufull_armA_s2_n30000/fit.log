@@ -1,0 +1,1078 @@
+scaled per-step counts by 0.105 for the 1000-slice z-range [10500, 11500) (reference 9500 slices):
+  sample_count_patches_per_step=38
+  sample_count_patches_per_step_for_dt=25
+  sample_count_relative_winding_pcls=5
+  sample_count_absolute_winding_pcls=5
+  sample_count_unattached_pcls_per_step=9
+  sample_count_tracks_per_step=5053
+  sample_count_dense_normal_points=6316
+  sample_count_fiber_direction_points=6316
+  sample_count_winding_model_relative_pairs=13474
+  sample_count_winding_model_density_pairs=13474
+  sample_count_regularisation_points=474
+  sample_count_shell_samples=2587
+PROGRESS Checking CUDA availability — elapsed 0s
+PROGRESS Loading umbilicus — elapsed 0s
+PROGRESS Loading fiber direction samples — elapsed 0s
+PROGRESS Loading outer shell — elapsed 0s
+PROGRESS Loading and filtering verified patches — 0/22,564 patches (0.0%) — elapsed 0s
+Failed to load segment report.json: [Errno 20] Not a directory: '/root/work/vesuvius-layout-constraints/data/spiral_datasets/phercparis4/verified_patches/report.json/meta.json'
+z ROI prefilter skipped 19955/22564 verified patches entries before full TIFF decode
+erosion removed 52/22564 verified patches entries
+erosion moved 67/22564 verified patches entries outside the z ROI
+loaded and filtered 2,489/22,564 verified patches (3.1s, peak RSS 2.26 GiB)
+ loaded 2489 patches
+PROGRESS Loading point collections — 0/4 inputs (0.0%) — elapsed 0s
+Loaded point collection with 6 collections (59 points)
+Loaded point collection with 300 collections (2173 points)
+Loaded point collection with 154 collections (5413 points)
+WARNING: point collection file not found, skipping: /root/work/vesuvius-layout-constraints/data/spiral_datasets/phercparis4/drawn_control_points.json
+PROGRESS Loading fiber point collections — elapsed 0s
+PROGRESS Linking points to patches — 460 collections, 2,489 patches — elapsed 0s
+linking points to patches with vc_spiral.surface_index (2489 patches)
+linking points to patches:   0%|          | 0/460 [00:00<?, ?it/s]linking points to patches: 100%|██████████| 460/460 [00:00<00:00, 45787.17it/s]
+WARNING: winding_is_absolute pcl 0 ('correction1') has 39 of 48 points not attached to any patch; dropping the unattached points
+WARNING: winding_is_absolute pcl 1 ('col1') has 1 of 1 points not attached to any patch; dropping the unattached points
+WARNING: winding_is_absolute pcl 2 ('col2') has 1 of 1 points not attached to any patch; dropping the unattached points
+WARNING: winding_is_absolute pcl 4 ('col4') has 8 of 8 points not attached to any patch; dropping the unattached points
+dropped 281 unattached pcls with <2 points in z-roi
+fiber links: 0 resolved
+pcls: 171 cross-patch, 75 unattached
+  cross-patch sampling groups: abs_winding: 6, relative_windings: 125, same_windings: 40
+  unattached sampling groups: relative_windings: 53, same_windings: 22
+PROGRESS Preparing patch sampling — 0/2,489 patches (0.0%) — elapsed 0s
+fitting 2489 patches
+patch atlas: 890.8 MB
+compact patch topology: 3,198,988 quads, 0.05 GiB host (peak RSS 2.70 GiB)
+loading lasagna resident pools, group 4
+PROGRESS Loading normal volumes onto GPU — elapsed 0s
+lasagna normals: resident pool 9,301/155,870 bricks of (32, 32, 32) x2 channel(s) (0.57 GiB) loaded in 0.1s from las_008_nx.ome.zarr.respool_g4_pair
+PROGRESS Loading winding-inference supervision — winding_inference — elapsed 0s
+loaded winding inference: 1,147,551 rays (129,307 intersect z-range [10500, 11500)), 22,706,484 crossings, 4,850 inward rays flipped
+PROGRESS Building verified-patch GPU atlas — 2,489 patches — elapsed 0s
+PROGRESS Constructing spiral model — elapsed 0s
+shell polar table: 1321 z bins x 720 theta bins, 14571/951120 occupied (1.5%)
+using configured shell_outer_winding_idx = 130
+PROGRESS Creating optimizer — elapsed 0s
+PROGRESS Synchronizing model across GPU workers — elapsed 0s
+theta topology ready (0.4s, peak RSS 3.41 GiB)
+trainable parameters: 81,448,362 (325.8 MB) - gradient volume all-reduced every step in distributed mode
+PROGRESS Optimizing — 0/30,000 iterations (0.0%) — elapsed 0s
+/root/work/villa/spiral-fitting/losses.py:240: UserWarning: torch.searchsorted(): input value tensor is non-contiguous, this will lower the performance due to extra data copy when converting non-contiguous tensor to contiguous, please use contiguous input value tensor if possible. This message will only appear once per program. (Triggered internally at /pytorch/aten/src/ATen/native/BucketizationUtils.h:32.)
+  left_count = torch.searchsorted(sorted_p1, p2, right=False)
+/root/work/villa/spiral-fitting/geom_utils.py:113: UserWarning: torch.searchsorted(): boundary tensor is non-contiguous, this will lower the performance due to extra data copy when converting non-contiguous tensor to contiguous, please use contiguous boundary tensor if possible. This message will only appear once per program. (Triggered internally at /pytorch/aten/src/ATen/native/BucketizationUtils.h:38.)
+  indices = torch.searchsorted(xp.squeeze(-1), x) - 1
+step 0: loss = 3596.4, umbilicus = 3.9, patch_radius = 1054.7, patch_dt = 0.0, sym_dirichlet = 1.0, rel_winding = 583.9, abs_winding = 1184.6, dense_normals = 30.1, dense_spacing_winding_model_relative = 18.2, dense_spacing_winding_model_density = 1.3, min_spacing = 0.0, unattached_pcl_radius = 131.5, unattached_pcl_dt = 0.0, shell_outer = 587.3
+PROGRESS Optimizing — 90/30,000 iterations (0.3%) — 18.0 it/s — elapsed 5s — ETA 27m 44s
+PROGRESS Optimizing — 179/30,000 iterations (0.6%) — 17.8 it/s — elapsed 10s — ETA 27m 51s
+step 200: loss = 736.1, umbilicus = 0.1, patch_radius = 368.1, patch_dt = 0.0, sym_dirichlet = 7.9, rel_winding = 0.0, abs_winding = 173.6, dense_normals = 13.9, dense_spacing_winding_model_relative = 9.3, dense_spacing_winding_model_density = 0.8, min_spacing = 0.0, unattached_pcl_radius = 3.7, unattached_pcl_dt = 0.0, shell_outer = 158.6
+PROGRESS Optimizing — 268/30,000 iterations (0.9%) — 17.8 it/s — elapsed 15s — ETA 27m 49s
+PROGRESS Optimizing — 357/30,000 iterations (1.2%) — 17.8 it/s — elapsed 20s — ETA 27m 46s
+step 400: loss = 374.0, umbilicus = 0.2, patch_radius = 275.1, patch_dt = 0.0, sym_dirichlet = 10.2, rel_winding = 0.0, abs_winding = 28.2, dense_normals = 9.1, dense_spacing_winding_model_relative = 6.9, dense_spacing_winding_model_density = 0.6, min_spacing = 0.0, unattached_pcl_radius = 1.7, unattached_pcl_dt = 0.0, shell_outer = 42.1
+PROGRESS Optimizing — 448/30,000 iterations (1.5%) — 17.8 it/s — elapsed 25s — ETA 27m 37s
+PROGRESS Optimizing — 538/30,000 iterations (1.8%) — 17.9 it/s — elapsed 30s — ETA 27m 30s
+step 600: loss = 184.8, umbilicus = 0.2, patch_radius = 87.4, patch_dt = 0.0, sym_dirichlet = 13.6, rel_winding = 39.6, abs_winding = 12.9, dense_normals = 6.8, dense_spacing_winding_model_relative = 4.8, dense_spacing_winding_model_density = 0.5, min_spacing = 0.0, unattached_pcl_radius = 0.7, unattached_pcl_dt = 0.0, shell_outer = 18.4
+PROGRESS Optimizing — 628/30,000 iterations (2.1%) — 17.9 it/s — elapsed 35s — ETA 27m 25s
+PROGRESS Optimizing — 717/30,000 iterations (2.4%) — 17.8 it/s — elapsed 40s — ETA 27m 22s
+step 800: loss = 190.9, umbilicus = 0.3, patch_radius = 138.1, patch_dt = 0.0, sym_dirichlet = 15.1, rel_winding = 16.7, abs_winding = 0.0, dense_normals = 5.4, dense_spacing_winding_model_relative = 3.9, dense_spacing_winding_model_density = 0.4, min_spacing = 0.0, unattached_pcl_radius = 1.1, unattached_pcl_dt = 0.0, shell_outer = 9.8
+PROGRESS Optimizing — 807/30,000 iterations (2.7%) — 17.8 it/s — elapsed 45s — ETA 27m 16s
+PROGRESS Optimizing — 899/30,000 iterations (3.0%) — 17.9 it/s — elapsed 50s — ETA 27m 06s
+PROGRESS Optimizing — 989/30,000 iterations (3.3%) — 17.9 it/s — elapsed 55s — ETA 27m 01s
+step 1000: loss = 83.7, umbilicus = 0.1, patch_radius = 55.4, patch_dt = 0.0, sym_dirichlet = 14.2, rel_winding = 0.0, abs_winding = 0.0, dense_normals = 4.6, dense_spacing_winding_model_relative = 3.2, dense_spacing_winding_model_density = 0.4, min_spacing = 0.0, unattached_pcl_radius = 1.4, unattached_pcl_dt = 0.0, shell_outer = 4.3
+PROGRESS Optimizing — 1,063/30,000 iterations (3.5%) — 17.6 it/s — elapsed 1m 00s — ETA 27m 22s
+PROGRESS Optimizing — 1,153/30,000 iterations (3.8%) — 17.6 it/s — elapsed 1m 05s — ETA 27m 15s
+step 1200: loss = 102.0, umbilicus = 0.2, patch_radius = 56.2, patch_dt = 0.0, sym_dirichlet = 14.9, rel_winding = 13.3, abs_winding = 8.2, dense_normals = 4.1, dense_spacing_winding_model_relative = 2.5, dense_spacing_winding_model_density = 0.3, min_spacing = 0.0, unattached_pcl_radius = 0.4, unattached_pcl_dt = 0.0, shell_outer = 1.7
+PROGRESS Optimizing — 1,243/30,000 iterations (4.1%) — 17.7 it/s — elapsed 1m 10s — ETA 27m 08s
+PROGRESS Optimizing — 1,334/30,000 iterations (4.4%) — 17.7 it/s — elapsed 1m 15s — ETA 27m 01s
+step 1400: loss = 104.2, umbilicus = 0.1, patch_radius = 51.6, patch_dt = 0.0, sym_dirichlet = 15.0, rel_winding = 20.9, abs_winding = 7.9, dense_normals = 3.9, dense_spacing_winding_model_relative = 2.5, dense_spacing_winding_model_density = 0.3, min_spacing = 0.0, unattached_pcl_radius = 0.5, unattached_pcl_dt = 0.0, shell_outer = 1.5
+PROGRESS Optimizing — 1,424/30,000 iterations (4.7%) — 17.7 it/s — elapsed 1m 20s — ETA 26m 54s
+PROGRESS Optimizing — 1,514/30,000 iterations (5.0%) — 17.7 it/s — elapsed 1m 25s — ETA 26m 48s
+step 1600: loss = 72.2, umbilicus = 0.1, patch_radius = 40.5, patch_dt = 0.0, sym_dirichlet = 15.0, rel_winding = 0.0, abs_winding = 7.5, dense_normals = 3.9, dense_spacing_winding_model_relative = 2.4, dense_spacing_winding_model_density = 0.3, min_spacing = 0.0, unattached_pcl_radius = 0.8, unattached_pcl_dt = 0.0, shell_outer = 1.9
+PROGRESS Optimizing — 1,604/30,000 iterations (5.3%) — 17.7 it/s — elapsed 1m 31s — ETA 26m 42s
+PROGRESS Optimizing — 1,697/30,000 iterations (5.7%) — 17.8 it/s — elapsed 1m 36s — ETA 26m 33s
+PROGRESS Optimizing — 1,787/30,000 iterations (6.0%) — 17.8 it/s — elapsed 1m 41s — ETA 26m 28s
+step 1800: loss = 68.3, umbilicus = 0.1, patch_radius = 38.1, patch_dt = 0.0, sym_dirichlet = 15.3, rel_winding = 0.0, abs_winding = 7.3, dense_normals = 3.4, dense_spacing_winding_model_relative = 2.0, dense_spacing_winding_model_density = 0.3, min_spacing = 0.0, unattached_pcl_radius = 1.0, unattached_pcl_dt = 0.0, shell_outer = 0.9
+PROGRESS Optimizing — 1,877/30,000 iterations (6.3%) — 17.8 it/s — elapsed 1m 46s — ETA 26m 23s
+PROGRESS Optimizing — 1,966/30,000 iterations (6.6%) — 17.8 it/s — elapsed 1m 51s — ETA 26m 18s
+step 2000: loss = 62.6, umbilicus = 0.1, patch_radius = 26.6, patch_dt = 0.0, sym_dirichlet = 12.7, rel_winding = 9.1, abs_winding = 7.1, dense_normals = 3.2, dense_spacing_winding_model_relative = 2.1, dense_spacing_winding_model_density = 0.3, min_spacing = 0.0, unattached_pcl_radius = 0.5, unattached_pcl_dt = 0.0, shell_outer = 1.0
+PROGRESS Optimizing — 2,039/30,000 iterations (6.8%) — 17.6 it/s — elapsed 1m 56s — ETA 26m 26s
+PROGRESS Optimizing — 2,129/30,000 iterations (7.1%) — 17.6 it/s — elapsed 2m 01s — ETA 26m 20s
+step 2200: loss = 54.8, umbilicus = 0.1, patch_radius = 25.1, patch_dt = 0.0, sym_dirichlet = 12.1, rel_winding = 4.4, abs_winding = 6.7, dense_normals = 3.1, dense_spacing_winding_model_relative = 2.1, dense_spacing_winding_model_density = 0.3, min_spacing = 0.0, unattached_pcl_radius = 0.2, unattached_pcl_dt = 0.0, shell_outer = 0.7
+PROGRESS Optimizing — 2,219/30,000 iterations (7.4%) — 17.7 it/s — elapsed 2m 06s — ETA 26m 14s
+PROGRESS Optimizing — 2,309/30,000 iterations (7.7%) — 17.7 it/s — elapsed 2m 11s — ETA 26m 08s
+PROGRESS Optimizing — 2,401/30,000 iterations (8.0%) — 17.7 it/s — elapsed 2m 16s — ETA 26m 02s
+step 2400: loss = 45.8, umbilicus = 0.0, patch_radius = 26.9, patch_dt = 0.0, sym_dirichlet = 12.7, rel_winding = 0.0, abs_winding = 0.0, dense_normals = 3.0, dense_spacing_winding_model_relative = 2.0, dense_spacing_winding_model_density = 0.3, min_spacing = 0.0, unattached_pcl_radius = 0.4, unattached_pcl_dt = 0.0, shell_outer = 0.5
+PROGRESS Optimizing — 2,494/30,000 iterations (8.3%) — 17.7 it/s — elapsed 2m 21s — ETA 25m 53s
+PROGRESS Optimizing — 2,583/30,000 iterations (8.6%) — 17.7 it/s — elapsed 2m 26s — ETA 25m 48s
+step 2600: loss = 57.5, umbilicus = 0.0, patch_radius = 29.4, patch_dt = 0.0, sym_dirichlet = 15.5, rel_winding = 0.0, abs_winding = 6.6, dense_normals = 2.7, dense_spacing_winding_model_relative = 1.8, dense_spacing_winding_model_density = 0.3, min_spacing = 0.0, unattached_pcl_radius = 1.1, unattached_pcl_dt = 0.0, shell_outer = 0.2
+PROGRESS Optimizing — 2,672/30,000 iterations (8.9%) — 17.7 it/s — elapsed 2m 31s — ETA 25m 43s
+PROGRESS Optimizing — 2,762/30,000 iterations (9.2%) — 17.7 it/s — elapsed 2m 36s — ETA 25m 38s
+step 2800: loss = 47.2, umbilicus = 0.1, patch_radius = 22.6, patch_dt = 0.0, sym_dirichlet = 13.3, rel_winding = 0.0, abs_winding = 5.8, dense_normals = 2.6, dense_spacing_winding_model_relative = 1.8, dense_spacing_winding_model_density = 0.3, min_spacing = 0.0, unattached_pcl_radius = 0.5, unattached_pcl_dt = 0.0, shell_outer = 0.2
+PROGRESS Optimizing — 2,852/30,000 iterations (9.5%) — 17.7 it/s — elapsed 2m 41s — ETA 25m 32s
+PROGRESS Optimizing — 2,941/30,000 iterations (9.8%) — 17.7 it/s — elapsed 2m 46s — ETA 25m 27s
+step 3000: loss = 49.6, umbilicus = 0.1, patch_radius = 26.0, patch_dt = 0.0, sym_dirichlet = 12.4, rel_winding = 0.0, abs_winding = 5.5, dense_normals = 2.7, dense_spacing_winding_model_relative = 2.0, dense_spacing_winding_model_density = 0.3, min_spacing = 0.0, unattached_pcl_radius = 0.1, unattached_pcl_dt = 0.0, shell_outer = 0.5
+PROGRESS Optimizing — 3,015/30,000 iterations (10.1%) — 17.6 it/s — elapsed 2m 51s — ETA 25m 31s
+PROGRESS Optimizing — 3,105/30,000 iterations (10.3%) — 17.6 it/s — elapsed 2m 56s — ETA 25m 25s
+PROGRESS Optimizing — 3,197/30,000 iterations (10.7%) — 17.7 it/s — elapsed 3m 01s — ETA 25m 18s
+step 3200: loss = 68.5, umbilicus = 0.1, patch_radius = 33.0, patch_dt = 0.0, sym_dirichlet = 12.1, rel_winding = 11.9, abs_winding = 6.4, dense_normals = 2.5, dense_spacing_winding_model_relative = 1.7, dense_spacing_winding_model_density = 0.3, min_spacing = 0.0, unattached_pcl_radius = 0.4, unattached_pcl_dt = 0.0, shell_outer = 0.3
+PROGRESS Optimizing — 3,286/30,000 iterations (11.0%) — 17.7 it/s — elapsed 3m 06s — ETA 25m 12s
+PROGRESS Optimizing — 3,377/30,000 iterations (11.3%) — 17.7 it/s — elapsed 3m 11s — ETA 25m 06s
+step 3400: loss = 56.0, umbilicus = 0.1, patch_radius = 22.5, patch_dt = 0.0, sym_dirichlet = 11.6, rel_winding = 11.0, abs_winding = 5.8, dense_normals = 2.6, dense_spacing_winding_model_relative = 1.6, dense_spacing_winding_model_density = 0.3, min_spacing = 0.0, unattached_pcl_radius = 0.5, unattached_pcl_dt = 0.0, shell_outer = 0.1
+PROGRESS Optimizing — 3,466/30,000 iterations (11.6%) — 17.7 it/s — elapsed 3m 16s — ETA 25m 01s
+PROGRESS Optimizing — 3,556/30,000 iterations (11.9%) — 17.7 it/s — elapsed 3m 21s — ETA 24m 56s
+step 3600: loss = 50.6, umbilicus = 0.0, patch_radius = 25.0, patch_dt = 0.0, sym_dirichlet = 14.4, rel_winding = 0.0, abs_winding = 6.3, dense_normals = 2.5, dense_spacing_winding_model_relative = 1.6, dense_spacing_winding_model_density = 0.3, min_spacing = 0.0, unattached_pcl_radius = 0.3, unattached_pcl_dt = 0.0, shell_outer = 0.2
+PROGRESS Optimizing — 3,645/30,000 iterations (12.2%) — 17.7 it/s — elapsed 3m 26s — ETA 24m 50s
+PROGRESS Optimizing — 3,734/30,000 iterations (12.4%) — 17.7 it/s — elapsed 3m 31s — ETA 24m 45s
+step 3800: loss = 44.9, umbilicus = 0.1, patch_radius = 17.1, patch_dt = 0.0, sym_dirichlet = 13.1, rel_winding = 9.5, abs_winding = 0.0, dense_normals = 2.3, dense_spacing_winding_model_relative = 1.8, dense_spacing_winding_model_density = 0.2, min_spacing = 0.0, unattached_pcl_radius = 0.7, unattached_pcl_dt = 0.0, shell_outer = 0.2
+PROGRESS Optimizing — 3,823/30,000 iterations (12.7%) — 17.7 it/s — elapsed 3m 36s — ETA 24m 40s
+PROGRESS Optimizing — 3,912/30,000 iterations (13.0%) — 17.7 it/s — elapsed 3m 41s — ETA 24m 35s
+PROGRESS Optimizing — 4,001/30,000 iterations (13.3%) — 17.6 it/s — elapsed 3m 47s — ETA 24m 36s
+step 4000: loss = 45.6, umbilicus = 0.0, patch_radius = 21.9, patch_dt = 0.0, sym_dirichlet = 13.3, rel_winding = 0.0, abs_winding = 5.3, dense_normals = 2.2, dense_spacing_winding_model_relative = 1.8, dense_spacing_winding_model_density = 0.3, min_spacing = 0.0, unattached_pcl_radius = 0.6, unattached_pcl_dt = 0.0, shell_outer = 0.1
+PROGRESS Optimizing — 4,092/30,000 iterations (13.6%) — 17.6 it/s — elapsed 3m 52s — ETA 24m 30s
+PROGRESS Optimizing — 4,182/30,000 iterations (13.9%) — 17.6 it/s — elapsed 3m 57s — ETA 24m 24s
+step 4200: loss = 47.7, umbilicus = 0.1, patch_radius = 22.7, patch_dt = 0.0, sym_dirichlet = 13.8, rel_winding = 0.0, abs_winding = 6.0, dense_normals = 2.4, dense_spacing_winding_model_relative = 1.7, dense_spacing_winding_model_density = 0.3, min_spacing = 0.0, unattached_pcl_radius = 0.5, unattached_pcl_dt = 0.0, shell_outer = 0.3
+PROGRESS Optimizing — 4,272/30,000 iterations (14.2%) — 17.6 it/s — elapsed 4m 02s — ETA 24m 19s
+PROGRESS Optimizing — 4,362/30,000 iterations (14.5%) — 17.6 it/s — elapsed 4m 07s — ETA 24m 13s
+step 4400: loss = 56.2, umbilicus = 0.0, patch_radius = 20.1, patch_dt = 0.0, sym_dirichlet = 12.7, rel_winding = 12.7, abs_winding = 5.7, dense_normals = 2.4, dense_spacing_winding_model_relative = 1.5, dense_spacing_winding_model_density = 0.3, min_spacing = 0.0, unattached_pcl_radius = 0.6, unattached_pcl_dt = 0.0, shell_outer = 0.2
+PROGRESS Optimizing — 4,452/30,000 iterations (14.8%) — 17.6 it/s — elapsed 4m 12s — ETA 24m 08s
+PROGRESS Optimizing — 4,540/30,000 iterations (15.1%) — 17.6 it/s — elapsed 4m 17s — ETA 24m 03s
+step 4600: loss = 69.7, umbilicus = 0.0, patch_radius = 20.0, patch_dt = 0.0, sym_dirichlet = 11.9, rel_winding = 27.6, abs_winding = 5.2, dense_normals = 2.1, dense_spacing_winding_model_relative = 1.6, dense_spacing_winding_model_density = 0.2, min_spacing = 0.0, unattached_pcl_radius = 0.5, unattached_pcl_dt = 0.0, shell_outer = 0.4
+PROGRESS Optimizing — 4,628/30,000 iterations (15.4%) — 17.6 it/s — elapsed 4m 22s — ETA 23m 58s
+PROGRESS Optimizing — 4,718/30,000 iterations (15.7%) — 17.6 it/s — elapsed 4m 27s — ETA 23m 53s
+step 4800: loss = 71.3, umbilicus = 0.0, patch_radius = 21.1, patch_dt = 0.0, sym_dirichlet = 14.0, rel_winding = 25.5, abs_winding = 6.2, dense_normals = 2.4, dense_spacing_winding_model_relative = 1.5, dense_spacing_winding_model_density = 0.2, min_spacing = 0.0, unattached_pcl_radius = 0.1, unattached_pcl_dt = 0.0, shell_outer = 0.2
+PROGRESS Optimizing — 4,808/30,000 iterations (16.0%) — 17.7 it/s — elapsed 4m 32s — ETA 23m 47s
+PROGRESS Optimizing — 4,901/30,000 iterations (16.3%) — 17.7 it/s — elapsed 4m 38s — ETA 23m 42s
+PROGRESS Optimizing — 4,993/30,000 iterations (16.6%) — 17.7 it/s — elapsed 4m 43s — ETA 23m 35s
+step 5000: loss = 58.2, umbilicus = 0.0, patch_radius = 17.4, patch_dt = 0.0, sym_dirichlet = 12.9, rel_winding = 17.8, abs_winding = 5.6, dense_normals = 2.3, dense_spacing_winding_model_relative = 1.5, dense_spacing_winding_model_density = 0.2, min_spacing = 0.0, unattached_pcl_radius = 0.3, unattached_pcl_dt = 0.0, shell_outer = 0.1
+PROGRESS Optimizing — 5,067/30,000 iterations (16.9%) — 17.6 it/s — elapsed 4m 48s — ETA 23m 35s
+PROGRESS Optimizing — 5,155/30,000 iterations (17.2%) — 17.6 it/s — elapsed 4m 53s — ETA 23m 30s
+step 5200: loss = 39.3, umbilicus = 0.0, patch_radius = 19.9, patch_dt = 0.0, sym_dirichlet = 15.0, rel_winding = 0.0, abs_winding = 0.0, dense_normals = 2.1, dense_spacing_winding_model_relative = 1.6, dense_spacing_winding_model_density = 0.2, min_spacing = 0.0, unattached_pcl_radius = 0.2, unattached_pcl_dt = 0.0, shell_outer = 0.2
+PROGRESS Optimizing — 5,245/30,000 iterations (17.5%) — 17.6 it/s — elapsed 4m 58s — ETA 23m 25s
+PROGRESS Optimizing — 5,335/30,000 iterations (17.8%) — 17.6 it/s — elapsed 5m 03s — ETA 23m 20s
+step 5400: loss = 58.1, umbilicus = 0.1, patch_radius = 18.8, patch_dt = 0.0, sym_dirichlet = 16.8, rel_winding = 12.6, abs_winding = 5.6, dense_normals = 2.0, dense_spacing_winding_model_relative = 1.5, dense_spacing_winding_model_density = 0.2, min_spacing = 0.0, unattached_pcl_radius = 0.4, unattached_pcl_dt = 0.0, shell_outer = 0.1
+PROGRESS Optimizing — 5,424/30,000 iterations (18.1%) — 17.6 it/s — elapsed 5m 08s — ETA 23m 14s
+PROGRESS Optimizing — 5,513/30,000 iterations (18.4%) — 17.6 it/s — elapsed 5m 13s — ETA 23m 09s
+step 5600: loss = 50.7, umbilicus = 0.2, patch_radius = 22.9, patch_dt = 0.0, sym_dirichlet = 13.3, rel_winding = 10.4, abs_winding = 0.0, dense_normals = 1.9, dense_spacing_winding_model_relative = 1.3, dense_spacing_winding_model_density = 0.2, min_spacing = 0.0, unattached_pcl_radius = 0.1, unattached_pcl_dt = 0.0, shell_outer = 0.3
+PROGRESS Optimizing — 5,603/30,000 iterations (18.7%) — 17.6 it/s — elapsed 5m 18s — ETA 23m 04s
+PROGRESS Optimizing — 5,695/30,000 iterations (19.0%) — 17.6 it/s — elapsed 5m 23s — ETA 22m 58s
+PROGRESS Optimizing — 5,785/30,000 iterations (19.3%) — 17.6 it/s — elapsed 5m 28s — ETA 22m 52s
+step 5800: loss = 63.7, umbilicus = 0.2, patch_radius = 19.1, patch_dt = 0.0, sym_dirichlet = 14.1, rel_winding = 21.4, abs_winding = 4.4, dense_normals = 2.0, dense_spacing_winding_model_relative = 1.4, dense_spacing_winding_model_density = 0.3, min_spacing = 0.0, unattached_pcl_radius = 0.6, unattached_pcl_dt = 0.0, shell_outer = 0.1
+PROGRESS Optimizing — 5,875/30,000 iterations (19.6%) — 17.7 it/s — elapsed 5m 33s — ETA 22m 47s
+PROGRESS Optimizing — 5,965/30,000 iterations (19.9%) — 17.7 it/s — elapsed 5m 38s — ETA 22m 41s
+step 6000: loss = 48.0, umbilicus = 0.1, patch_radius = 19.2, patch_dt = 0.0, sym_dirichlet = 12.0, rel_winding = 6.8, abs_winding = 5.0, dense_normals = 2.2, dense_spacing_winding_model_relative = 1.3, dense_spacing_winding_model_density = 0.2, min_spacing = 0.0, unattached_pcl_radius = 1.0, unattached_pcl_dt = 0.0, shell_outer = 0.1
+PROGRESS Optimizing — 6,038/30,000 iterations (20.1%) — 17.6 it/s — elapsed 5m 43s — ETA 22m 41s
+PROGRESS Optimizing — 6,128/30,000 iterations (20.4%) — 17.6 it/s — elapsed 5m 48s — ETA 22m 35s
+step 6200: loss = 41.1, umbilicus = 0.1, patch_radius = 20.2, patch_dt = 0.0, sym_dirichlet = 11.3, rel_winding = 0.0, abs_winding = 5.4, dense_normals = 2.0, dense_spacing_winding_model_relative = 1.4, dense_spacing_winding_model_density = 0.2, min_spacing = 0.0, unattached_pcl_radius = 0.3, unattached_pcl_dt = 0.0, shell_outer = 0.1
+PROGRESS Optimizing — 6,218/30,000 iterations (20.7%) — 17.6 it/s — elapsed 5m 53s — ETA 22m 30s
+PROGRESS Optimizing — 6,308/30,000 iterations (21.0%) — 17.6 it/s — elapsed 5m 58s — ETA 22m 25s
+PROGRESS Optimizing — 6,400/30,000 iterations (21.3%) — 17.6 it/s — elapsed 6m 03s — ETA 22m 19s
+step 6400: loss = 38.9, umbilicus = 0.1, patch_radius = 16.7, patch_dt = 0.0, sym_dirichlet = 12.7, rel_winding = 0.0, abs_winding = 5.1, dense_normals = 2.2, dense_spacing_winding_model_relative = 1.4, dense_spacing_winding_model_density = 0.2, min_spacing = 0.0, unattached_pcl_radius = 0.4, unattached_pcl_dt = 0.0, shell_outer = 0.1
+PROGRESS Optimizing — 6,489/30,000 iterations (21.6%) — 17.6 it/s — elapsed 6m 08s — ETA 22m 13s
+PROGRESS Optimizing — 6,579/30,000 iterations (21.9%) — 17.6 it/s — elapsed 6m 13s — ETA 22m 08s
+step 6600: loss = 38.1, umbilicus = 0.1, patch_radius = 16.0, patch_dt = 0.0, sym_dirichlet = 13.3, rel_winding = 0.0, abs_winding = 4.7, dense_normals = 2.1, dense_spacing_winding_model_relative = 1.3, dense_spacing_winding_model_density = 0.3, min_spacing = 0.0, unattached_pcl_radius = 0.2, unattached_pcl_dt = 0.0, shell_outer = 0.1
+PROGRESS Optimizing — 6,669/30,000 iterations (22.2%) — 17.6 it/s — elapsed 6m 18s — ETA 22m 03s
+PROGRESS Optimizing — 6,759/30,000 iterations (22.5%) — 17.6 it/s — elapsed 6m 23s — ETA 21m 57s
+step 6800: loss = 45.8, umbilicus = 0.1, patch_radius = 16.8, patch_dt = 0.0, sym_dirichlet = 12.3, rel_winding = 8.8, abs_winding = 3.9, dense_normals = 1.9, dense_spacing_winding_model_relative = 1.3, dense_spacing_winding_model_density = 0.2, min_spacing = 0.0, unattached_pcl_radius = 0.3, unattached_pcl_dt = 0.0, shell_outer = 0.1
+PROGRESS Optimizing — 6,848/30,000 iterations (22.8%) — 17.6 it/s — elapsed 6m 28s — ETA 21m 52s
+PROGRESS Optimizing — 6,938/30,000 iterations (23.1%) — 17.6 it/s — elapsed 6m 33s — ETA 21m 47s
+step 7000: loss = 51.8, umbilicus = 0.1, patch_radius = 16.5, patch_dt = 0.0, sym_dirichlet = 16.3, rel_winding = 10.0, abs_winding = 4.7, dense_normals = 1.9, dense_spacing_winding_model_relative = 1.4, dense_spacing_winding_model_density = 0.2, min_spacing = 0.0, unattached_pcl_radius = 0.8, unattached_pcl_dt = 0.0, shell_outer = 0.1
+PROGRESS Optimizing — 7,011/30,000 iterations (23.4%) — 17.6 it/s — elapsed 6m 38s — ETA 21m 46s
+PROGRESS Optimizing — 7,101/30,000 iterations (23.7%) — 17.6 it/s — elapsed 6m 43s — ETA 21m 40s
+PROGRESS Optimizing — 7,194/30,000 iterations (24.0%) — 17.6 it/s — elapsed 6m 48s — ETA 21m 34s
+step 7200: loss = 41.3, umbilicus = 0.1, patch_radius = 18.0, patch_dt = 0.0, sym_dirichlet = 14.6, rel_winding = 0.0, abs_winding = 4.8, dense_normals = 2.0, dense_spacing_winding_model_relative = 1.4, dense_spacing_winding_model_density = 0.2, min_spacing = 0.0, unattached_pcl_radius = 0.3, unattached_pcl_dt = 0.0, shell_outer = 0.1
+PROGRESS Optimizing — 7,283/30,000 iterations (24.3%) — 17.6 it/s — elapsed 6m 53s — ETA 21m 29s
+PROGRESS Optimizing — 7,371/30,000 iterations (24.6%) — 17.6 it/s — elapsed 6m 58s — ETA 21m 24s
+step 7400: loss = 55.2, umbilicus = 0.1, patch_radius = 15.4, patch_dt = 0.0, sym_dirichlet = 16.6, rel_winding = 15.0, abs_winding = 4.3, dense_normals = 2.0, dense_spacing_winding_model_relative = 1.4, dense_spacing_winding_model_density = 0.3, min_spacing = 0.0, unattached_pcl_radius = 0.1, unattached_pcl_dt = 0.0, shell_outer = 0.1
+PROGRESS Optimizing — 7,460/30,000 iterations (24.9%) — 17.6 it/s — elapsed 7m 03s — ETA 21m 19s
+PROGRESS Optimizing — 7,550/30,000 iterations (25.2%) — 17.6 it/s — elapsed 7m 08s — ETA 21m 14s
+step 7600: loss = 46.2, umbilicus = 0.1, patch_radius = 17.7, patch_dt = 0.0, sym_dirichlet = 11.2, rel_winding = 8.0, abs_winding = 5.0, dense_normals = 2.0, dense_spacing_winding_model_relative = 1.3, dense_spacing_winding_model_density = 0.3, min_spacing = 0.0, unattached_pcl_radius = 0.5, unattached_pcl_dt = 0.0, shell_outer = 0.1
+PROGRESS Optimizing — 7,640/30,000 iterations (25.5%) — 17.6 it/s — elapsed 7m 13s — ETA 21m 08s
+PROGRESS Optimizing — 7,729/30,000 iterations (25.8%) — 17.6 it/s — elapsed 7m 18s — ETA 21m 03s
+step 7800: loss = 45.5, umbilicus = 0.1, patch_radius = 15.9, patch_dt = 0.0, sym_dirichlet = 11.4, rel_winding = 9.3, abs_winding = 4.4, dense_normals = 1.9, dense_spacing_winding_model_relative = 1.4, dense_spacing_winding_model_density = 0.3, min_spacing = 0.0, unattached_pcl_radius = 0.7, unattached_pcl_dt = 0.0, shell_outer = 0.1
+PROGRESS Optimizing — 7,818/30,000 iterations (26.1%) — 17.6 it/s — elapsed 7m 23s — ETA 20m 58s
+PROGRESS Optimizing — 7,907/30,000 iterations (26.4%) — 17.6 it/s — elapsed 7m 28s — ETA 20m 53s
+PROGRESS Optimizing — 7,999/30,000 iterations (26.7%) — 17.6 it/s — elapsed 7m 33s — ETA 20m 47s
+step 8000: loss = 36.2, umbilicus = 0.1, patch_radius = 16.5, patch_dt = 0.0, sym_dirichlet = 11.0, rel_winding = 0.0, abs_winding = 4.9, dense_normals = 1.9, dense_spacing_winding_model_relative = 1.3, dense_spacing_winding_model_density = 0.3, min_spacing = 0.0, unattached_pcl_radius = 0.2, unattached_pcl_dt = 0.0, shell_outer = 0.1
+PROGRESS Optimizing — 8,072/30,000 iterations (26.9%) — 17.6 it/s — elapsed 7m 39s — ETA 20m 46s
+PROGRESS Optimizing — 8,162/30,000 iterations (27.2%) — 17.6 it/s — elapsed 7m 44s — ETA 20m 40s
+step 8200: loss = 37.1, umbilicus = 0.2, patch_radius = 16.2, patch_dt = 0.0, sym_dirichlet = 13.2, rel_winding = 0.0, abs_winding = 4.1, dense_normals = 1.8, dense_spacing_winding_model_relative = 1.2, dense_spacing_winding_model_density = 0.2, min_spacing = 0.0, unattached_pcl_radius = 0.1, unattached_pcl_dt = 0.0, shell_outer = 0.1
+PROGRESS Optimizing — 8,252/30,000 iterations (27.5%) — 17.6 it/s — elapsed 7m 49s — ETA 20m 35s
+PROGRESS Optimizing — 8,341/30,000 iterations (27.8%) — 17.6 it/s — elapsed 7m 54s — ETA 20m 30s
+step 8400: loss = 49.9, umbilicus = 0.1, patch_radius = 20.6, patch_dt = 0.0, sym_dirichlet = 12.2, rel_winding = 8.9, abs_winding = 4.6, dense_normals = 1.8, dense_spacing_winding_model_relative = 1.3, dense_spacing_winding_model_density = 0.3, min_spacing = 0.0, unattached_pcl_radius = 0.1, unattached_pcl_dt = 0.0, shell_outer = 0.1
+PROGRESS Optimizing — 8,429/30,000 iterations (28.1%) — 17.6 it/s — elapsed 7m 59s — ETA 20m 25s
+PROGRESS Optimizing — 8,518/30,000 iterations (28.4%) — 17.6 it/s — elapsed 8m 04s — ETA 20m 20s
+step 8600: loss = 39.0, umbilicus = 0.1, patch_radius = 16.6, patch_dt = 0.0, sym_dirichlet = 9.4, rel_winding = 4.0, abs_winding = 4.7, dense_normals = 1.9, dense_spacing_winding_model_relative = 1.5, dense_spacing_winding_model_density = 0.2, min_spacing = 0.0, unattached_pcl_radius = 0.5, unattached_pcl_dt = 0.0, shell_outer = 0.1
+PROGRESS Optimizing — 8,607/30,000 iterations (28.7%) — 17.6 it/s — elapsed 8m 09s — ETA 20m 15s
+PROGRESS Optimizing — 8,700/30,000 iterations (29.0%) — 17.6 it/s — elapsed 8m 14s — ETA 20m 09s
+PROGRESS Optimizing — 8,788/30,000 iterations (29.3%) — 17.6 it/s — elapsed 8m 19s — ETA 20m 04s
+step 8800: loss = 45.4, umbilicus = 0.1, patch_radius = 17.6, patch_dt = 0.0, sym_dirichlet = 11.1, rel_winding = 8.7, abs_winding = 4.4, dense_normals = 1.8, dense_spacing_winding_model_relative = 1.4, dense_spacing_winding_model_density = 0.2, min_spacing = 0.0, unattached_pcl_radius = 0.1, unattached_pcl_dt = 0.0, shell_outer = 0.1
+PROGRESS Optimizing — 8,876/30,000 iterations (29.6%) — 17.6 it/s — elapsed 8m 24s — ETA 19m 59s
+PROGRESS Optimizing — 8,964/30,000 iterations (29.9%) — 17.6 it/s — elapsed 8m 29s — ETA 19m 54s
+step 9000: loss = 43.4, umbilicus = 0.1, patch_radius = 15.2, patch_dt = 0.0, sym_dirichlet = 10.2, rel_winding = 10.1, abs_winding = 4.3, dense_normals = 1.8, dense_spacing_winding_model_relative = 1.2, dense_spacing_winding_model_density = 0.2, min_spacing = 0.0, unattached_pcl_radius = 0.3, unattached_pcl_dt = 0.0, shell_outer = 0.1
+PROGRESS Optimizing — 9,037/30,000 iterations (30.1%) — 17.6 it/s — elapsed 8m 34s — ETA 19m 52s
+PROGRESS Optimizing — 9,127/30,000 iterations (30.4%) — 17.6 it/s — elapsed 8m 39s — ETA 19m 46s
+step 9200: loss = 40.0, umbilicus = 0.1, patch_radius = 17.4, patch_dt = 0.0, sym_dirichlet = 13.5, rel_winding = 0.0, abs_winding = 5.0, dense_normals = 1.9, dense_spacing_winding_model_relative = 1.4, dense_spacing_winding_model_density = 0.3, min_spacing = 0.0, unattached_pcl_radius = 0.2, unattached_pcl_dt = 0.0, shell_outer = 0.1
+PROGRESS Optimizing — 9,217/30,000 iterations (30.7%) — 17.6 it/s — elapsed 8m 44s — ETA 19m 41s
+PROGRESS Optimizing — 9,305/30,000 iterations (31.0%) — 17.6 it/s — elapsed 8m 49s — ETA 19m 36s
+PROGRESS Optimizing — 9,398/30,000 iterations (31.3%) — 17.6 it/s — elapsed 8m 54s — ETA 19m 30s
+step 9400: loss = 28.4, umbilicus = 0.2, patch_radius = 13.6, patch_dt = 0.0, sym_dirichlet = 10.6, rel_winding = 0.0, abs_winding = 0.0, dense_normals = 1.7, dense_spacing_winding_model_relative = 1.5, dense_spacing_winding_model_density = 0.2, min_spacing = 0.0, unattached_pcl_radius = 0.6, unattached_pcl_dt = 0.0, shell_outer = 0.1
+PROGRESS Optimizing — 9,488/30,000 iterations (31.6%) — 17.6 it/s — elapsed 8m 59s — ETA 19m 25s
+PROGRESS Optimizing — 9,577/30,000 iterations (31.9%) — 17.6 it/s — elapsed 9m 04s — ETA 19m 20s
+step 9600: loss = 38.4, umbilicus = 0.0, patch_radius = 15.7, patch_dt = 0.0, sym_dirichlet = 10.9, rel_winding = 8.3, abs_winding = 0.0, dense_normals = 1.7, dense_spacing_winding_model_relative = 1.4, dense_spacing_winding_model_density = 0.2, min_spacing = 0.0, unattached_pcl_radius = 0.2, unattached_pcl_dt = 0.0, shell_outer = 0.1
+PROGRESS Optimizing — 9,665/30,000 iterations (32.2%) — 17.6 it/s — elapsed 9m 09s — ETA 19m 15s
+PROGRESS Optimizing — 9,755/30,000 iterations (32.5%) — 17.6 it/s — elapsed 9m 14s — ETA 19m 10s
+step 9800: loss = 34.0, umbilicus = 0.1, patch_radius = 13.6, patch_dt = 0.0, sym_dirichlet = 12.0, rel_winding = 0.0, abs_winding = 4.6, dense_normals = 1.8, dense_spacing_winding_model_relative = 1.4, dense_spacing_winding_model_density = 0.3, min_spacing = 0.0, unattached_pcl_radius = 0.2, unattached_pcl_dt = 0.0, shell_outer = 0.1
+PROGRESS Optimizing — 9,844/30,000 iterations (32.8%) — 17.6 it/s — elapsed 9m 19s — ETA 19m 05s
+PROGRESS Optimizing — 9,934/30,000 iterations (33.1%) — 17.6 it/s — elapsed 9m 24s — ETA 18m 59s
+step 10000: loss = 39.9, umbilicus = 0.1, patch_radius = 13.3, patch_dt = 0.0, sym_dirichlet = 11.3, rel_winding = 7.4, abs_winding = 4.1, dense_normals = 1.8, dense_spacing_winding_model_relative = 1.2, dense_spacing_winding_model_density = 0.2, min_spacing = 0.0, unattached_pcl_radius = 0.2, unattached_pcl_dt = 0.0, shell_outer = 0.1
+PROGRESS Optimizing — 10,007/30,000 iterations (33.4%) — 17.6 it/s — elapsed 9m 29s — ETA 18m 57s
+PROGRESS Optimizing — 10,100/30,000 iterations (33.7%) — 17.6 it/s — elapsed 9m 34s — ETA 18m 51s
+PROGRESS Optimizing — 10,190/30,000 iterations (34.0%) — 17.6 it/s — elapsed 9m 39s — ETA 18m 46s
+step 10200: loss = 55.5, umbilicus = 0.1, patch_radius = 17.1, patch_dt = 0.0, sym_dirichlet = 10.8, rel_winding = 19.4, abs_winding = 4.3, dense_normals = 1.7, dense_spacing_winding_model_relative = 1.5, dense_spacing_winding_model_density = 0.3, min_spacing = 0.0, unattached_pcl_radius = 0.1, unattached_pcl_dt = 0.0, shell_outer = 0.2
+PROGRESS Optimizing — 10,280/30,000 iterations (34.3%) — 17.6 it/s — elapsed 9m 44s — ETA 18m 41s
+PROGRESS Optimizing — 10,369/30,000 iterations (34.6%) — 17.6 it/s — elapsed 9m 49s — ETA 18m 36s
+step 10400: loss = 36.9, umbilicus = 0.1, patch_radius = 13.1, patch_dt = 0.0, sym_dirichlet = 13.3, rel_winding = 6.7, abs_winding = 0.0, dense_normals = 1.9, dense_spacing_winding_model_relative = 1.4, dense_spacing_winding_model_density = 0.2, min_spacing = 0.0, unattached_pcl_radius = 0.1, unattached_pcl_dt = 0.0, shell_outer = 0.1
+PROGRESS Optimizing — 10,459/30,000 iterations (34.9%) — 17.6 it/s — elapsed 9m 54s — ETA 18m 30s
+PROGRESS Optimizing — 10,548/30,000 iterations (35.2%) — 17.6 it/s — elapsed 9m 59s — ETA 18m 25s
+step 10600: loss = 44.1, umbilicus = 0.1, patch_radius = 14.1, patch_dt = 0.0, sym_dirichlet = 14.0, rel_winding = 8.2, abs_winding = 4.3, dense_normals = 1.7, dense_spacing_winding_model_relative = 1.2, dense_spacing_winding_model_density = 0.2, min_spacing = 0.0, unattached_pcl_radius = 0.1, unattached_pcl_dt = 0.0, shell_outer = 0.1
+PROGRESS Optimizing — 10,637/30,000 iterations (35.5%) — 17.6 it/s — elapsed 10m 04s — ETA 18m 20s
+PROGRESS Optimizing — 10,726/30,000 iterations (35.8%) — 17.6 it/s — elapsed 10m 09s — ETA 18m 15s
+step 10800: loss = 43.0, umbilicus = 0.1, patch_radius = 15.0, patch_dt = 0.0, sym_dirichlet = 12.8, rel_winding = 7.7, abs_winding = 4.2, dense_normals = 1.6, dense_spacing_winding_model_relative = 1.2, dense_spacing_winding_model_density = 0.2, min_spacing = 0.0, unattached_pcl_radius = 0.1, unattached_pcl_dt = 0.0, shell_outer = 0.1
+PROGRESS Optimizing — 10,816/30,000 iterations (36.1%) — 17.6 it/s — elapsed 10m 14s — ETA 18m 10s
+PROGRESS Optimizing — 10,905/30,000 iterations (36.4%) — 17.6 it/s — elapsed 10m 19s — ETA 18m 05s
+PROGRESS Optimizing — 10,997/30,000 iterations (36.7%) — 17.6 it/s — elapsed 10m 24s — ETA 17m 59s
+step 11000: loss = 31.9, umbilicus = 0.1, patch_radius = 13.6, patch_dt = 0.0, sym_dirichlet = 10.8, rel_winding = 0.0, abs_winding = 3.9, dense_normals = 1.7, dense_spacing_winding_model_relative = 1.3, dense_spacing_winding_model_density = 0.3, min_spacing = 0.0, unattached_pcl_radius = 0.2, unattached_pcl_dt = 0.0, shell_outer = 0.0
+PROGRESS Optimizing — 11,070/30,000 iterations (36.9%) — 17.6 it/s — elapsed 10m 29s — ETA 17m 56s
+PROGRESS Optimizing — 11,158/30,000 iterations (37.2%) — 17.6 it/s — elapsed 10m 34s — ETA 17m 51s
+step 11200: loss = 38.8, umbilicus = 0.1, patch_radius = 17.6, patch_dt = 0.0, sym_dirichlet = 13.2, rel_winding = 0.0, abs_winding = 4.5, dense_normals = 1.7, dense_spacing_winding_model_relative = 1.2, dense_spacing_winding_model_density = 0.3, min_spacing = 0.0, unattached_pcl_radius = 0.1, unattached_pcl_dt = 0.0, shell_outer = 0.1
+PROGRESS Optimizing — 11,247/30,000 iterations (37.5%) — 17.6 it/s — elapsed 10m 39s — ETA 17m 46s
+PROGRESS Optimizing — 11,337/30,000 iterations (37.8%) — 17.6 it/s — elapsed 10m 44s — ETA 17m 41s
+step 11400: loss = 34.1, umbilicus = 0.1, patch_radius = 12.7, patch_dt = 0.0, sym_dirichlet = 11.5, rel_winding = 6.5, abs_winding = 0.0, dense_normals = 1.7, dense_spacing_winding_model_relative = 1.3, dense_spacing_winding_model_density = 0.2, min_spacing = 0.0, unattached_pcl_radius = 0.1, unattached_pcl_dt = 0.0, shell_outer = 0.0
+PROGRESS Optimizing — 11,426/30,000 iterations (38.1%) — 17.6 it/s — elapsed 10m 49s — ETA 17m 36s
+PROGRESS Optimizing — 11,515/30,000 iterations (38.4%) — 17.6 it/s — elapsed 10m 54s — ETA 17m 31s
+step 11600: loss = 36.2, umbilicus = 0.1, patch_radius = 16.5, patch_dt = 0.0, sym_dirichlet = 12.5, rel_winding = 0.0, abs_winding = 3.7, dense_normals = 1.7, dense_spacing_winding_model_relative = 1.2, dense_spacing_winding_model_density = 0.2, min_spacing = 0.0, unattached_pcl_radius = 0.1, unattached_pcl_dt = 0.0, shell_outer = 0.1
+PROGRESS Optimizing — 11,604/30,000 iterations (38.7%) — 17.6 it/s — elapsed 10m 59s — ETA 17m 25s
+PROGRESS Optimizing — 11,697/30,000 iterations (39.0%) — 17.6 it/s — elapsed 11m 05s — ETA 17m 20s
+PROGRESS Optimizing — 11,786/30,000 iterations (39.3%) — 17.6 it/s — elapsed 11m 10s — ETA 17m 15s
+step 11800: loss = 39.5, umbilicus = 0.1, patch_radius = 14.6, patch_dt = 0.0, sym_dirichlet = 14.6, rel_winding = 7.0, abs_winding = 0.0, dense_normals = 1.6, dense_spacing_winding_model_relative = 1.1, dense_spacing_winding_model_density = 0.2, min_spacing = 0.0, unattached_pcl_radius = 0.2, unattached_pcl_dt = 0.0, shell_outer = 0.1
+PROGRESS Optimizing — 11,876/30,000 iterations (39.6%) — 17.6 it/s — elapsed 11m 15s — ETA 17m 10s
+PROGRESS Optimizing — 11,964/30,000 iterations (39.9%) — 17.6 it/s — elapsed 11m 20s — ETA 17m 05s
+step 12000: loss = 42.7, umbilicus = 0.1, patch_radius = 13.9, patch_dt = 0.0, sym_dirichlet = 12.7, rel_winding = 8.6, abs_winding = 4.1, dense_normals = 1.7, dense_spacing_winding_model_relative = 1.2, dense_spacing_winding_model_density = 0.2, min_spacing = 0.0, unattached_pcl_radius = 0.1, unattached_pcl_dt = 0.0, shell_outer = 0.1
+PROGRESS Optimizing — 12,037/30,000 iterations (40.1%) — 17.6 it/s — elapsed 11m 25s — ETA 17m 02s
+PROGRESS Optimizing — 12,127/30,000 iterations (40.4%) — 17.6 it/s — elapsed 11m 30s — ETA 16m 56s
+step 12200: loss = 53.0, umbilicus = 0.1, patch_radius = 13.3, patch_dt = 0.0, sym_dirichlet = 11.7, rel_winding = 20.6, abs_winding = 4.0, dense_normals = 1.7, dense_spacing_winding_model_relative = 1.1, dense_spacing_winding_model_density = 0.3, min_spacing = 0.0, unattached_pcl_radius = 0.2, unattached_pcl_dt = 0.0, shell_outer = 0.1
+PROGRESS Optimizing — 12,216/30,000 iterations (40.7%) — 17.6 it/s — elapsed 11m 35s — ETA 16m 51s
+PROGRESS Optimizing — 12,305/30,000 iterations (41.0%) — 17.6 it/s — elapsed 11m 40s — ETA 16m 46s
+PROGRESS Optimizing — 12,397/30,000 iterations (41.3%) — 17.6 it/s — elapsed 11m 45s — ETA 16m 41s
+step 12400: loss = 40.5, umbilicus = 0.1, patch_radius = 14.9, patch_dt = 0.0, sym_dirichlet = 11.4, rel_winding = 6.3, abs_winding = 4.1, dense_normals = 1.6, dense_spacing_winding_model_relative = 1.3, dense_spacing_winding_model_density = 0.2, min_spacing = 0.0, unattached_pcl_radius = 0.4, unattached_pcl_dt = 0.0, shell_outer = 0.1
+PROGRESS Optimizing — 12,486/30,000 iterations (41.6%) — 17.6 it/s — elapsed 11m 50s — ETA 16m 36s
+PROGRESS Optimizing — 12,575/30,000 iterations (41.9%) — 17.6 it/s — elapsed 11m 55s — ETA 16m 31s
+step 12600: loss = 36.2, umbilicus = 0.2, patch_radius = 12.0, patch_dt = 0.0, sym_dirichlet = 12.0, rel_winding = 4.0, abs_winding = 4.1, dense_normals = 1.7, dense_spacing_winding_model_relative = 1.4, dense_spacing_winding_model_density = 0.2, min_spacing = 0.0, unattached_pcl_radius = 0.4, unattached_pcl_dt = 0.0, shell_outer = 0.1
+PROGRESS Optimizing — 12,665/30,000 iterations (42.2%) — 17.6 it/s — elapsed 12m 00s — ETA 16m 25s
+PROGRESS Optimizing — 12,755/30,000 iterations (42.5%) — 17.6 it/s — elapsed 12m 05s — ETA 16m 20s
+step 12800: loss = 41.5, umbilicus = 0.1, patch_radius = 11.0, patch_dt = 0.0, sym_dirichlet = 12.1, rel_winding = 11.7, abs_winding = 3.5, dense_normals = 1.5, dense_spacing_winding_model_relative = 1.2, dense_spacing_winding_model_density = 0.2, min_spacing = 0.0, unattached_pcl_radius = 0.1, unattached_pcl_dt = 0.0, shell_outer = 0.0
+PROGRESS Optimizing — 12,845/30,000 iterations (42.8%) — 17.6 it/s — elapsed 12m 10s — ETA 16m 15s
+PROGRESS Optimizing — 12,934/30,000 iterations (43.1%) — 17.6 it/s — elapsed 12m 15s — ETA 16m 10s
+step 13000: loss = 36.5, umbilicus = 0.2, patch_radius = 13.2, patch_dt = 0.0, sym_dirichlet = 12.6, rel_winding = 7.2, abs_winding = 0.0, dense_normals = 1.5, dense_spacing_winding_model_relative = 1.2, dense_spacing_winding_model_density = 0.2, min_spacing = 0.0, unattached_pcl_radius = 0.2, unattached_pcl_dt = 0.0, shell_outer = 0.1
+PROGRESS Optimizing — 13,007/30,000 iterations (43.4%) — 17.6 it/s — elapsed 12m 20s — ETA 16m 07s
+PROGRESS Optimizing — 13,100/30,000 iterations (43.7%) — 17.6 it/s — elapsed 12m 25s — ETA 16m 01s
+PROGRESS Optimizing — 13,189/30,000 iterations (44.0%) — 17.6 it/s — elapsed 12m 30s — ETA 15m 56s
+step 13200: loss = 40.4, umbilicus = 0.1, patch_radius = 13.2, patch_dt = 0.0, sym_dirichlet = 11.3, rel_winding = 8.1, abs_winding = 4.2, dense_normals = 1.6, dense_spacing_winding_model_relative = 1.3, dense_spacing_winding_model_density = 0.2, min_spacing = 0.0, unattached_pcl_radius = 0.3, unattached_pcl_dt = 0.0, shell_outer = 0.1
+PROGRESS Optimizing — 13,278/30,000 iterations (44.3%) — 17.6 it/s — elapsed 12m 35s — ETA 15m 51s
+PROGRESS Optimizing — 13,367/30,000 iterations (44.6%) — 17.6 it/s — elapsed 12m 40s — ETA 15m 46s
+step 13400: loss = 36.4, umbilicus = 0.2, patch_radius = 16.0, patch_dt = 0.0, sym_dirichlet = 13.3, rel_winding = 0.0, abs_winding = 3.8, dense_normals = 1.6, dense_spacing_winding_model_relative = 1.1, dense_spacing_winding_model_density = 0.3, min_spacing = 0.0, unattached_pcl_radius = 0.1, unattached_pcl_dt = 0.0, shell_outer = 0.1
+PROGRESS Optimizing — 13,456/30,000 iterations (44.9%) — 17.6 it/s — elapsed 12m 45s — ETA 15m 41s
+PROGRESS Optimizing — 13,545/30,000 iterations (45.1%) — 17.6 it/s — elapsed 12m 50s — ETA 15m 36s
+step 13600: loss = 29.4, umbilicus = 0.1, patch_radius = 11.1, patch_dt = 0.0, sym_dirichlet = 11.1, rel_winding = 0.0, abs_winding = 3.8, dense_normals = 1.6, dense_spacing_winding_model_relative = 1.2, dense_spacing_winding_model_density = 0.3, min_spacing = 0.0, unattached_pcl_radius = 0.1, unattached_pcl_dt = 0.0, shell_outer = 0.1
+PROGRESS Optimizing — 13,634/30,000 iterations (45.4%) — 17.6 it/s — elapsed 12m 55s — ETA 15m 30s
+PROGRESS Optimizing — 13,724/30,000 iterations (45.7%) — 17.6 it/s — elapsed 13m 00s — ETA 15m 25s
+step 13800: loss = 39.9, umbilicus = 0.2, patch_radius = 14.6, patch_dt = 0.0, sym_dirichlet = 10.3, rel_winding = 7.5, abs_winding = 3.7, dense_normals = 1.7, dense_spacing_winding_model_relative = 1.3, dense_spacing_winding_model_density = 0.2, min_spacing = 0.0, unattached_pcl_radius = 0.3, unattached_pcl_dt = 0.0, shell_outer = 0.1
+PROGRESS Optimizing — 13,814/30,000 iterations (46.0%) — 17.6 it/s — elapsed 13m 05s — ETA 15m 20s
+PROGRESS Optimizing — 13,904/30,000 iterations (46.3%) — 17.6 it/s — elapsed 13m 10s — ETA 15m 15s
+PROGRESS Optimizing — 13,996/30,000 iterations (46.7%) — 17.6 it/s — elapsed 13m 15s — ETA 15m 09s
+step 14000: loss = 32.3, umbilicus = 0.1, patch_radius = 11.5, patch_dt = 0.0, sym_dirichlet = 10.2, rel_winding = 7.2, abs_winding = 0.0, dense_normals = 1.5, dense_spacing_winding_model_relative = 1.3, dense_spacing_winding_model_density = 0.3, min_spacing = 0.0, unattached_pcl_radius = 0.1, unattached_pcl_dt = 0.0, shell_outer = 0.0
+PROGRESS Optimizing — 14,069/30,000 iterations (46.9%) — 17.6 it/s — elapsed 13m 20s — ETA 15m 06s
+PROGRESS Optimizing — 14,158/30,000 iterations (47.2%) — 17.6 it/s — elapsed 13m 25s — ETA 15m 01s
+step 14200: loss = 36.7, umbilicus = 0.0, patch_radius = 12.8, patch_dt = 0.0, sym_dirichlet = 13.5, rel_winding = 7.1, abs_winding = 0.0, dense_normals = 1.6, dense_spacing_winding_model_relative = 1.2, dense_spacing_winding_model_density = 0.2, min_spacing = 0.0, unattached_pcl_radius = 0.0, unattached_pcl_dt = 0.0, shell_outer = 0.0
+PROGRESS Optimizing — 14,247/30,000 iterations (47.5%) — 17.6 it/s — elapsed 13m 30s — ETA 14m 56s
+PROGRESS Optimizing — 14,336/30,000 iterations (47.8%) — 17.6 it/s — elapsed 13m 35s — ETA 14m 51s
+step 14400: loss = 31.6, umbilicus = 0.1, patch_radius = 13.1, patch_dt = 0.0, sym_dirichlet = 11.0, rel_winding = 0.0, abs_winding = 4.3, dense_normals = 1.6, dense_spacing_winding_model_relative = 1.2, dense_spacing_winding_model_density = 0.2, min_spacing = 0.0, unattached_pcl_radius = 0.1, unattached_pcl_dt = 0.0, shell_outer = 0.1
+PROGRESS Optimizing — 14,425/30,000 iterations (48.1%) — 17.6 it/s — elapsed 13m 40s — ETA 14m 46s
+PROGRESS Optimizing — 14,515/30,000 iterations (48.4%) — 17.6 it/s — elapsed 13m 45s — ETA 14m 41s
+step 14600: loss = 34.4, umbilicus = 0.1, patch_radius = 11.0, patch_dt = 0.0, sym_dirichlet = 11.9, rel_winding = 4.6, abs_winding = 3.6, dense_normals = 1.6, dense_spacing_winding_model_relative = 1.3, dense_spacing_winding_model_density = 0.2, min_spacing = 0.0, unattached_pcl_radius = 0.1, unattached_pcl_dt = 0.0, shell_outer = 0.1
+PROGRESS Optimizing — 14,605/30,000 iterations (48.7%) — 17.6 it/s — elapsed 13m 50s — ETA 14m 35s
+PROGRESS Optimizing — 14,697/30,000 iterations (49.0%) — 17.6 it/s — elapsed 13m 56s — ETA 14m 30s
+PROGRESS Optimizing — 14,786/30,000 iterations (49.3%) — 17.6 it/s — elapsed 14m 01s — ETA 14m 25s
+step 14800: loss = 33.7, umbilicus = 0.1, patch_radius = 10.5, patch_dt = 0.0, sym_dirichlet = 10.3, rel_winding = 6.5, abs_winding = 3.2, dense_normals = 1.5, dense_spacing_winding_model_relative = 1.3, dense_spacing_winding_model_density = 0.3, min_spacing = 0.0, unattached_pcl_radius = 0.2, unattached_pcl_dt = 0.0, shell_outer = 0.1
+PROGRESS Optimizing — 14,876/30,000 iterations (49.6%) — 17.6 it/s — elapsed 14m 06s — ETA 14m 20s
+PROGRESS Optimizing — 14,965/30,000 iterations (49.9%) — 17.6 it/s — elapsed 14m 11s — ETA 14m 15s
+step 15000: loss = 34.7, umbilicus = 0.2, patch_radius = 14.9, patch_dt = 0.0, sym_dirichlet = 10.6, rel_winding = 5.9, abs_winding = 0.0, dense_normals = 1.6, dense_spacing_winding_model_relative = 1.2, dense_spacing_winding_model_density = 0.2, min_spacing = 0.0, unattached_pcl_radius = 0.2, unattached_pcl_dt = 0.0, shell_outer = 0.1
+PROGRESS Optimizing — 15,037/30,000 iterations (50.1%) — 17.6 it/s — elapsed 14m 16s — ETA 14m 11s
+PROGRESS Optimizing — 15,126/30,000 iterations (50.4%) — 17.6 it/s — elapsed 14m 21s — ETA 14m 06s
+step 15200: loss = 30.1, umbilicus = 0.1, patch_radius = 12.7, patch_dt = 0.0, sym_dirichlet = 11.2, rel_winding = 0.0, abs_winding = 3.1, dense_normals = 1.5, dense_spacing_winding_model_relative = 1.2, dense_spacing_winding_model_density = 0.2, min_spacing = 0.0, unattached_pcl_radius = 0.1, unattached_pcl_dt = 0.0, shell_outer = 0.0
+PROGRESS Optimizing — 15,216/30,000 iterations (50.7%) — 17.6 it/s — elapsed 14m 26s — ETA 14m 01s
+PROGRESS Optimizing — 15,305/30,000 iterations (51.0%) — 17.6 it/s — elapsed 14m 31s — ETA 13m 56s
+PROGRESS Optimizing — 15,398/30,000 iterations (51.3%) — 17.6 it/s — elapsed 14m 36s — ETA 13m 51s
+step 15400: loss = 34.8, umbilicus = 0.1, patch_radius = 10.6, patch_dt = 0.0, sym_dirichlet = 10.6, rel_winding = 7.2, abs_winding = 3.2, dense_normals = 1.6, dense_spacing_winding_model_relative = 1.2, dense_spacing_winding_model_density = 0.3, min_spacing = 0.0, unattached_pcl_radius = 0.2, unattached_pcl_dt = 0.0, shell_outer = 0.0
+PROGRESS Optimizing — 15,488/30,000 iterations (51.6%) — 17.6 it/s — elapsed 14m 41s — ETA 13m 45s
+PROGRESS Optimizing — 15,577/30,000 iterations (51.9%) — 17.6 it/s — elapsed 14m 46s — ETA 13m 40s
+step 15600: loss = 36.0, umbilicus = 0.1, patch_radius = 13.3, patch_dt = 0.0, sym_dirichlet = 9.9, rel_winding = 6.5, abs_winding = 3.4, dense_normals = 1.5, dense_spacing_winding_model_relative = 1.1, dense_spacing_winding_model_density = 0.2, min_spacing = 0.0, unattached_pcl_radius = 0.0, unattached_pcl_dt = 0.0, shell_outer = 0.1
+PROGRESS Optimizing — 15,667/30,000 iterations (52.2%) — 17.6 it/s — elapsed 14m 51s — ETA 13m 35s
+PROGRESS Optimizing — 15,757/30,000 iterations (52.5%) — 17.6 it/s — elapsed 14m 56s — ETA 13m 30s
+step 15800: loss = 37.4, umbilicus = 0.1, patch_radius = 13.1, patch_dt = 0.0, sym_dirichlet = 9.7, rel_winding = 7.6, abs_winding = 3.5, dense_normals = 1.6, dense_spacing_winding_model_relative = 1.4, dense_spacing_winding_model_density = 0.3, min_spacing = 0.0, unattached_pcl_radius = 0.1, unattached_pcl_dt = 0.0, shell_outer = 0.1
+PROGRESS Optimizing — 15,846/30,000 iterations (52.8%) — 17.6 it/s — elapsed 15m 01s — ETA 13m 25s
+PROGRESS Optimizing — 15,935/30,000 iterations (53.1%) — 17.6 it/s — elapsed 15m 06s — ETA 13m 20s
+step 16000: loss = 31.2, umbilicus = 0.1, patch_radius = 11.3, patch_dt = 0.0, sym_dirichlet = 12.9, rel_winding = 0.0, abs_winding = 3.5, dense_normals = 1.6, dense_spacing_winding_model_relative = 1.3, dense_spacing_winding_model_density = 0.2, min_spacing = 0.0, unattached_pcl_radius = 0.3, unattached_pcl_dt = 0.0, shell_outer = 0.0
+PROGRESS Optimizing — 16,008/30,000 iterations (53.4%) — 17.6 it/s — elapsed 15m 11s — ETA 13m 16s
+PROGRESS Optimizing — 16,099/30,000 iterations (53.7%) — 17.6 it/s — elapsed 15m 16s — ETA 13m 11s
+PROGRESS Optimizing — 16,189/30,000 iterations (54.0%) — 17.6 it/s — elapsed 15m 21s — ETA 13m 06s
+step 16200: loss = 51.7, umbilicus = 0.1, patch_radius = 13.7, patch_dt = 0.0, sym_dirichlet = 10.2, rel_winding = 21.1, abs_winding = 3.5, dense_normals = 1.5, dense_spacing_winding_model_relative = 1.2, dense_spacing_winding_model_density = 0.2, min_spacing = 0.0, unattached_pcl_radius = 0.0, unattached_pcl_dt = 0.0, shell_outer = 0.1
+PROGRESS Optimizing — 16,279/30,000 iterations (54.3%) — 17.6 it/s — elapsed 15m 26s — ETA 13m 01s
+PROGRESS Optimizing — 16,369/30,000 iterations (54.6%) — 17.6 it/s — elapsed 15m 31s — ETA 12m 55s
+step 16400: loss = 35.9, umbilicus = 0.1, patch_radius = 12.0, patch_dt = 0.0, sym_dirichlet = 10.3, rel_winding = 10.4, abs_winding = 0.0, dense_normals = 1.5, dense_spacing_winding_model_relative = 1.3, dense_spacing_winding_model_density = 0.2, min_spacing = 0.0, unattached_pcl_radius = 0.1, unattached_pcl_dt = 0.0, shell_outer = 0.1
+PROGRESS Optimizing — 16,459/30,000 iterations (54.9%) — 17.6 it/s — elapsed 15m 36s — ETA 12m 50s
+PROGRESS Optimizing — 16,549/30,000 iterations (55.2%) — 17.6 it/s — elapsed 15m 41s — ETA 12m 45s
+step 16600: loss = 42.4, umbilicus = 0.1, patch_radius = 14.4, patch_dt = 0.0, sym_dirichlet = 13.1, rel_winding = 7.8, abs_winding = 3.7, dense_normals = 1.6, dense_spacing_winding_model_relative = 1.2, dense_spacing_winding_model_density = 0.3, min_spacing = 0.0, unattached_pcl_radius = 0.2, unattached_pcl_dt = 0.0, shell_outer = 0.1
+PROGRESS Optimizing — 16,638/30,000 iterations (55.5%) — 17.6 it/s — elapsed 15m 46s — ETA 12m 40s
+PROGRESS Optimizing — 16,727/30,000 iterations (55.8%) — 17.6 it/s — elapsed 15m 51s — ETA 12m 35s
+step 16800: loss = 39.8, umbilicus = 0.0, patch_radius = 10.7, patch_dt = 0.0, sym_dirichlet = 10.5, rel_winding = 11.9, abs_winding = 3.5, dense_normals = 1.5, dense_spacing_winding_model_relative = 1.2, dense_spacing_winding_model_density = 0.2, min_spacing = 0.0, unattached_pcl_radius = 0.2, unattached_pcl_dt = 0.0, shell_outer = 0.1
+PROGRESS Optimizing — 16,817/30,000 iterations (56.1%) — 17.6 it/s — elapsed 15m 56s — ETA 12m 30s
+PROGRESS Optimizing — 16,905/30,000 iterations (56.4%) — 17.6 it/s — elapsed 16m 01s — ETA 12m 25s
+PROGRESS Optimizing — 16,996/30,000 iterations (56.7%) — 17.6 it/s — elapsed 16m 06s — ETA 12m 19s
+step 17000: loss = 33.0, umbilicus = 0.1, patch_radius = 11.6, patch_dt = 0.0, sym_dirichlet = 9.6, rel_winding = 5.4, abs_winding = 3.2, dense_normals = 1.4, dense_spacing_winding_model_relative = 1.2, dense_spacing_winding_model_density = 0.3, min_spacing = 0.0, unattached_pcl_radius = 0.1, unattached_pcl_dt = 0.0, shell_outer = 0.3
+PROGRESS Optimizing — 17,068/30,000 iterations (56.9%) — 17.6 it/s — elapsed 16m 11s — ETA 12m 16s
+PROGRESS Optimizing — 17,157/30,000 iterations (57.2%) — 17.6 it/s — elapsed 16m 16s — ETA 12m 11s
+step 17200: loss = 32.3, umbilicus = 0.1, patch_radius = 13.7, patch_dt = 0.0, sym_dirichlet = 12.5, rel_winding = 0.0, abs_winding = 3.0, dense_normals = 1.6, dense_spacing_winding_model_relative = 1.1, dense_spacing_winding_model_density = 0.2, min_spacing = 0.0, unattached_pcl_radius = 0.1, unattached_pcl_dt = 0.0, shell_outer = 0.0
+PROGRESS Optimizing — 17,246/30,000 iterations (57.5%) — 17.6 it/s — elapsed 16m 21s — ETA 12m 06s
+PROGRESS Optimizing — 17,335/30,000 iterations (57.8%) — 17.6 it/s — elapsed 16m 27s — ETA 12m 01s
+step 17400: loss = 28.4, umbilicus = 0.0, patch_radius = 11.3, patch_dt = 0.0, sym_dirichlet = 10.9, rel_winding = 0.0, abs_winding = 3.2, dense_normals = 1.5, dense_spacing_winding_model_relative = 1.2, dense_spacing_winding_model_density = 0.2, min_spacing = 0.0, unattached_pcl_radius = 0.1, unattached_pcl_dt = 0.0, shell_outer = 0.1
+PROGRESS Optimizing — 17,424/30,000 iterations (58.1%) — 17.6 it/s — elapsed 16m 32s — ETA 11m 56s
+PROGRESS Optimizing — 17,513/30,000 iterations (58.4%) — 17.6 it/s — elapsed 16m 37s — ETA 11m 51s
+step 17600: loss = 32.6, umbilicus = 0.0, patch_radius = 9.7, patch_dt = 0.0, sym_dirichlet = 10.4, rel_winding = 5.8, abs_winding = 3.4, dense_normals = 1.5, dense_spacing_winding_model_relative = 1.2, dense_spacing_winding_model_density = 0.2, min_spacing = 0.0, unattached_pcl_radius = 0.3, unattached_pcl_dt = 0.0, shell_outer = 0.2
+PROGRESS Optimizing — 17,603/30,000 iterations (58.7%) — 17.6 it/s — elapsed 16m 42s — ETA 11m 45s
+PROGRESS Optimizing — 17,696/30,000 iterations (59.0%) — 17.6 it/s — elapsed 16m 47s — ETA 11m 40s
+PROGRESS Optimizing — 17,786/30,000 iterations (59.3%) — 17.6 it/s — elapsed 16m 52s — ETA 11m 35s
+step 17800: loss = 28.4, umbilicus = 0.0, patch_radius = 10.8, patch_dt = 0.0, sym_dirichlet = 9.7, rel_winding = 2.0, abs_winding = 2.9, dense_normals = 1.5, dense_spacing_winding_model_relative = 1.1, dense_spacing_winding_model_density = 0.3, min_spacing = 0.0, unattached_pcl_radius = 0.0, unattached_pcl_dt = 0.0, shell_outer = 0.1
+PROGRESS Optimizing — 17,876/30,000 iterations (59.6%) — 17.6 it/s — elapsed 16m 57s — ETA 11m 30s
+PROGRESS Optimizing — 17,965/30,000 iterations (59.9%) — 17.6 it/s — elapsed 17m 02s — ETA 11m 25s
+step 18000: loss = 35.6, umbilicus = 0.0, patch_radius = 11.3, patch_dt = 0.0, sym_dirichlet = 11.3, rel_winding = 6.6, abs_winding = 3.2, dense_normals = 1.4, dense_spacing_winding_model_relative = 1.2, dense_spacing_winding_model_density = 0.2, min_spacing = 0.0, unattached_pcl_radius = 0.2, unattached_pcl_dt = 0.0, shell_outer = 0.0
+PROGRESS Optimizing — 18,038/30,000 iterations (60.1%) — 17.6 it/s — elapsed 17m 07s — ETA 11m 21s
+PROGRESS Optimizing — 18,128/30,000 iterations (60.4%) — 17.6 it/s — elapsed 17m 12s — ETA 11m 16s
+step 18200: loss = 32.2, umbilicus = 0.0, patch_radius = 9.8, patch_dt = 0.0, sym_dirichlet = 10.5, rel_winding = 5.7, abs_winding = 2.9, dense_normals = 1.6, dense_spacing_winding_model_relative = 1.2, dense_spacing_winding_model_density = 0.2, min_spacing = 0.0, unattached_pcl_radius = 0.0, unattached_pcl_dt = 0.0, shell_outer = 0.1
+PROGRESS Optimizing — 18,218/30,000 iterations (60.7%) — 17.6 it/s — elapsed 17m 17s — ETA 11m 11s
+PROGRESS Optimizing — 18,308/30,000 iterations (61.0%) — 17.6 it/s — elapsed 17m 22s — ETA 11m 05s
+PROGRESS Optimizing — 18,400/30,000 iterations (61.3%) — 17.6 it/s — elapsed 17m 27s — ETA 11m 00s
+step 18400: loss = 28.9, umbilicus = 0.0, patch_radius = 7.8, patch_dt = 0.0, sym_dirichlet = 12.9, rel_winding = 5.1, abs_winding = 0.0, dense_normals = 1.5, dense_spacing_winding_model_relative = 1.2, dense_spacing_winding_model_density = 0.2, min_spacing = 0.0, unattached_pcl_radius = 0.1, unattached_pcl_dt = 0.0, shell_outer = 0.0
+PROGRESS Optimizing — 18,488/30,000 iterations (61.6%) — 17.6 it/s — elapsed 17m 32s — ETA 10m 55s
+PROGRESS Optimizing — 18,577/30,000 iterations (61.9%) — 17.6 it/s — elapsed 17m 37s — ETA 10m 50s
+step 18600: loss = 37.2, umbilicus = 0.0, patch_radius = 12.2, patch_dt = 0.0, sym_dirichlet = 12.0, rel_winding = 6.1, abs_winding = 3.7, dense_normals = 1.5, dense_spacing_winding_model_relative = 1.1, dense_spacing_winding_model_density = 0.2, min_spacing = 0.0, unattached_pcl_radius = 0.1, unattached_pcl_dt = 0.0, shell_outer = 0.1
+PROGRESS Optimizing — 18,666/30,000 iterations (62.2%) — 17.6 it/s — elapsed 17m 42s — ETA 10m 45s
+PROGRESS Optimizing — 18,756/30,000 iterations (62.5%) — 17.6 it/s — elapsed 17m 47s — ETA 10m 40s
+step 18800: loss = 24.6, umbilicus = 0.1, patch_radius = 10.1, patch_dt = 0.0, sym_dirichlet = 11.3, rel_winding = 0.0, abs_winding = 0.0, dense_normals = 1.6, dense_spacing_winding_model_relative = 1.2, dense_spacing_winding_model_density = 0.2, min_spacing = 0.0, unattached_pcl_radius = 0.1, unattached_pcl_dt = 0.0, shell_outer = 0.1
+PROGRESS Optimizing — 18,846/30,000 iterations (62.8%) — 17.6 it/s — elapsed 17m 52s — ETA 10m 35s
+PROGRESS Optimizing — 18,935/30,000 iterations (63.1%) — 17.6 it/s — elapsed 17m 57s — ETA 10m 29s
+step 19000: loss = 28.7, umbilicus = 0.1, patch_radius = 8.5, patch_dt = 0.0, sym_dirichlet = 10.9, rel_winding = 2.9, abs_winding = 3.1, dense_normals = 1.6, dense_spacing_winding_model_relative = 1.2, dense_spacing_winding_model_density = 0.2, min_spacing = 0.0, unattached_pcl_radius = 0.1, unattached_pcl_dt = 0.0, shell_outer = 0.0
+PROGRESS Optimizing — 19,008/30,000 iterations (63.4%) — 17.6 it/s — elapsed 18m 02s — ETA 10m 26s
+PROGRESS Optimizing — 19,100/30,000 iterations (63.7%) — 17.6 it/s — elapsed 18m 07s — ETA 10m 20s
+PROGRESS Optimizing — 19,190/30,000 iterations (64.0%) — 17.6 it/s — elapsed 18m 12s — ETA 10m 15s
+step 19200: loss = 48.6, umbilicus = 0.1, patch_radius = 9.8, patch_dt = 0.0, sym_dirichlet = 11.0, rel_winding = 21.2, abs_winding = 3.0, dense_normals = 1.5, dense_spacing_winding_model_relative = 1.2, dense_spacing_winding_model_density = 0.3, min_spacing = 0.0, unattached_pcl_radius = 0.5, unattached_pcl_dt = 0.0, shell_outer = 0.1
+PROGRESS Optimizing — 19,278/30,000 iterations (64.3%) — 17.6 it/s — elapsed 18m 17s — ETA 10m 10s
+PROGRESS Optimizing — 19,367/30,000 iterations (64.6%) — 17.6 it/s — elapsed 18m 22s — ETA 10m 05s
+step 19400: loss = 35.3, umbilicus = 0.2, patch_radius = 11.2, patch_dt = 0.0, sym_dirichlet = 12.5, rel_winding = 5.7, abs_winding = 2.7, dense_normals = 1.5, dense_spacing_winding_model_relative = 1.1, dense_spacing_winding_model_density = 0.2, min_spacing = 0.0, unattached_pcl_radius = 0.0, unattached_pcl_dt = 0.0, shell_outer = 0.0
+PROGRESS Optimizing — 19,456/30,000 iterations (64.9%) — 17.6 it/s — elapsed 18m 27s — ETA 10m 00s
+PROGRESS Optimizing — 19,545/30,000 iterations (65.2%) — 17.6 it/s — elapsed 18m 32s — ETA 9m 55s
+step 19600: loss = 38.7, umbilicus = 0.2, patch_radius = 13.7, patch_dt = 0.0, sym_dirichlet = 9.6, rel_winding = 8.5, abs_winding = 3.6, dense_normals = 1.5, dense_spacing_winding_model_relative = 1.4, dense_spacing_winding_model_density = 0.3, min_spacing = 0.0, unattached_pcl_radius = 0.0, unattached_pcl_dt = 0.0, shell_outer = 0.1
+PROGRESS Optimizing — 19,633/30,000 iterations (65.4%) — 17.6 it/s — elapsed 18m 37s — ETA 9m 50s
+PROGRESS Optimizing — 19,723/30,000 iterations (65.7%) — 17.6 it/s — elapsed 18m 42s — ETA 9m 45s
+step 19800: loss = 24.8, umbilicus = 0.2, patch_radius = 8.9, patch_dt = 0.0, sym_dirichlet = 10.3, rel_winding = 0.0, abs_winding = 2.5, dense_normals = 1.5, dense_spacing_winding_model_relative = 1.2, dense_spacing_winding_model_density = 0.2, min_spacing = 0.0, unattached_pcl_radius = 0.1, unattached_pcl_dt = 0.0, shell_outer = 0.0
+PROGRESS Optimizing — 19,812/30,000 iterations (66.0%) — 17.6 it/s — elapsed 18m 47s — ETA 9m 40s
+PROGRESS Optimizing — 19,901/30,000 iterations (66.3%) — 17.6 it/s — elapsed 18m 52s — ETA 9m 35s
+PROGRESS Optimizing — 19,994/30,000 iterations (66.6%) — 17.6 it/s — elapsed 18m 57s — ETA 9m 29s
+step 20000: loss = 49.6, umbilicus = 0.1, patch_radius = 11.8, patch_dt = 0.0, sym_dirichlet = 10.5, rel_winding = 20.4, abs_winding = 3.7, dense_normals = 1.6, dense_spacing_winding_model_relative = 1.3, dense_spacing_winding_model_density = 0.2, min_spacing = 0.0, unattached_pcl_radius = 0.0, unattached_pcl_dt = 0.0, shell_outer = 0.1
+PROGRESS Optimizing — 20,067/30,000 iterations (66.9%) — 17.6 it/s — elapsed 19m 02s — ETA 9m 26s
+PROGRESS Optimizing — 20,156/30,000 iterations (67.2%) — 17.6 it/s — elapsed 19m 08s — ETA 9m 20s
+step 20200: loss = 27.5, umbilicus = 0.1, patch_radius = 11.8, patch_dt = 0.0, sym_dirichlet = 9.6, rel_winding = 0.0, abs_winding = 2.7, dense_normals = 1.4, dense_spacing_winding_model_relative = 1.3, dense_spacing_winding_model_density = 0.2, min_spacing = 0.0, unattached_pcl_radius = 0.1, unattached_pcl_dt = 0.0, shell_outer = 0.1
+PROGRESS Optimizing — 20,245/30,000 iterations (67.5%) — 17.6 it/s — elapsed 19m 13s — ETA 9m 15s
+PROGRESS Optimizing — 20,333/30,000 iterations (67.8%) — 17.6 it/s — elapsed 19m 18s — ETA 9m 10s
+step 20400: loss = 33.5, umbilicus = 0.1, patch_radius = 11.2, patch_dt = 0.0, sym_dirichlet = 10.3, rel_winding = 5.5, abs_winding = 3.4, dense_normals = 1.5, dense_spacing_winding_model_relative = 1.1, dense_spacing_winding_model_density = 0.2, min_spacing = 0.0, unattached_pcl_radius = 0.1, unattached_pcl_dt = 0.0, shell_outer = 0.1
+PROGRESS Optimizing — 20,422/30,000 iterations (68.1%) — 17.6 it/s — elapsed 19m 23s — ETA 9m 05s
+PROGRESS Optimizing — 20,511/30,000 iterations (68.4%) — 17.6 it/s — elapsed 19m 28s — ETA 9m 00s
+PROGRESS Optimizing — 20,601/30,000 iterations (68.7%) — 17.6 it/s — elapsed 19m 33s — ETA 8m 55s
+step 20600: loss = 29.5, umbilicus = 0.1, patch_radius = 9.5, patch_dt = 0.0, sym_dirichlet = 9.3, rel_winding = 4.9, abs_winding = 2.7, dense_normals = 1.4, dense_spacing_winding_model_relative = 1.2, dense_spacing_winding_model_density = 0.2, min_spacing = 0.0, unattached_pcl_radius = 0.1, unattached_pcl_dt = 0.0, shell_outer = 0.1
+PROGRESS Optimizing — 20,693/30,000 iterations (69.0%) — 17.6 it/s — elapsed 19m 38s — ETA 8m 50s
+PROGRESS Optimizing — 20,782/30,000 iterations (69.3%) — 17.6 it/s — elapsed 19m 43s — ETA 8m 45s
+step 20800: loss = 27.0, umbilicus = 0.1, patch_radius = 10.8, patch_dt = 0.0, sym_dirichlet = 10.5, rel_winding = 0.0, abs_winding = 2.8, dense_normals = 1.4, dense_spacing_winding_model_relative = 1.1, dense_spacing_winding_model_density = 0.2, min_spacing = 0.0, unattached_pcl_radius = 0.0, unattached_pcl_dt = 0.0, shell_outer = 0.0
+PROGRESS Optimizing — 20,871/30,000 iterations (69.6%) — 17.6 it/s — elapsed 19m 48s — ETA 8m 40s
+PROGRESS Optimizing — 20,961/30,000 iterations (69.9%) — 17.6 it/s — elapsed 19m 53s — ETA 8m 34s
+step 21000: loss = 37.7, umbilicus = 0.0, patch_radius = 11.8, patch_dt = 0.0, sym_dirichlet = 14.1, rel_winding = 5.9, abs_winding = 2.9, dense_normals = 1.5, dense_spacing_winding_model_relative = 1.2, dense_spacing_winding_model_density = 0.2, min_spacing = 0.0, unattached_pcl_radius = 0.0, unattached_pcl_dt = 0.0, shell_outer = 0.1
+PROGRESS Optimizing — 21,034/30,000 iterations (70.1%) — 17.6 it/s — elapsed 19m 58s — ETA 8m 31s
+PROGRESS Optimizing — 21,124/30,000 iterations (70.4%) — 17.6 it/s — elapsed 20m 03s — ETA 8m 25s
+step 21200: loss = 37.6, umbilicus = 0.0, patch_radius = 12.5, patch_dt = 0.0, sym_dirichlet = 13.0, rel_winding = 5.6, abs_winding = 3.3, dense_normals = 1.6, dense_spacing_winding_model_relative = 1.2, dense_spacing_winding_model_density = 0.2, min_spacing = 0.0, unattached_pcl_radius = 0.0, unattached_pcl_dt = 0.0, shell_outer = 0.1
+PROGRESS Optimizing — 21,213/30,000 iterations (70.7%) — 17.6 it/s — elapsed 20m 08s — ETA 8m 20s
+PROGRESS Optimizing — 21,302/30,000 iterations (71.0%) — 17.6 it/s — elapsed 20m 13s — ETA 8m 15s
+PROGRESS Optimizing — 21,393/30,000 iterations (71.3%) — 17.6 it/s — elapsed 20m 18s — ETA 8m 10s
+step 21400: loss = 34.8, umbilicus = 0.0, patch_radius = 13.1, patch_dt = 0.0, sym_dirichlet = 13.2, rel_winding = 5.6, abs_winding = 0.0, dense_normals = 1.4, dense_spacing_winding_model_relative = 1.2, dense_spacing_winding_model_density = 0.2, min_spacing = 0.0, unattached_pcl_radius = 0.0, unattached_pcl_dt = 0.0, shell_outer = 0.1
+PROGRESS Optimizing — 21,482/30,000 iterations (71.6%) — 17.6 it/s — elapsed 20m 23s — ETA 8m 05s
+PROGRESS Optimizing — 21,572/30,000 iterations (71.9%) — 17.6 it/s — elapsed 20m 28s — ETA 8m 00s
+step 21600: loss = 33.3, umbilicus = 0.0, patch_radius = 9.7, patch_dt = 0.0, sym_dirichlet = 11.4, rel_winding = 5.8, abs_winding = 3.2, dense_normals = 1.5, dense_spacing_winding_model_relative = 1.3, dense_spacing_winding_model_density = 0.2, min_spacing = 0.0, unattached_pcl_radius = 0.1, unattached_pcl_dt = 0.0, shell_outer = 0.1
+PROGRESS Optimizing — 21,662/30,000 iterations (72.2%) — 17.6 it/s — elapsed 20m 33s — ETA 7m 55s
+PROGRESS Optimizing — 21,752/30,000 iterations (72.5%) — 17.6 it/s — elapsed 20m 38s — ETA 7m 49s
+step 21800: loss = 27.9, umbilicus = 0.0, patch_radius = 8.0, patch_dt = 0.0, sym_dirichlet = 9.9, rel_winding = 4.9, abs_winding = 2.3, dense_normals = 1.4, dense_spacing_winding_model_relative = 1.1, dense_spacing_winding_model_density = 0.2, min_spacing = 0.0, unattached_pcl_radius = 0.0, unattached_pcl_dt = 0.0, shell_outer = 0.0
+PROGRESS Optimizing — 21,841/30,000 iterations (72.8%) — 17.6 it/s — elapsed 20m 43s — ETA 7m 44s
+PROGRESS Optimizing — 21,930/30,000 iterations (73.1%) — 17.6 it/s — elapsed 20m 48s — ETA 7m 39s
+step 22000: loss = 30.4, umbilicus = 0.0, patch_radius = 8.9, patch_dt = 0.0, sym_dirichlet = 11.3, rel_winding = 4.7, abs_winding = 2.6, dense_normals = 1.4, dense_spacing_winding_model_relative = 1.1, dense_spacing_winding_model_density = 0.2, min_spacing = 0.0, unattached_pcl_radius = 0.1, unattached_pcl_dt = 0.0, shell_outer = 0.0
+PROGRESS Optimizing — 22,003/30,000 iterations (73.3%) — 17.6 it/s — elapsed 20m 53s — ETA 7m 35s
+PROGRESS Optimizing — 22,096/30,000 iterations (73.7%) — 17.6 it/s — elapsed 20m 58s — ETA 7m 30s
+PROGRESS Optimizing — 22,185/30,000 iterations (74.0%) — 17.6 it/s — elapsed 21m 03s — ETA 7m 25s
+step 22200: loss = 26.4, umbilicus = 0.0, patch_radius = 10.1, patch_dt = 0.0, sym_dirichlet = 10.8, rel_winding = 0.0, abs_winding = 2.6, dense_normals = 1.6, dense_spacing_winding_model_relative = 1.1, dense_spacing_winding_model_density = 0.2, min_spacing = 0.0, unattached_pcl_radius = 0.0, unattached_pcl_dt = 0.0, shell_outer = 0.0
+PROGRESS Optimizing — 22,275/30,000 iterations (74.2%) — 17.6 it/s — elapsed 21m 08s — ETA 7m 20s
+PROGRESS Optimizing — 22,364/30,000 iterations (74.5%) — 17.6 it/s — elapsed 21m 13s — ETA 7m 15s
+step 22400: loss = 30.2, umbilicus = 0.0, patch_radius = 9.2, patch_dt = 0.0, sym_dirichlet = 11.1, rel_winding = 4.8, abs_winding = 2.3, dense_normals = 1.4, dense_spacing_winding_model_relative = 1.1, dense_spacing_winding_model_density = 0.3, min_spacing = 0.0, unattached_pcl_radius = 0.0, unattached_pcl_dt = 0.0, shell_outer = 0.0
+PROGRESS Optimizing — 22,453/30,000 iterations (74.8%) — 17.6 it/s — elapsed 21m 18s — ETA 7m 10s
+PROGRESS Optimizing — 22,542/30,000 iterations (75.1%) — 17.6 it/s — elapsed 21m 23s — ETA 7m 05s
+step 22600: loss = 28.4, umbilicus = 0.0, patch_radius = 7.7, patch_dt = 0.0, sym_dirichlet = 9.3, rel_winding = 5.9, abs_winding = 2.6, dense_normals = 1.3, dense_spacing_winding_model_relative = 1.2, dense_spacing_winding_model_density = 0.2, min_spacing = 0.0, unattached_pcl_radius = 0.2, unattached_pcl_dt = 0.0, shell_outer = 0.0
+PROGRESS Optimizing — 22,631/30,000 iterations (75.4%) — 17.6 it/s — elapsed 21m 28s — ETA 7m 00s
+PROGRESS Optimizing — 22,720/30,000 iterations (75.7%) — 17.6 it/s — elapsed 21m 33s — ETA 6m 54s
+step 22800: loss = 26.1, umbilicus = 0.0, patch_radius = 10.1, patch_dt = 0.0, sym_dirichlet = 10.4, rel_winding = 0.0, abs_winding = 2.9, dense_normals = 1.4, dense_spacing_winding_model_relative = 1.1, dense_spacing_winding_model_density = 0.2, min_spacing = 0.0, unattached_pcl_radius = 0.0, unattached_pcl_dt = 0.0, shell_outer = 0.0
+PROGRESS Optimizing — 22,809/30,000 iterations (76.0%) — 17.6 it/s — elapsed 21m 38s — ETA 6m 49s
+PROGRESS Optimizing — 22,901/30,000 iterations (76.3%) — 17.6 it/s — elapsed 21m 44s — ETA 6m 44s
+PROGRESS Optimizing — 22,993/30,000 iterations (76.6%) — 17.6 it/s — elapsed 21m 49s — ETA 6m 39s
+step 23000: loss = 24.1, umbilicus = 0.0, patch_radius = 8.5, patch_dt = 0.0, sym_dirichlet = 9.9, rel_winding = 0.0, abs_winding = 2.5, dense_normals = 1.4, dense_spacing_winding_model_relative = 1.3, dense_spacing_winding_model_density = 0.2, min_spacing = 0.0, unattached_pcl_radius = 0.2, unattached_pcl_dt = 0.0, shell_outer = 0.0
+PROGRESS Optimizing — 23,066/30,000 iterations (76.9%) — 17.6 it/s — elapsed 21m 54s — ETA 6m 35s
+PROGRESS Optimizing — 23,155/30,000 iterations (77.2%) — 17.6 it/s — elapsed 21m 59s — ETA 6m 30s
+step 23200: loss = 23.0, umbilicus = 0.0, patch_radius = 10.8, patch_dt = 0.0, sym_dirichlet = 9.4, rel_winding = 0.0, abs_winding = 0.0, dense_normals = 1.4, dense_spacing_winding_model_relative = 1.0, dense_spacing_winding_model_density = 0.2, min_spacing = 0.0, unattached_pcl_radius = 0.0, unattached_pcl_dt = 0.0, shell_outer = 0.0
+PROGRESS Optimizing — 23,245/30,000 iterations (77.5%) — 17.6 it/s — elapsed 22m 04s — ETA 6m 25s
+PROGRESS Optimizing — 23,335/30,000 iterations (77.8%) — 17.6 it/s — elapsed 22m 09s — ETA 6m 20s
+step 23400: loss = 40.7, umbilicus = 0.0, patch_radius = 9.4, patch_dt = 0.0, sym_dirichlet = 8.9, rel_winding = 16.7, abs_winding = 2.9, dense_normals = 1.3, dense_spacing_winding_model_relative = 1.1, dense_spacing_winding_model_density = 0.2, min_spacing = 0.0, unattached_pcl_radius = 0.0, unattached_pcl_dt = 0.0, shell_outer = 0.0
+PROGRESS Optimizing — 23,424/30,000 iterations (78.1%) — 17.6 it/s — elapsed 22m 14s — ETA 6m 14s
+PROGRESS Optimizing — 23,513/30,000 iterations (78.4%) — 17.6 it/s — elapsed 22m 19s — ETA 6m 09s
+step 23600: loss = 30.1, umbilicus = 0.0, patch_radius = 10.1, patch_dt = 0.0, sym_dirichlet = 10.5, rel_winding = 3.5, abs_winding = 2.8, dense_normals = 1.4, dense_spacing_winding_model_relative = 1.2, dense_spacing_winding_model_density = 0.3, min_spacing = 0.0, unattached_pcl_radius = 0.2, unattached_pcl_dt = 0.0, shell_outer = 0.0
+PROGRESS Optimizing — 23,602/30,000 iterations (78.7%) — 17.6 it/s — elapsed 22m 24s — ETA 6m 04s
+PROGRESS Optimizing — 23,693/30,000 iterations (79.0%) — 17.6 it/s — elapsed 22m 29s — ETA 5m 59s
+PROGRESS Optimizing — 23,781/30,000 iterations (79.3%) — 17.6 it/s — elapsed 22m 34s — ETA 5m 54s
+step 23800: loss = 19.8, umbilicus = 0.0, patch_radius = 7.7, patch_dt = 0.0, sym_dirichlet = 9.2, rel_winding = 0.0, abs_winding = 0.0, dense_normals = 1.4, dense_spacing_winding_model_relative = 1.2, dense_spacing_winding_model_density = 0.3, min_spacing = 0.0, unattached_pcl_radius = 0.0, unattached_pcl_dt = 0.0, shell_outer = 0.0
+PROGRESS Optimizing — 23,871/30,000 iterations (79.6%) — 17.6 it/s — elapsed 22m 39s — ETA 5m 49s
+PROGRESS Optimizing — 23,961/30,000 iterations (79.9%) — 17.6 it/s — elapsed 22m 44s — ETA 5m 44s
+step 24000: loss = 25.5, umbilicus = 0.0, patch_radius = 9.1, patch_dt = 0.0, sym_dirichlet = 10.8, rel_winding = 0.0, abs_winding = 2.8, dense_normals = 1.3, dense_spacing_winding_model_relative = 1.2, dense_spacing_winding_model_density = 0.2, min_spacing = 0.0, unattached_pcl_radius = 0.0, unattached_pcl_dt = 0.0, shell_outer = 0.0
+PROGRESS Optimizing — 24,035/30,000 iterations (80.1%) — 17.6 it/s — elapsed 22m 49s — ETA 5m 40s
+PROGRESS Optimizing — 24,125/30,000 iterations (80.4%) — 17.6 it/s — elapsed 22m 54s — ETA 5m 35s
+step 24200: loss = 28.2, umbilicus = 0.0, patch_radius = 9.4, patch_dt = 0.0, sym_dirichlet = 10.7, rel_winding = 2.8, abs_winding = 2.3, dense_normals = 1.5, dense_spacing_winding_model_relative = 1.1, dense_spacing_winding_model_density = 0.2, min_spacing = 0.0, unattached_pcl_radius = 0.0, unattached_pcl_dt = 0.0, shell_outer = 0.2
+PROGRESS Optimizing — 24,214/30,000 iterations (80.7%) — 17.6 it/s — elapsed 22m 59s — ETA 5m 30s
+PROGRESS Optimizing — 24,304/30,000 iterations (81.0%) — 17.6 it/s — elapsed 23m 04s — ETA 5m 24s
+PROGRESS Optimizing — 24,397/30,000 iterations (81.3%) — 17.6 it/s — elapsed 23m 09s — ETA 5m 19s
+step 24400: loss = 41.8, umbilicus = 0.0, patch_radius = 9.4, patch_dt = 0.0, sym_dirichlet = 10.2, rel_winding = 19.1, abs_winding = 0.0, dense_normals = 1.4, dense_spacing_winding_model_relative = 1.2, dense_spacing_winding_model_density = 0.2, min_spacing = 0.0, unattached_pcl_radius = 0.0, unattached_pcl_dt = 0.0, shell_outer = 0.1
+PROGRESS Optimizing — 24,486/30,000 iterations (81.6%) — 17.6 it/s — elapsed 23m 14s — ETA 5m 14s
+PROGRESS Optimizing — 24,576/30,000 iterations (81.9%) — 17.6 it/s — elapsed 23m 19s — ETA 5m 09s
+step 24600: loss = 31.2, umbilicus = 0.0, patch_radius = 9.9, patch_dt = 0.0, sym_dirichlet = 9.5, rel_winding = 6.5, abs_winding = 2.6, dense_normals = 1.3, dense_spacing_winding_model_relative = 1.1, dense_spacing_winding_model_density = 0.3, min_spacing = 0.0, unattached_pcl_radius = 0.0, unattached_pcl_dt = 0.0, shell_outer = 0.0
+PROGRESS Optimizing — 24,665/30,000 iterations (82.2%) — 17.6 it/s — elapsed 23m 24s — ETA 5m 04s
+PROGRESS Optimizing — 24,754/30,000 iterations (82.5%) — 17.6 it/s — elapsed 23m 29s — ETA 4m 59s
+step 24800: loss = 27.8, umbilicus = 0.0, patch_radius = 9.4, patch_dt = 0.0, sym_dirichlet = 9.7, rel_winding = 3.2, abs_winding = 2.2, dense_normals = 1.3, dense_spacing_winding_model_relative = 1.2, dense_spacing_winding_model_density = 0.2, min_spacing = 0.0, unattached_pcl_radius = 0.4, unattached_pcl_dt = 0.0, shell_outer = 0.0
+PROGRESS Optimizing — 24,844/30,000 iterations (82.8%) — 17.6 it/s — elapsed 23m 34s — ETA 4m 54s
+PROGRESS Optimizing — 24,933/30,000 iterations (83.1%) — 17.6 it/s — elapsed 23m 39s — ETA 4m 48s
+step 25000: loss = 28.6, umbilicus = 0.0, patch_radius = 9.4, patch_dt = 0.0, sym_dirichlet = 8.8, rel_winding = 5.2, abs_winding = 2.5, dense_normals = 1.3, dense_spacing_winding_model_relative = 1.1, dense_spacing_winding_model_density = 0.2, min_spacing = 0.0, unattached_pcl_radius = 0.0, unattached_pcl_dt = 0.0, shell_outer = 0.0
+PROGRESS Optimizing — 25,006/30,000 iterations (83.4%) — 17.6 it/s — elapsed 23m 44s — ETA 4m 44s
+PROGRESS Optimizing — 25,089/30,000 iterations (83.6%) — 17.6 it/s — elapsed 23m 49s — ETA 4m 40s
+PROGRESS Optimizing — 25,169/30,000 iterations (83.9%) — 17.5 it/s — elapsed 23m 54s — ETA 4m 35s
+step 25200: loss = 59.8, umbilicus = 0.0, patch_radius = 15.5, patch_dt = 23.4, sym_dirichlet = 9.3, rel_winding = 0.0, abs_winding = 3.5, dense_normals = 1.5, dense_spacing_winding_model_relative = 1.3, dense_spacing_winding_model_density = 0.2, min_spacing = 0.0, unattached_pcl_radius = 0.4, unattached_pcl_dt = 4.7, shell_outer = 0.1
+PROGRESS Optimizing — 25,249/30,000 iterations (84.2%) — 17.5 it/s — elapsed 23m 59s — ETA 4m 31s
+PROGRESS Optimizing — 25,329/30,000 iterations (84.4%) — 17.5 it/s — elapsed 24m 04s — ETA 4m 26s
+step 25400: loss = 76.2, umbilicus = 0.0, patch_radius = 13.9, patch_dt = 38.8, sym_dirichlet = 10.6, rel_winding = 0.0, abs_winding = 3.9, dense_normals = 1.5, dense_spacing_winding_model_relative = 1.4, dense_spacing_winding_model_density = 0.2, min_spacing = 0.0, unattached_pcl_radius = 0.5, unattached_pcl_dt = 5.4, shell_outer = 0.1
+PROGRESS Optimizing — 25,410/30,000 iterations (84.7%) — 17.5 it/s — elapsed 24m 09s — ETA 4m 22s
+PROGRESS Optimizing — 25,493/30,000 iterations (85.0%) — 17.5 it/s — elapsed 24m 14s — ETA 4m 17s
+PROGRESS Optimizing — 25,573/30,000 iterations (85.2%) — 17.5 it/s — elapsed 24m 19s — ETA 4m 13s
+step 25600: loss = 72.9, umbilicus = 0.0, patch_radius = 15.4, patch_dt = 25.4, sym_dirichlet = 10.0, rel_winding = 6.2, abs_winding = 0.0, dense_normals = 1.4, dense_spacing_winding_model_relative = 1.5, dense_spacing_winding_model_density = 0.2, min_spacing = 0.0, unattached_pcl_radius = 0.8, unattached_pcl_dt = 11.9, shell_outer = 0.1
+PROGRESS Optimizing — 25,653/30,000 iterations (85.5%) — 17.5 it/s — elapsed 24m 25s — ETA 4m 08s
+PROGRESS Optimizing — 25,734/30,000 iterations (85.8%) — 17.5 it/s — elapsed 24m 30s — ETA 4m 04s
+step 25800: loss = 51.4, umbilicus = 0.0, patch_radius = 12.5, patch_dt = 17.8, sym_dirichlet = 8.6, rel_winding = 6.0, abs_winding = 0.0, dense_normals = 1.4, dense_spacing_winding_model_relative = 1.2, dense_spacing_winding_model_density = 0.3, min_spacing = 0.0, unattached_pcl_radius = 0.2, unattached_pcl_dt = 3.2, shell_outer = 0.2
+PROGRESS Optimizing — 25,814/30,000 iterations (86.0%) — 17.5 it/s — elapsed 24m 35s — ETA 3m 59s
+PROGRESS Optimizing — 25,897/30,000 iterations (86.3%) — 17.5 it/s — elapsed 24m 40s — ETA 3m 54s
+PROGRESS Optimizing — 25,978/30,000 iterations (86.6%) — 17.5 it/s — elapsed 24m 45s — ETA 3m 50s
+step 26000: loss = 56.6, umbilicus = 0.0, patch_radius = 12.0, patch_dt = 19.2, sym_dirichlet = 9.6, rel_winding = 7.1, abs_winding = 2.9, dense_normals = 1.4, dense_spacing_winding_model_relative = 1.2, dense_spacing_winding_model_density = 0.2, min_spacing = 0.0, unattached_pcl_radius = 0.2, unattached_pcl_dt = 2.6, shell_outer = 0.0
+PROGRESS Optimizing — 26,044/30,000 iterations (86.8%) — 17.5 it/s — elapsed 24m 50s — ETA 3m 46s
+PROGRESS Optimizing — 26,125/30,000 iterations (87.1%) — 17.5 it/s — elapsed 24m 55s — ETA 3m 42s
+step 26200: loss = 55.1, umbilicus = 0.0, patch_radius = 12.2, patch_dt = 22.1, sym_dirichlet = 9.9, rel_winding = 0.0, abs_winding = 3.5, dense_normals = 1.5, dense_spacing_winding_model_relative = 1.3, dense_spacing_winding_model_density = 0.3, min_spacing = 0.0, unattached_pcl_radius = 0.1, unattached_pcl_dt = 4.2, shell_outer = 0.1
+PROGRESS Optimizing — 26,205/30,000 iterations (87.3%) — 17.5 it/s — elapsed 25m 00s — ETA 3m 37s
+PROGRESS Optimizing — 26,288/30,000 iterations (87.6%) — 17.5 it/s — elapsed 25m 05s — ETA 3m 32s
+PROGRESS Optimizing — 26,368/30,000 iterations (87.9%) — 17.5 it/s — elapsed 25m 10s — ETA 3m 28s
+step 26400: loss = 75.2, umbilicus = 0.0, patch_radius = 11.2, patch_dt = 31.8, sym_dirichlet = 10.9, rel_winding = 8.9, abs_winding = 2.4, dense_normals = 1.4, dense_spacing_winding_model_relative = 1.3, dense_spacing_winding_model_density = 0.2, min_spacing = 0.0, unattached_pcl_radius = 0.5, unattached_pcl_dt = 6.4, shell_outer = 0.1
+PROGRESS Optimizing — 26,448/30,000 iterations (88.2%) — 17.5 it/s — elapsed 25m 15s — ETA 3m 23s
+PROGRESS Optimizing — 26,528/30,000 iterations (88.4%) — 17.5 it/s — elapsed 25m 20s — ETA 3m 19s
+step 26600: loss = 47.5, umbilicus = 0.0, patch_radius = 12.2, patch_dt = 14.7, sym_dirichlet = 9.6, rel_winding = 6.4, abs_winding = 0.0, dense_normals = 1.5, dense_spacing_winding_model_relative = 1.2, dense_spacing_winding_model_density = 0.3, min_spacing = 0.0, unattached_pcl_radius = 0.1, unattached_pcl_dt = 1.5, shell_outer = 0.0
+PROGRESS Optimizing — 26,608/30,000 iterations (88.7%) — 17.4 it/s — elapsed 25m 25s — ETA 3m 14s
+PROGRESS Optimizing — 26,692/30,000 iterations (89.0%) — 17.4 it/s — elapsed 25m 30s — ETA 3m 10s
+PROGRESS Optimizing — 26,773/30,000 iterations (89.2%) — 17.4 it/s — elapsed 25m 35s — ETA 3m 05s
+step 26800: loss = 60.9, umbilicus = 0.0, patch_radius = 11.1, patch_dt = 19.5, sym_dirichlet = 8.6, rel_winding = 11.7, abs_winding = 2.7, dense_normals = 1.4, dense_spacing_winding_model_relative = 1.3, dense_spacing_winding_model_density = 0.3, min_spacing = 0.0, unattached_pcl_radius = 0.1, unattached_pcl_dt = 4.2, shell_outer = 0.0
+PROGRESS Optimizing — 26,854/30,000 iterations (89.5%) — 17.4 it/s — elapsed 25m 40s — ETA 3m 00s
+PROGRESS Optimizing — 26,934/30,000 iterations (89.8%) — 17.4 it/s — elapsed 25m 45s — ETA 2m 56s
+PROGRESS Optimizing — 27,001/30,000 iterations (90.0%) — 17.4 it/s — elapsed 25m 50s — ETA 2m 52s
+step 27000: loss = 58.3, umbilicus = 0.0, patch_radius = 11.7, patch_dt = 24.8, sym_dirichlet = 9.9, rel_winding = 5.7, abs_winding = 0.0, dense_normals = 1.3, dense_spacing_winding_model_relative = 1.2, dense_spacing_winding_model_density = 0.3, min_spacing = 0.0, unattached_pcl_radius = 0.1, unattached_pcl_dt = 3.3, shell_outer = 0.0
+PROGRESS Optimizing — 27,085/30,000 iterations (90.3%) — 17.4 it/s — elapsed 25m 55s — ETA 2m 47s
+PROGRESS Optimizing — 27,166/30,000 iterations (90.6%) — 17.4 it/s — elapsed 26m 00s — ETA 2m 43s
+step 27200: loss = 51.5, umbilicus = 0.0, patch_radius = 10.5, patch_dt = 14.8, sym_dirichlet = 10.8, rel_winding = 5.2, abs_winding = 2.9, dense_normals = 1.5, dense_spacing_winding_model_relative = 1.4, dense_spacing_winding_model_density = 0.3, min_spacing = 0.0, unattached_pcl_radius = 0.2, unattached_pcl_dt = 3.9, shell_outer = 0.1
+PROGRESS Optimizing — 27,246/30,000 iterations (90.8%) — 17.4 it/s — elapsed 26m 05s — ETA 2m 38s
+PROGRESS Optimizing — 27,327/30,000 iterations (91.1%) — 17.4 it/s — elapsed 26m 10s — ETA 2m 34s
+step 27400: loss = 38.2, umbilicus = 0.0, patch_radius = 9.0, patch_dt = 13.2, sym_dirichlet = 10.1, rel_winding = 0.0, abs_winding = 0.0, dense_normals = 1.5, dense_spacing_winding_model_relative = 1.4, dense_spacing_winding_model_density = 0.3, min_spacing = 0.0, unattached_pcl_radius = 0.2, unattached_pcl_dt = 2.7, shell_outer = 0.0
+PROGRESS Optimizing — 27,408/30,000 iterations (91.4%) — 17.4 it/s — elapsed 26m 15s — ETA 2m 29s
+PROGRESS Optimizing — 27,491/30,000 iterations (91.6%) — 17.4 it/s — elapsed 26m 20s — ETA 2m 24s
+PROGRESS Optimizing — 27,572/30,000 iterations (91.9%) — 17.4 it/s — elapsed 26m 25s — ETA 2m 20s
+step 27600: loss = 57.2, umbilicus = 0.0, patch_radius = 11.7, patch_dt = 19.1, sym_dirichlet = 10.1, rel_winding = 6.8, abs_winding = 2.9, dense_normals = 1.4, dense_spacing_winding_model_relative = 1.3, dense_spacing_winding_model_density = 0.2, min_spacing = 0.0, unattached_pcl_radius = 0.1, unattached_pcl_dt = 3.6, shell_outer = 0.0
+PROGRESS Optimizing — 27,652/30,000 iterations (92.2%) — 17.4 it/s — elapsed 26m 30s — ETA 2m 15s
+PROGRESS Optimizing — 27,733/30,000 iterations (92.4%) — 17.4 it/s — elapsed 26m 35s — ETA 2m 10s
+step 27800: loss = 59.7, umbilicus = 0.0, patch_radius = 10.7, patch_dt = 25.0, sym_dirichlet = 16.1, rel_winding = 0.0, abs_winding = 2.7, dense_normals = 1.3, dense_spacing_winding_model_relative = 1.7, dense_spacing_winding_model_density = 0.3, min_spacing = 0.0, unattached_pcl_radius = 0.1, unattached_pcl_dt = 1.7, shell_outer = 0.0
+PROGRESS Optimizing — 27,813/30,000 iterations (92.7%) — 17.4 it/s — elapsed 26m 40s — ETA 2m 06s
+PROGRESS Optimizing — 27,897/30,000 iterations (93.0%) — 17.4 it/s — elapsed 26m 45s — ETA 2m 01s
+PROGRESS Optimizing — 27,977/30,000 iterations (93.3%) — 17.4 it/s — elapsed 26m 50s — ETA 1m 56s
+step 28000: loss = 53.6, umbilicus = 0.0, patch_radius = 11.1, patch_dt = 23.3, sym_dirichlet = 10.3, rel_winding = 0.0, abs_winding = 2.7, dense_normals = 1.4, dense_spacing_winding_model_relative = 1.4, dense_spacing_winding_model_density = 0.3, min_spacing = 0.0, unattached_pcl_radius = 0.4, unattached_pcl_dt = 2.6, shell_outer = 0.1
+PROGRESS Optimizing — 28,043/30,000 iterations (93.5%) — 17.4 it/s — elapsed 26m 55s — ETA 1m 53s
+PROGRESS Optimizing — 28,124/30,000 iterations (93.7%) — 17.4 it/s — elapsed 27m 01s — ETA 1m 48s
+step 28200: loss = 52.6, umbilicus = 0.0, patch_radius = 11.1, patch_dt = 21.1, sym_dirichlet = 10.4, rel_winding = 4.1, abs_winding = 0.0, dense_normals = 1.5, dense_spacing_winding_model_relative = 1.3, dense_spacing_winding_model_density = 0.2, min_spacing = 0.0, unattached_pcl_radius = 0.4, unattached_pcl_dt = 2.5, shell_outer = 0.0
+PROGRESS Optimizing — 28,205/30,000 iterations (94.0%) — 17.4 it/s — elapsed 27m 06s — ETA 1m 43s
+PROGRESS Optimizing — 28,288/30,000 iterations (94.3%) — 17.3 it/s — elapsed 27m 11s — ETA 1m 39s
+PROGRESS Optimizing — 28,369/30,000 iterations (94.6%) — 17.3 it/s — elapsed 27m 16s — ETA 1m 34s
+step 28400: loss = 49.3, umbilicus = 0.0, patch_radius = 10.5, patch_dt = 17.7, sym_dirichlet = 10.2, rel_winding = 5.7, abs_winding = 0.0, dense_normals = 1.4, dense_spacing_winding_model_relative = 1.5, dense_spacing_winding_model_density = 0.3, min_spacing = 0.0, unattached_pcl_radius = 0.1, unattached_pcl_dt = 1.9, shell_outer = 0.1
+PROGRESS Optimizing — 28,449/30,000 iterations (94.8%) — 17.3 it/s — elapsed 27m 21s — ETA 1m 29s
+PROGRESS Optimizing — 28,529/30,000 iterations (95.1%) — 17.3 it/s — elapsed 27m 26s — ETA 1m 25s
+step 28600: loss = 70.4, umbilicus = 0.0, patch_radius = 13.5, patch_dt = 33.0, sym_dirichlet = 13.4, rel_winding = 0.0, abs_winding = 3.3, dense_normals = 1.4, dense_spacing_winding_model_relative = 1.5, dense_spacing_winding_model_density = 0.3, min_spacing = 0.0, unattached_pcl_radius = 0.2, unattached_pcl_dt = 3.6, shell_outer = 0.2
+PROGRESS Optimizing — 28,609/30,000 iterations (95.4%) — 17.3 it/s — elapsed 27m 31s — ETA 1m 20s
+PROGRESS Optimizing — 28,691/30,000 iterations (95.6%) — 17.3 it/s — elapsed 27m 36s — ETA 1m 16s
+PROGRESS Optimizing — 28,771/30,000 iterations (95.9%) — 17.3 it/s — elapsed 27m 41s — ETA 1m 11s
+step 28800: loss = 69.1, umbilicus = 0.0, patch_radius = 10.0, patch_dt = 31.2, sym_dirichlet = 11.8, rel_winding = 7.3, abs_winding = 2.4, dense_normals = 1.3, dense_spacing_winding_model_relative = 1.4, dense_spacing_winding_model_density = 0.2, min_spacing = 0.0, unattached_pcl_radius = 0.2, unattached_pcl_dt = 3.3, shell_outer = 0.0
+PROGRESS Optimizing — 28,852/30,000 iterations (96.2%) — 17.3 it/s — elapsed 27m 46s — ETA 1m 06s
+PROGRESS Optimizing — 28,932/30,000 iterations (96.4%) — 17.3 it/s — elapsed 27m 51s — ETA 1m 02s
+PROGRESS Optimizing — 29,001/30,000 iterations (96.7%) — 17.3 it/s — elapsed 27m 56s — ETA 58s
+step 29000: loss = 63.4, umbilicus = 0.0, patch_radius = 14.5, patch_dt = 23.4, sym_dirichlet = 10.5, rel_winding = 4.9, abs_winding = 3.1, dense_normals = 1.5, dense_spacing_winding_model_relative = 1.4, dense_spacing_winding_model_density = 0.3, min_spacing = 0.0, unattached_pcl_radius = 0.2, unattached_pcl_dt = 3.7, shell_outer = 0.1
+PROGRESS Optimizing — 29,084/30,000 iterations (96.9%) — 17.3 it/s — elapsed 28m 01s — ETA 53s
+PROGRESS Optimizing — 29,164/30,000 iterations (97.2%) — 17.3 it/s — elapsed 28m 06s — ETA 48s
+step 29200: loss = 55.8, umbilicus = 0.0, patch_radius = 11.4, patch_dt = 19.2, sym_dirichlet = 11.8, rel_winding = 4.9, abs_winding = 2.6, dense_normals = 1.4, dense_spacing_winding_model_relative = 1.2, dense_spacing_winding_model_density = 0.3, min_spacing = 0.0, unattached_pcl_radius = 0.1, unattached_pcl_dt = 2.8, shell_outer = 0.0
+PROGRESS Optimizing — 29,244/30,000 iterations (97.5%) — 17.3 it/s — elapsed 28m 11s — ETA 44s
+PROGRESS Optimizing — 29,324/30,000 iterations (97.7%) — 17.3 it/s — elapsed 28m 16s — ETA 39s
+step 29400: loss = 57.8, umbilicus = 0.0, patch_radius = 11.4, patch_dt = 19.2, sym_dirichlet = 11.0, rel_winding = 5.9, abs_winding = 2.6, dense_normals = 1.4, dense_spacing_winding_model_relative = 1.3, dense_spacing_winding_model_density = 0.3, min_spacing = 0.0, unattached_pcl_radius = 0.2, unattached_pcl_dt = 4.5, shell_outer = 0.1
+PROGRESS Optimizing — 29,405/30,000 iterations (98.0%) — 17.3 it/s — elapsed 28m 21s — ETA 34s
+PROGRESS Optimizing — 29,487/30,000 iterations (98.3%) — 17.3 it/s — elapsed 28m 26s — ETA 30s
+PROGRESS Optimizing — 29,567/30,000 iterations (98.6%) — 17.3 it/s — elapsed 28m 31s — ETA 25s
+step 29600: loss = 58.6, umbilicus = 0.0, patch_radius = 13.7, patch_dt = 23.7, sym_dirichlet = 12.8, rel_winding = 0.0, abs_winding = 2.6, dense_normals = 1.3, dense_spacing_winding_model_relative = 1.4, dense_spacing_winding_model_density = 0.3, min_spacing = 0.0, unattached_pcl_radius = 0.2, unattached_pcl_dt = 2.6, shell_outer = 0.0
+PROGRESS Optimizing — 29,647/30,000 iterations (98.8%) — 17.3 it/s — elapsed 28m 36s — ETA 20s
+PROGRESS Optimizing — 29,728/30,000 iterations (99.1%) — 17.3 it/s — elapsed 28m 41s — ETA 16s
+step 29800: loss = 63.8, umbilicus = 0.0, patch_radius = 11.7, patch_dt = 26.2, sym_dirichlet = 9.7, rel_winding = 5.7, abs_winding = 3.1, dense_normals = 1.4, dense_spacing_winding_model_relative = 1.2, dense_spacing_winding_model_density = 0.3, min_spacing = 0.0, unattached_pcl_radius = 0.2, unattached_pcl_dt = 4.4, shell_outer = 0.1
+PROGRESS Optimizing — 29,807/30,000 iterations (99.4%) — 17.3 it/s — elapsed 28m 46s — ETA 11s
+PROGRESS Optimizing — 29,890/30,000 iterations (99.6%) — 17.3 it/s — elapsed 28m 51s — ETA 6s
+PROGRESS Optimizing — 29,970/30,000 iterations (99.9%) — 17.3 it/s — elapsed 28m 56s — ETA 2s
+PROGRESS Saving final checkpoint — checkpoint_fitted.ckpt — elapsed 0s
+PROGRESS Computing satisfaction metrics and outputs — elapsed 0s
+PROGRESS Evaluating verified patches — 2,489 patches — elapsed 0s
+Warning: patch 1 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 3 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 4 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 5 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 10 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 13 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 14 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 18 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 20 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 24 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 25 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 27 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 28 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 30 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 36 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 37 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 38 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 39 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 40 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 44 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 47 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 49 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 51 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 56 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 57 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 58 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 59 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 61 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 62 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 69 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 70 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 72 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 77 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 78 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 84 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 86 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 89 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 90 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 91 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 92 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 93 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 94 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 95 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 96 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 97 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 103 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 110 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 112 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 116 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 117 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 122 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 124 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 130 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 135 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 136 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 137 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 138 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 141 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 145 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 148 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 149 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 150 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 152 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 158 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 164 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 166 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 167 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 168 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 169 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 170 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 171 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 174 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 177 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 184 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 187 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 198 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 199 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 202 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 207 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 208 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 216 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 224 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 230 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 233 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 234 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 236 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 244 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 245 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 246 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 248 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 249 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 250 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 251 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 266 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 268 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 269 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 272 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 277 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 280 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 297 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 302 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 303 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 309 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 319 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 321 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 325 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 327 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 334 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 342 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 343 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 345 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 354 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 358 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 363 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 377 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 379 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 381 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 382 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 385 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 386 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 393 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 394 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 399 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 402 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 406 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 408 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 410 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 413 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 416 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 426 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 433 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 438 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 439 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 441 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 443 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 445 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 447 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 459 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 464 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 466 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 470 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 482 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 492 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 499 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 501 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 502 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 511 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 520 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 522 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 528 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 534 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 535 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 537 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 542 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 547 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 554 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 567 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 571 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 574 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 581 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 586 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 590 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 591 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 600 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 604 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 610 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 612 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 617 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 622 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 624 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 629 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 634 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 636 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 644 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 645 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 646 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 647 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 648 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 650 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 651 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 658 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 661 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 663 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 668 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 669 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 671 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 685 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 703 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 704 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 724 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 731 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 735 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 741 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 753 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 755 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 756 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 759 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 763 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 766 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 770 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 779 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 804 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 810 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 821 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 832 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 836 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 841 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 847 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 849 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 851 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 854 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 855 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 856 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 857 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 858 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 859 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 864 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 865 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 867 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 872 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 874 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 878 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 880 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 886 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 891 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 893 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 897 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 898 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 900 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 901 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 910 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 911 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 916 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 917 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 921 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 925 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 926 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 937 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 939 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 949 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 959 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 992 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1004 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1031 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1043 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1052 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1058 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1063 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1071 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1081 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1087 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1089 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1093 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1098 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1099 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1105 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1117 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1118 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1142 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1161 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1163 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1172 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1189 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1196 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1197 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1198 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1203 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1204 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1212 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1215 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1224 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1230 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1240 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1243 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1247 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1249 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1251 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1252 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1256 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1258 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1267 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1273 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1277 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1281 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1283 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1290 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1291 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1293 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1300 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1305 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1309 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1312 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1321 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1323 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1327 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1347 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1358 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1361 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1368 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1372 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1379 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1382 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1386 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1389 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1391 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1394 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1396 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1403 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1407 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1411 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1413 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1414 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1416 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1425 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1430 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1434 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1436 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1445 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1448 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1453 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1469 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1472 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1474 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1476 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1478 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1480 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1489 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1497 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1505 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1513 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1518 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1520 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1524 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1529 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1531 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1540 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1546 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1548 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1565 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1566 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1574 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1576 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1585 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1586 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1587 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1588 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1592 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1594 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1598 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1599 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1601 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1602 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1610 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1611 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1627 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1629 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1646 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1651 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1661 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1664 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1670 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1679 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1686 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1690 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1692 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1718 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1738 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1739 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1747 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1749 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1757 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1762 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1767 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1769 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1770 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1774 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1775 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1787 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1794 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1798 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1808 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1814 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1816 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1835 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1840 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1842 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1845 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1863 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1866 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1879 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1884 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1885 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1894 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1928 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1934 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1935 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1948 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1951 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1967 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1973 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1975 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1979 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1982 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1991 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 1997 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2005 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2007 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2010 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2016 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2021 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2025 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2043 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2062 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2064 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2071 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2074 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2080 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2084 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2099 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2103 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2104 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2112 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2113 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2114 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2118 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2130 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2132 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2133 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2134 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2138 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2156 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2162 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2165 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2169 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2180 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2186 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2189 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2194 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2199 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2200 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2201 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2202 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2205 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2206 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2208 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2221 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2226 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2232 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2237 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2245 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2247 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2248 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2256 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2257 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2262 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2263 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2276 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2280 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2291 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2292 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2293 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2296 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2310 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2318 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2321 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2328 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2330 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2331 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2334 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2338 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2340 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2346 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2349 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2357 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2365 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2368 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2372 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2385 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2390 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2391 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2392 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2394 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2404 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2415 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2423 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2428 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2431 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2435 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2436 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2438 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2441 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2455 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2461 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2462 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2467 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2471 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2474 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2475 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2476 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2480 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2482 has multiple disconnected subrow components; using only the component containing the center column
+Warning: patch 2486 has multiple disconnected subrow components; using only the component containing the center column
+patch satisfaction: 2,489 patches, 3,327,561 quad centers, 60 forward + 60 inverse batches, 0.25s
+satisfied_patches = 1362/2489 (54.7%)
+satisfied_patches_area_weighted = 772809200.0/1331024400.0 (58.1%)
+boundary_satisfied_patches = 1408/2489 (56.6%)
+satisfied_area = 1081776400.0/1331024400.0 (81.3%)
+PROGRESS Evaluating point collections — 75 collections — elapsed 0s
+satisfied_unattached_pcls = 72/75 (96.0%)
+satisfied_unattached_pcl_points = 827/832 (99.4%)
+save_mesh fitted: winding range [10, 130)
+PROGRESS Transforming final mesh — 0/43 chunks (0.0%) — elapsed 0s
+splice rasterization: 2,476,288 eligible quads, 2,696,337 transformed unique vertices in 152 batches, 0.35s
+PROGRESS Writing final mesh windings — 0/260 windings (0.0%) — elapsed 0s
+PROGRESS Writing final mesh windings — 260/260 windings (100.0%) — elapsed 0s — ETA 0s

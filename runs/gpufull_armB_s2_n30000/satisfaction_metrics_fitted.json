@@ -1,0 +1,22 @@
+{
+  "summary": {
+    "satisfied_patches": 1313,
+    "total_patches": 2489,
+    "satisfied_patches_fraction": 0.5275210928083568,
+    "satisfied_patches_area": 727590400.0,
+    "all_patches_area": 1331024400.0,
+    "satisfied_patches_area_weighted_fraction": 0.5466394154757794,
+    "boundary_satisfied_patches": 1373,
+    "boundary_total_patches": 2489,
+    "boundary_satisfied_patches_fraction": 0.551627159501808,
+    "satisfied_area": 1085506400.0,
+    "total_area": 1331024400.0,
+    "satisfied_area_fraction": 0.8155420742099093,
+    "satisfied_unattached_pcls": 80,
+    "total_unattached_pcls": 91,
+    "satisfied_unattached_pcls_fraction": 0.8791208791208791,
+    "satisfied_unattached_pcl_points": 1998,
+    "total_unattached_pcl_points": 2030,
+    "satisfied_unattached_pcl_points_fraction": 0.9842364532019704
+  }
+}
