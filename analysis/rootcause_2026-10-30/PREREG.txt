@@ -1,0 +1,85 @@
+Root-cause pre-registration, written 2026-10-30 01:10 +08:00, before any flip count, distance,
+span or loss-term comparison was computed. Only code (villa 862142652 spiral-fitting), file formats
+and the published summary tables had been read at this point.
+
+Facts from code reading that shape the tests (not results):
+- A patch is "satisfied" when >= 95% of its in-window valid quads are satisfied
+  (satisfaction_metrics.py:29-33); per-patch "fraction" in satisfied_fitted.json is that quad fraction.
+- Our collections enter the fit two ways (fit_spiral.py:1765-1802): points within 2.5 voxels of a loaded
+  patch ("attached", pcl_link_distance_tolerance, config.py:516) make the collection a cross-patch pcl;
+  the rel_winding loss then pulls whole ADJACENT patch pairs along the chain onto one sheet
+  (losses.py:742-848, adjacent_patches_only=True config.py:506), with crossings counted along the chain
+  (_pcl_chain_seam_adjustments). Any unattached point makes it also an unattached strip (strip loss).
+- pcl sampling is stratified with equal strata per source file (config.py:507-508, losses.py:116-143):
+  adding our collections to same_windings.json cuts the per-step draw rate of each human same-winding
+  pcl (cross-patch 40 -> 62 members, unattached 22 -> 38) and leaves relative/abs strata and the patch
+  sampling (38 patches/step) unchanged.
+
+Data and definitions
+- Runs: GPU A1, A2, B1, B2 = runs/gpufull_arm{A,B}_s{1,2}_n30000. CPU A1, B1 = main_arm{A,B}_s1_n4000,
+  CPU A2, B2 = noise_arm{A,B}_s2_n4000.
+- sat(run, patch) = fraction >= 0.95; must reproduce the summary satisfied_patches count exactly.
+- Loss flip (L): sat in A1 and A2, not sat in B1 and B2. Gain flip (G): sat in B1 and B2, not in A1, A2.
+  Per-seed flips: sat in A_s and not B_s (and reverse). Stable (S): sat in all four.
+  Noise floor: within-arm flips A1 vs A2 and B1 vs B2; and the "seed-consistent" count (sat in A1 and B1,
+  not in A2 and B2, plus reverse) as an empirical null for the both-seeds arm count.
+- Every count also area weighted (total_area of the patch, in-window).
+- Geometry: each of the 2,489 patches loaded from tifxyz with mask.tif and the fitter's 1-cell erosion,
+  in-window vertices (z in [10500, 11500)). Our points: the 96 collections; "in window" = z in window.
+  Patch-to-points distance d = min over in-window patch vertices of distance to the nearest point
+  (vertex spacing 20 voxels, so d has up to ~14 voxels of slack; fine at the 100-300 voxel scale).
+
+H1 locality. Prediction: L patches are closer to our in-window points than S patches.
+  Test: median d_ours and fraction with d_ours < 300, for L vs S, and for L vs the within-arm noise-flip
+  patches (marginal patches, the stronger comparison). Permutation null: 10,000 draws of |L| patches from
+  the A-satisfied-both pool, matched on area quintile and on A mean-fraction bin. Controls with the same
+  statistic: our points (a) translated 40 voxels in +-x, +-y, +-z; (b) rotated about the umbilicus by
+  +-30, +-60, +-90 degrees at the same z and radius; (c) 200 random subsets of human same/relative
+  collections with in-window point count within 20% of ours. Continuous version: mean change in fraction
+  (B mean minus A mean) by d_ours bin, beside the same for A1 minus A2.
+  Supported if L is closer than S AND closer than noise flips with permutation p < 0.01, and the
+  rotated/human controls do not show an effect of similar size. The translated control only tests the
+  < 40 voxel scale and is read that way.
+
+H2 multi-winding chains. Prediction: L patches cluster near chains whose angular span around the
+  umbilicus exceeds 360 degrees.
+  Test: span of each chain = range of theta unwrapped along id order, theta = atan2 about the umbilicus
+  interpolated at each point's z (umbilicus.py json_umbilicus_z_to_yx), for the full chain and for the
+  in-window strip run. Re-check the earlier "17 of 30 slice-1 chains > 360, max 813" claim, and sanity
+  check span against arc length / mean radius. Premise check of the earlier ruling: max |dtheta| between
+  consecutive points after the fitter's 16-voxel decimation (must stay < pi). Rate test: assign every
+  A-satisfied-both patch with d < 300 to its nearest in-window chain; Fisher exact test on L rate near
+  >360 chains vs near <360 chains.
+  Supported if the L rate near >360 chains is higher with p < 0.05 and the premise check finds steps
+  with |dtheta| >= pi or an unwrap inconsistency. If no in-window chain exceeds 360, H2 cannot act on
+  this window and is reported as not supported for this window.
+
+H3 a few bad constraints. Prediction: the 1-2% unsatisfied of our points in B sit next to L patches.
+  Limit known in advance: satisfied_fitted.json gives satisfaction per collection, not per point, so the
+  test is per collection. Test: in-window collections with any unsatisfied point in B1 or B2 vs fully
+  satisfied ones; L rate among A-satisfied-both patches nearest to each group (d < 300), Fisher exact.
+  Also: how concentrated L is: share of L patches whose nearest chain is the single / top-two chains.
+  Supported if the imperfect collections carry an L rate clearly above the perfect ones (p < 0.05) or
+  one or two chains account for most L patches near our points.
+
+H4 dilution / reweighting. Prediction: no locality; cost spread uniformly; loss balance shifts.
+  Tests: (a) L rate by d_ours bin is flat (the complement of H1); (b) fit.log loss terms, mean over the
+  last 5,000 logged steps per term, A vs B with the A1-A2 and B1-B2 spread as noise; (c) sharper: patches
+  attached to HUMAN same-winding cross-patch pcls (whose draw rate falls by 40/62) flip more than patches
+  attached only to relative/abs pcls or to none.
+  Supported if (a) flat, and (b) or (c) shows a difference beyond the seed spread.
+
+H5 (added) attachment coupling. Prediction: the cost goes through the patches our points attach to
+  (the cross-patch lever), not through the strip loss.
+  Test: replicate the linking (exact point-to-triangle distance <= 2.5, largest-area policy) for our
+  points and for human points; list the patches our chains attach to and the adjacent pairs the loss
+  uses; L rate among attached patches vs among unattached patches at similar d_ours; for each adjacent
+  pair, check for a radial offset of about one sheet spacing where the two patches overlap (a pair on
+  different wraps tied to one winding would be a wrong constraint), same check on human pairs as the
+  base rate.
+  Supported if attached patches flip at a clearly higher rate (Fisher p < 0.05) than distance-matched
+  unattached patches, or wrong-wrap pairs are found and their patches are among the L set.
+
+General: with fewer than about 10 L patches, or L minus G within the seed-consistent noise count, the
+per-patch tests are underpowered and verdicts default to inconclusive. CPU runs get the same flip and
+H1 analysis to re-test the "local interaction near z 10604" reading.

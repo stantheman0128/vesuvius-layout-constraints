@@ -11,9 +11,14 @@ mean: the segment meshes coincide with the verified patches wherever both exist 
 mesh scores worse), and our lines mostly run through regions with no verified patch, where the baseline
 spiral is interpolated. The team's full setting (GPU, normals on, 30,000 steps) was then run on a rented
 RTX 3090 with two seeds (2026-10-24): the baseline rises to 54.1% and 54.7%, the layout arm sits at 53.6%
-and 52.8%, so the cost shrinks to 0.6 and 2.0 points (seed spread within one arm 0.6 to 0.8) while 98 to
-99% of our own points are satisfied. Under the rule that is neutral on seed 1 and hurts on seed 2: the
-constraints are nearly free at the team's setting but show no gain on any metric the protocol names.
+and 52.8%, 0.6 and 2.0 points lower (seed spread within one arm 0.6 to 0.8), while 98 to 99% of our own
+points are satisfied. Under the rule that is neutral on seed 1 and hurts on seed 2. A per-patch analysis
+afterwards (2026-10-30, `analysis/rootcause_2026-10-30/`) tested five explanations written down before
+computing, and none held. With two seeds per arm the GPU drop cannot be told apart from seed noise (Welch
+p = 0.14), so these runs show no gain at the team's setting and do not establish a cost either. What does
+differ is that with our constraints, which patches pass changes much more from one seed to the next. On
+the CPU setting the patch loss is real, but it is spread across the window rather than concentrated near
+our points.
 
 Turns the 2D page layout visible on a flattened PHerc. Paris 4 segment (text-line centre paths and column
 margins) into point collections in the spiral fitter's JSON format, mapped back to 3D in the spiral dataset
@@ -312,7 +317,9 @@ same_wrap55 +11, same_wrap51 +9) sit at z 10604 within 61 to 666 voxels of our p
 (10 of 19, z 10517 to 10852) is 65 voxels away. The largest relative-winding loser, col235 (18 of 18), is
 at z 11432 and 791 voxels from our nearest point, so not every loss is local. Split at 300 voxels from our
 points (by collection centroid): about 30 collections near with net loss 50, about 45 far with net loss
-17. The effect is mostly where our constraints are, with some loss far from them.
+17. The effect is mostly where our constraints are, with some loss far from them. That holds for the human
+point collections only. For the verified patches the per-patch analysis at the end of this section finds
+the opposite on this CPU setting: most of the net patch loss is 100 to 600 voxels from our points.
 
 Our own collections in B: 3 of 16 fully satisfied, 3 at zero (20230702185753_line20 0/44,
 20230702185753_margin_right 0/54, w116-117_line41 0/35). A point counts as satisfied only if it is within
@@ -359,7 +366,9 @@ long tails are regions the verified patches do not cover. Control (`--shift`, ev
 4th vertex of 20230702185753): moving the mesh by 8 voxels drops the 0 to 2 bin from 22.9% to 5.8% (+x),
 7.8% (+y), 12.3% (+z) and 9.3% (-x), and the within-2.5 fraction from 25.7% to 7.5 to 15.2%; the
 unshifted mesh is the best alignment of the five. The segment-to-patch mapping is not offset. Our constraints mostly sit where the patches are absent, which is also where the
-spiral is least constrained and where moving it costs the most elsewhere.
+spiral is least constrained. Both distance tools read the patch meshes without `mask.tif` (378 of the
+verified patches have one) and without the fitter's 1-cell erosion, so these distances may be slightly off;
+they have not been rerun.
 
 Reading of Slice 3, then: on this weakened CPU setting (4,000 steps, normals and fibres off) the
 baseline honours only 24.7% of the verified patches, and adding our 16 in-window collections lowered that
@@ -430,10 +439,83 @@ by up to 4.2 points between seeds of the same arm (relative-winding, arm A), so 
 discriminate between the arms. The area-weighted fraction is again the noisiest metric (2.7 and 4.3 points
 within an arm).
 
-Reading: at the team's setting the layout collections cost 0.6 to 2.0 points of verified-patch
-satisfaction on this window, down from 2.2 to 2.4 points on the weak CPU setting, and the sign has been the
-same in all four pairs. 98 to 99% of our own points are satisfied in arm B, so the fitter can honour them
-nearly for free, but nothing the protocol measures gets better. The CPU reading stands: our lines mostly
-constrain regions without verified patches, and where the two disagree the fit pays a little on the patches.
-Whether the lines or the interpolation is right there is still not decided by these runs; it would take
-ground truth in the patch-free regions (new verified patches, or the fibre inputs), not more seeds.
+Reading: on this window B is below A on both GPU seeds, by 0.6 and 2.0 points of verified-patch
+satisfaction, against 2.2 to 2.4 points on the weak CPU setting. 98 to 99% of our own points are satisfied
+in arm B, but nothing the protocol measures gets better. The per-patch analysis below finds the GPU drop
+indistinguishable from seed noise with two seeds per arm, so these runs do not show a cost at the team's
+setting, and they show no gain. Two questions stay open. Whether there is a small real cost needs at least
+four seeds per arm and a GPU cross-evaluation of arm A's spiral against our points. Whether our lines or
+the interpolated spiral is right in the patch-free regions needs ground truth there (new verified
+patches, or the fibre inputs).
+
+### Why arm B is lower: per-patch analysis (2026-10-30, post hoc)
+
+Scripts, logs and result files are in `analysis/rootcause_2026-10-30/`. The five hypotheses and their
+pass bars were written to `PREREG.txt` before anything was computed (file time 01:07:53, first computed
+output 01:08:46). The inputs are the per-patch `satisfied_fitted.json` files of the four GPU runs and the
+four CPU runs. Three checks show the inputs are read the way the fitter reads them. The satisfied rule
+(fraction at least 0.95, zero-area patches counted as satisfied) reproduces the summary counts of all eight
+runs. The patch loader (`mask.tif` plus the fitter's 1-cell erosion) reproduces the in-window quad count
+of all 2,489 patches. The copy of the fitter's point-to-patch linking reproduces every count `fit.log`
+prints.
+
+We asked why our layout constraints lower verified-patch satisfaction by 0.6 to 2.0 points at the team's
+GPU defaults. We wrote down five explanations before computing and tested them on the four GPU runs'
+per-patch outputs. None passed. With two seeds per arm, the drop is indistinguishable from seed noise
+(Welch p = 0.14). On each seed, 200 to 265 patches change state in each direction, and the 58 patches lost
+on both seeds are nearly matched by 50 gained on both. Lost patches sit slightly closer to our points than
+matched draws (p = 0.012, short of our 0.01 bar), but the net loss within 100 voxels, 17 and 20 patches,
+is within the seed swings of single distance bins. We found no link between the loss and chains that wrap
+past 360 degrees, our few unsatisfied points, or reduced sampling of human constraints. One text line ties
+two patch pairs that lie one sheet apart with no wrap between them, a likely wrong constraint, but those
+patches move both ways and cost one patch on one seed. The clearest difference was one we had not
+predicted: with our constraints, which patches pass varies much more between seeds.
+
+Patch counts out of the 2,472 patches with in-window area (`noise.log`):
+
+| comparison | lost | gained | p |
+|---|---|---|---|
+| GPU A1 vs B1 | 265 | 251 | 0.57 |
+| GPU A2 vs B2 | 250 | 201 | 0.024 |
+| GPU A1 vs A2 (seed noise) | 165 | 180 | 0.45 |
+| GPU B1 vs B2 (seed noise) | 276 | 256 | 0.41 |
+| GPU, lost on both seeds vs gained on both | 58 | 50 | 0.50 |
+| CPU, lost on both seeds vs gained on both | 123 | 26 | 3e-16 |
+
+| hypothesis (as pre-registered) | GPU | CPU |
+|---|---|---|
+| H1, lost patches sit closer to our points than matched draws | inconclusive, p = 0.012 against a 0.01 bar | not supported, p = 0.97 |
+| H2, chains that wrap past 360 degrees cause the loss | not supported, loss rate 5.5% near them vs 6.3% near shorter chains | not supported |
+| H3, a few collections with unsatisfied points cause it | not supported, 7.0% vs 5.6%, p = 0.57 | degenerate, 15 of 16 collections imperfect |
+| H4, our points dilute the patch and human losses | not supported, patch loss terms move within the seed spread | |
+| H5 (added before computing), patches our chains attach to flip more | not supported, 2 of 21 lost | supported, 8 of 11 lost (p = 0.0015), but that is 8 of the 123 losses |
+
+The seed result was not pre-registered. 401 patches change state between the two seeds in arm B but not
+in arm A, and 214 the other way round (p = 4e-14). The mean per-patch change in satisfied fraction between seeds is 0.159 in B
+and 0.101 in A on GPU (0.180 and 0.070 within 100 voxels of our points), and 0.38 and 0.16 on CPU. The
+mean per-patch fraction itself does not move (0.766 and 0.768), and satisfied area is 81.7% in both arms.
+Two noise models disagree on how much of the count drop comes from the extra spread (26 and 146 patches
+against an observed 31.5), so that split is not claimed.
+
+The likely wrong constraint is `20230702185753_line34`. It ties patches 2421 to 2194 and 2194 to 624,
+which lie 11 to 15 voxels apart radially, about one sheet, while the chain travels 15 to 24 degrees with
+no seam crossing. In arm B patch 624 rose from 0.00 to 0.60 and 0.45, 2421 went up on seed 1 and down on
+seed 2, and 2194 fell below the threshold on seed 2 only.
+
+`rootcause_distance.png` shows the net patch loss by distance from our points per seed, with the
+within-arm seed nets for reference, and the seed-to-seed change per patch for each arm.
+
+Some things were not checked. The outputs give satisfaction per collection, not per point, which limits H3. The GPU
+checkpoints and meshes were left on the pod, so there is no GPU cross-evaluation of arm A's spiral against
+our points. With two seeds per arm, "B is noisier" cannot be separated from "this run pair diverged". The
+pair thresholds (up to 3 voxels coincident, 6 to 30 voxels parallel) are ours. A sixth test, the winding
+check from villa PR #2362, needs about 0.7 GB of remote chunks and is written down in
+`PREREG_H6_not_run.txt` but was not run.
+
+To rerun: put the dataset at `data/spiral_datasets/` or set `SPIRAL_DS`, then from that folder run
+`flips.py`, `build_geom.py` and `links.py` in that order, then `h1.py`, `h2h3.py`, `h4_losses.py`,
+`h5.py`, `noise.py` and `pairs_chain.py` in any order, then `fig.py`. Use plain `python`, not `python -I`,
+because the scripts import `common.py` from their own folder. They need numpy, scipy, Pillow and
+matplotlib (checked with numpy 2.5.2 and scipy 1.18.0). The first three write `.npz` caches that git
+ignores. A rerun from this folder on 2026-10-30 gave byte-identical `noise.log` and `h2h3.log`;
+`h2h3_results.json` differed only in the last one or two digits of some floats.

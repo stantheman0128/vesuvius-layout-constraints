@@ -1,0 +1,10 @@
+H6 (coordinator's optional test, villa PR #2362 by Aadarsh-T, check_winding_annotations.py). Written 2026-10-30
+after H1-H5 were computed; NOT RUN, because it needs about 0.7 GB of remote zarr chunks (m7 and recto surface
+predictions) and the brief forbids downloads; a download needs Stan's own approval.
+Prediction: chain segments of our 96 collections where both predictions count >= 1 sheet between consecutive
+points (a same-winding chain should count 0) are the segments nearest the GPU L patches.
+Test: per consecutive point pair of every in-window chain, sheets crossed per prediction (#2362 reports counts for
+delta-0 steps but flags only delta != 0 steps, so the count field is read directly); mark a segment "crossing" when
+every prediction counts >= 1 with both endpoints snapped. Rate test as H2: L rate among A-satisfied-both patches
+whose nearest in-window chain point is on a crossing segment vs not (d < 300), Fisher exact; positive control:
+the two line34 pairs found by H5 (patches 2421-2194 and 2194-624) should show crossings between their attachments.

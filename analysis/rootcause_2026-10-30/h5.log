@@ -1,0 +1,70 @@
+patches attached by our cross-patch collections: 37 (in an adjacent pair: 30); by human same-winding: 30 (paired 13); by human relative/abs: 166
+  our attached patches also attached by human same: 3, by human rel/abs: 6
+  d_ours of our attached patches: median 3.3, max 303 (d_ours is to in-window points only; attachment uses points at any z)
+
+=== GPU
+  ours attached          n=  37  L   2/21   (  9.5%)  G   0/13   (  0.0%)  noise-flip A   5.4% B  18.9%  mean dFrac(B-A) -0.0578  area-wtd -0.0813
+  ours paired            n=  30  L   0/17   (  0.0%)  G   0/12   (  0.0%)  noise-flip A   6.7% B  16.7%  mean dFrac(B-A) -0.0163  area-wtd -0.0400
+  not attached, d<100    n= 291  L  16/140  ( 11.4%)  G   9/111  (  8.1%)  noise-flip A   9.6% B  20.3%  mean dFrac(B-A) -0.0319  area-wtd +0.0291
+  not attached, d<300    n= 980  L  30/502  (  6.0%)  G  22/446  (  4.9%)  noise-flip A   9.7% B  17.7%  mean dFrac(B-A) -0.0055  area-wtd +0.0090
+  not attached, all      n=2435  L  56/1144 (  4.9%)  G  50/1027 (  4.9%)  noise-flip A  14.1% B  21.6%  mean dFrac(B-A) +0.0023  area-wtd +0.0006
+  human same attached    n=  30  L   0/18   (  0.0%)  G   0/14   (  0.0%)  noise-flip A   0.0% B  16.7%  mean dFrac(B-A) -0.0149  area-wtd -0.0288
+  human same paired      n=  13  L   0/8    (  0.0%)  G   0/6    (  0.0%)  noise-flip A   0.0% B  15.4%  mean dFrac(B-A) -0.0194  area-wtd -0.0337
+  human same, not ours   n=  27  L   0/15   (  0.0%)  G   0/11   (  0.0%)  noise-flip A   0.0% B  18.5%  mean dFrac(B-A) -0.0164  area-wtd -0.0289
+  only human rel/abs     n= 144  L   2/75   (  2.7%)  G   0/64   (  0.0%)  noise-flip A  11.1% B  20.1%  mean dFrac(B-A) -0.0068  area-wtd -0.0081
+  no pcl at all          n=2264  L  54/1054 (  5.1%)  G  50/952  (  5.3%)  noise-flip A  14.4% B  21.7%  mean dFrac(B-A) +0.0031  area-wtd +0.0096
+  Fisher L rate, ours attached vs not attached d<100: 2/21 vs 16/140, OR 0.82, p 1
+      noise-flip B 7/37 vs 59/291; noise-flip A 2/37 vs 28/291
+  Fisher L rate, ours attached vs not attached all: 2/21 vs 56/1144, OR 2.05, p 0.281
+      noise-flip B 7/37 vs 525/2435; noise-flip A 2/37 vs 343/2435
+  Fisher L rate, H4c human-same attached (not ours) vs only rel/abs or none: 0/15 vs 56/1129, OR 0.00, p 1
+      noise-flip B 5/27 vs 520/2408; noise-flip A 0/27 vs 343/2408
+
+=== CPU
+  ours attached          n=  37  L   8/11   ( 72.7%)  G   0/1    (  0.0%)  noise-flip A   0.0% B   8.1%  mean dFrac(B-A) -0.0836  area-wtd -0.1190
+  ours paired            n=  30  L   5/7    ( 71.4%)  G   0/1    (  0.0%)  noise-flip A   0.0% B   3.3%  mean dFrac(B-A) -0.0866  area-wtd -0.1078
+  not attached, d<100    n= 291  L  18/47   ( 38.3%)  G   8/19   ( 42.1%)  noise-flip A   7.6% B  27.5%  mean dFrac(B-A) +0.0015  area-wtd -0.0706
+  not attached, d<300    n= 980  L  54/236  ( 22.9%)  G  14/127  ( 11.0%)  noise-flip A   9.2% B  25.9%  mean dFrac(B-A) -0.0119  area-wtd +0.0231
+  not attached, all      n=2435  L 115/456  ( 25.2%)  G  26/201  ( 12.9%)  noise-flip A  11.0% B  27.9%  mean dFrac(B-A) +0.0004  area-wtd +0.0140
+  human same attached    n=  30  L   2/8    ( 25.0%)  G   0/6    (  0.0%)  noise-flip A   3.3% B   3.3%  mean dFrac(B-A) -0.0648  area-wtd -0.0918
+  human same paired      n=  13  L   1/5    ( 20.0%)  G   0/4    (  0.0%)  noise-flip A   0.0% B   0.0%  mean dFrac(B-A) -0.0737  area-wtd -0.0873
+  human same, not ours   n=  27  L   2/8    ( 25.0%)  G   0/6    (  0.0%)  noise-flip A   3.7% B   3.7%  mean dFrac(B-A) -0.0413  area-wtd -0.0909
+  only human rel/abs     n= 144  L   8/25   ( 32.0%)  G   0/11   (  0.0%)  noise-flip A   6.2% B  12.5%  mean dFrac(B-A) +0.0313  area-wtd +0.0370
+  no pcl at all          n=2264  L 105/423  ( 24.8%)  G  26/184  ( 14.1%)  noise-flip A  11.4% B  29.2%  mean dFrac(B-A) -0.0011  area-wtd +0.0122
+  Fisher L rate, ours attached vs not attached d<100: 8/11 vs 18/47, OR 4.30, p 0.0496
+      noise-flip B 3/37 vs 80/291; noise-flip A 0/37 vs 22/291
+  Fisher L rate, ours attached vs not attached all: 8/11 vs 115/456, OR 7.91, p 0.00151
+      noise-flip B 3/37 vs 680/2435; noise-flip A 0/37 vs 267/2435
+  Fisher L rate, H4c human-same attached (not ours) vs only rel/abs or none: 2/8 vs 113/448, OR 0.99, p 1
+      noise-flip B 1/27 vs 679/2408; noise-flip A 1/27 vs 266/2408
+
+pair geometry, ours:
+  20230702185753_line17         608-1209 disjoint (> 30 vx apart)                   close     0 band     0 dmin     inf dr   +nan/  +nan  GPU ('S', 'S') CPU ('-', '-')
+  20230702185753_line17        1209-722  disjoint (> 30 vx apart)                   close     0 band     0 dmin     inf dr   +nan/  +nan  GPU ('S', 'S') CPU ('-', '-')
+  20230702185753_line19        1219-608  disjoint (> 30 vx apart)                   close     0 band     0 dmin     inf dr   +nan/  +nan  GPU ('NB', 'S') CPU ('S', '-')
+  20230702185753_line19         608-2247 overlap, same surface                      close   395 band    56 dmin     0.0 dr   -1.4/  -0.6  GPU ('S', '-') CPU ('-', '-')
+  20230702185753_line19        2247-405  parallel at 6-30 vx, no coincident overlap close     0 band   442 dmin     7.9 dr  -14.0/ +14.5  GPU ('-', 'S') CPU ('-', '-')
+  20230702185753_line19         405-844  overlap, same surface                      close   859 band   279 dmin     0.0 dr   -0.4/  +1.4  GPU ('S', 'S') CPU ('-', '-')
+  20230702185753_line19         844-590  overlap, same surface                      close   763 band   160 dmin     0.0 dr   +0.7/  +2.7  GPU ('S', 'S') CPU ('-', '-')
+  20230702185753_line19         590-722  overlap, same surface                      close   567 band   148 dmin     0.0 dr   -0.3/  -0.4  GPU ('S', 'S') CPU ('-', '-')
+  20230702185753_line21        1259-1957 disjoint (> 30 vx apart)                   close     0 band     0 dmin     inf dr   +nan/  +nan  GPU ('S', 'NA') CPU ('L', '-')
+  20230702185753_line21        1957-1987 disjoint (> 30 vx apart)                   close     0 band     0 dmin     inf dr   +nan/  +nan  GPU ('NA', 'S') CPU ('-', '-')
+  20230702185753_line23        2278-1518 overlap, same surface                      close    78 band    44 dmin     0.0 dr   +7.5/  +2.5  GPU ('S', '-') CPU ('-', '-')
+  20230702185753_line24        1459-1622 overlap, same surface                      close  1610 band   158 dmin     0.0 dr   +1.2/  -2.4  GPU ('S', 'S') CPU ('-', '-')
+  20230702185753_line24        1622-632  parallel at 6-30 vx, no coincident overlap close     0 band  1612 dmin     7.2 dr  -13.8/ +13.9  GPU ('S', 'S') CPU ('-', '-')
+  20230702185753_margin_right   722-590  overlap, same surface                      close   567 band   148 dmin     0.0 dr   -0.4/  -0.3  GPU ('S', 'S') CPU ('-', '-')
+  20230702185753_margin_right   590-405  overlap, same surface                      close   761 band   225 dmin     0.0 dr   +1.3/  +1.3  GPU ('S', 'S') CPU ('-', '-')
+  20230702185753_margin_right   405-2206 overlap, same surface                      close    68 band   116 dmin     0.0 dr  -11.9/ +14.9  GPU ('S', '-') CPU ('-', '-')
+  20230702185753_margin_right  2206-632  disjoint (> 30 vx apart)                   close     0 band     0 dmin     inf dr   +nan/  +nan  GPU ('-', 'S') CPU ('-', '-')
+  0260701183145-w116-117_gap00  624-482  overlap, same surface                      close  1729 band   254 dmin     0.0 dr   -1.0/  -4.4  GPU ('-', '-') CPU ('-', '-')
+  0260701183145-w116-117_gap00  482-1527 disjoint (> 30 vx apart)                   close     0 band     0 dmin     inf dr   +nan/  +nan  GPU ('-', '-') CPU ('-', 'L')
+  260701183145-w116-117_line24  838-1221 overlap, same surface                      close 15999 band   858 dmin     0.0 dr   +1.6/  +4.6  GPU ('NB', 'NB') CPU ('L', 'L')
+  260701183145-w116-117_line34 2404-2421 disjoint (> 30 vx apart)                   close     0 band     0 dmin     inf dr   +nan/  +nan  GPU ('-', '-') CPU ('-', '-')
+  260701183145-w116-117_line34 2421-2194 parallel at 6-30 vx, no coincident overlap close     0 band   737 dmin     7.4 dr  +10.8/ -11.0  GPU ('-', 'NA') CPU ('-', '-')
+  260701183145-w116-117_line34 2194-624  parallel at 6-30 vx, no coincident overlap close     0 band   138 dmin    10.2 dr  -15.0/ +15.0  GPU ('NA', '-') CPU ('-', '-')
+  260701183145-w116-117_line34  624-482  overlap, same surface                      close  1729 band   254 dmin     0.0 dr   -1.0/  -4.4  GPU ('-', '-') CPU ('-', '-')
+  260701183145-w116-117_line36 1857-1197 overlap, same surface                      close   546 band   136 dmin     0.0 dr   +3.3/  -0.4  GPU ('NB', '-') CPU ('-', '-')
+  260701183145-w116-117_line36 1197-978  overlap, same surface                      close   950 band   287 dmin     0.0 dr   -0.5/  +0.7  GPU ('-', 'NB') CPU ('-', 'NB')
+  260701183145-w116-117_line41 1550-1630 parallel at 6-30 vx, no coincident overlap close     0 band   132 dmin     8.2 dr   -5.2/  +6.2  GPU ('-', '-') CPU ('-', 'L')
+ours: 27 pairs; classes {'disjoint (> 30 vx apart)': 8, 'overlap, same surface': 14, 'parallel at 6-30 vx, no coincident overlap': 5}
+hsame: 9 pairs; classes {'overlap, same surface': 9}

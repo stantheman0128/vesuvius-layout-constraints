@@ -1,0 +1,16 @@
+{np.str_('habs'): (59, 1), np.str_('hrel'): (2173, 347), np.str_('hsame'): (5413, 665), np.str_('ours'): (24843, 2403)}
+0/2489 patches, 1s, link candidates 318
+250/2489 patches, 46s, link candidates 1123
+500/2489 patches, 62s, link candidates 1454
+750/2489 patches, 75s, link candidates 1980
+1000/2489 patches, 90s, link candidates 2190
+1250/2489 patches, 103s, link candidates 2455
+1500/2489 patches, 117s, link candidates 2843
+1750/2489 patches, 131s, link candidates 3081
+2000/2489 patches, 144s, link candidates 3219
+2250/2489 patches, 157s, link candidates 3360
+nq_all4 exact match with total_area/400: 1015 of 2489
+nq_any exact match with total_area/400: 2489 of 2489
+nq_centre exact match with total_area/400: 1207 of 2489
+done 174s
+EXIT 0

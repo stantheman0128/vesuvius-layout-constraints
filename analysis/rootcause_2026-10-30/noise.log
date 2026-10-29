@@ -1,0 +1,46 @@
+
+=== GPU: satisfied counts A [1347, 1362] B [1333, 1313]; Welch t 2.52 p 0.138; paired-by-seed t 1.80 p 0.323
+  A1 vs B1: 265 lost, 251 gained, net +14, churn 516, sign-test p 0.567
+  A2 vs B2: 250 lost, 201 gained, net +49, churn 451, sign-test p 0.024
+  A1 vs A2: 165 lost, 180 gained, net -15, churn 345, sign-test p 0.451
+  B1 vs B2: 276 lost, 256 gained, net +20, churn 532, sign-test p 0.410
+  net patches lost by distance bin (lost - gained):
+       0-100   patches  325: arm net s1  +17 (churn 67), s2  +20 (churn 72); seed net within A   +6, within B   +9
+     100-300   patches  691: arm net s1   -5 (churn 111), s2  +13 (churn 99); seed net within A   -9, within B   +9
+     300-1000000000 patches 1456: arm net s1   +2 (churn 338), s2  +16 (churn 280); seed net within A  -12, within B   +2
+  seed 1: area lost 11.55 pts, gained 6.57 pts; top-5 lost = 5.19 pts, top-5 gained = 2.32 pts
+      lost  anon_20260816T200950449_000106.tifxyz    area 1.51 pts d_ours    329  frac A1 0.950 A2 0.953 B1 0.932 B2 0.958
+      lost  anon_20260816T200729369_000105.tifxyz    area 1.20 pts d_ours    339  frac A1 0.954 A2 0.952 B1 0.928 B2 0.952
+      lost  anon_20260815T160822082_000100.tifxyz    area 1.18 pts d_ours    339  frac A1 0.953 A2 0.951 B1 0.926 B2 0.951
+  seed 2: area lost 5.94 pts, gained 2.54 pts; top-5 lost = 2.96 pts, top-5 gained = 1.01 pts
+      lost  anon_20260815T021049799_000013.tifxyz    area 1.22 pts d_ours    350  frac A1 0.945 A2 0.955 B1 0.888 B2 0.944
+      lost  anon_20260903T214044882_000403.tifxyz    area 0.59 pts d_ours    444  frac A1 0.993 A2 0.989 B1 0.687 B2 0.396
+      lost  anon_20260914T235419181_000628.tifxyz    area 0.44 pts d_ours    471  frac A1 0.950 A2 0.960 B1 0.925 B2 0.802
+  POST HOC seed sensitivity: patches flipping between seeds only in B 401, only in A 214, sign-test p 4.1e-14; |frac s1 - s2| mean A 0.1007 B 0.1585, Wilcoxon p 3.6e-21
+      d    0-100   : mean |s1-s2| A 0.0703 B 0.1798
+      d  100-300   : mean |s1-s2| A 0.0690 B 0.1418
+      d  300-1000000000.0: mean |s1-s2| A 0.1225 B 0.1617
+  both-seed L vs G within 100 voxels: 18 vs 9, sign-test p 0.122; beyond 100: 40 vs 41
+
+=== CPU: satisfied counts A [615, 620] B [560, 561]; Welch t 22.36 p 0.023; paired-by-seed t 28.50 p 0.022
+  A1 vs B1: 308 lost, 253 gained, net +55, churn 561, sign-test p 0.023
+  A2 vs B2: 301 lost, 242 gained, net +59, churn 543, sign-test p 0.013
+  A1 vs A2: 131 lost, 136 gained, net -5, churn 267, sign-test p 0.807
+  B1 vs B2: 341 lost, 342 gained, net -1, churn 683, sign-test p 1.000
+  net patches lost by distance bin (lost - gained):
+       0-100   patches  325: arm net s1   +0 (churn 82), s2  +14 (churn 84); seed net within A   -6, within B   +8
+     100-300   patches  691: arm net s1  +29 (churn 121), s2  +28 (churn 166); seed net within A   -2, within B   -3
+     300-1000000000 patches 1456: arm net s1  +26 (churn 358), s2  +17 (churn 293); seed net within A   +3, within B   -6
+  seed 1: area lost 11.45 pts, gained 5.46 pts; top-5 lost = 3.40 pts, top-5 gained = 2.64 pts
+      lost  anon_20260915T185710303_000654.tifxyz    area 0.77 pts d_ours     20  frac A1 0.972 A2 0.959 B1 0.868 B2 0.127
+      lost  sm_20260703T214223947_000109.tifxyz      area 0.72 pts d_ours    339  frac A1 0.992 A2 0.992 B1 0.876 B2 0.704
+      lost  anon_20260825T182802162_000230.tifxyz    area 0.67 pts d_ours    329  frac A1 0.975 A2 0.983 B1 0.856 B2 0.802
+  seed 2: area lost 11.81 pts, gained 3.74 pts; top-5 lost = 3.40 pts, top-5 gained = 1.06 pts
+      lost  anon_20260915T185710303_000654.tifxyz    area 0.77 pts d_ours     20  frac A1 0.972 A2 0.959 B1 0.868 B2 0.127
+      lost  sm_20260703T214223947_000109.tifxyz      area 0.72 pts d_ours    339  frac A1 0.992 A2 0.992 B1 0.876 B2 0.704
+      lost  anon_20260825T182802162_000230.tifxyz    area 0.67 pts d_ours    329  frac A1 0.975 A2 0.983 B1 0.856 B2 0.802
+  POST HOC seed sensitivity: patches flipping between seeds only in B 541, only in A 125, sign-test p 1.5e-62; |frac s1 - s2| mean A 0.1553 B 0.3798, Wilcoxon p 2.8e-168
+      d    0-100   : mean |s1-s2| A 0.1205 B 0.3372
+      d  100-300   : mean |s1-s2| A 0.1202 B 0.3464
+      d  300-1000000000.0: mean |s1-s2| A 0.1796 B 0.4051
+  both-seed L vs G within 100 voxels: 26 vs 8, sign-test p 0.003; beyond 100: 97 vs 18

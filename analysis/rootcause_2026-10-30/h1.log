@@ -1,0 +1,84 @@
+
+=================== GPU 30k
+    L n=  58 area= 1.54%  median d=   257  <100:  31.0%  <300:  55.2%  area<300:  32.8%
+    G n=  50 area= 0.65%  median d=   443  <100:  18.0%  <300:  44.0%  area<300:  16.0%
+    S n= 867 area=40.77%  median d=   329  <100:  11.9%  <300:  46.0%  area<300:  58.0%
+   NA n= 345 area= 7.55%  median d=   525  <100:   8.7%  <300:  28.1%  area<300:  26.7%
+   NB n= 532 area=18.59%  median d=   506  <100:  12.2%  <300:  33.8%  area<300:  26.8%
+   L1 n= 265 area=11.55%  median d=   465  <100:  15.8%  <300:  35.8%  area<300:  12.7%
+   L2 n= 250 area= 5.94%  median d=   409  <100:  18.4%  <300:  40.8%  area<300:  28.5%
+   G1 n= 251 area= 6.57%  median d=   519  <100:  10.0%  <300:  33.1%  area<300:  30.3%
+   G2 n= 201 area= 2.54%  median d=   456  <100:  12.9%  <300:  34.3%  area<300:  42.1%
+  all n=2472 area=100.00%  median d=   377  <100:  13.1%  <300:  41.1%  area<300:  42.7%
+L vs matched draws from Apool: median d 257 (null median 343, 2.5-97.5% 267-448), p(null<=obs) 0.0115; frac<300 0.552 (null 0.431), p(null>=obs) 0.0447
+G vs matched draws from Bpool: median d 443 (null median 428, 2.5-97.5% 319-538), p(null<=obs) 0.6101; frac<300 0.440 (null 0.360), p(null>=obs) 0.1124
+AUC P(L closer than S) = 0.566
+AUC P(L closer than NA) = 0.690
+AUC P(G closer than S) = 0.439
+AUC P(G closer than NB) = 0.524
+AUC P(NA closer than S) = 0.343
+AUC P(NB closer than S) = 0.388
+control point sets, AUC(L closer than S) / AUC(G closer than S):
+        ours_sub: 0.564 / 0.439
+      shift_x+40: 0.563 / 0.434
+      shift_x-40: 0.565 / 0.440
+      shift_y+40: 0.560 / 0.440
+      shift_y-40: 0.565 / 0.436
+      shift_z+40: 0.566 / 0.437
+      shift_z-40: 0.563 / 0.437
+         rot_+30: 0.486 / 0.395
+         rot_-30: 0.508 / 0.395
+         rot_+60: 0.422 / 0.402
+         rot_-60: 0.543 / 0.386
+         rot_+90: 0.320 / 0.385
+         rot_-90: 0.522 / 0.408
+       human_all: 0.317 / 0.247
+  hum16 x200: L median 0.347 (2.5-97.5% 0.295-0.412), share >= ours 0.000; G median 0.294 (0.243-0.358), share >= ours 0.000
+distance bin | n | mean dFrac arm (B-A) | mean dFrac seed (s2-s1) | area-wtd arm | area-wtd seed | L rate in Apool | G rate in Bpool | noise-flip rate A | B
+     0-100   |  325 | -0.0345 | -0.0096 | +0.0226 | +0.0133 |  11.3% (18/159) |   7.3% (9/123) |   9.2% |  20.0%
+   100-300   |  691 | +0.0053 | -0.0155 | +0.0047 | -0.0282 |   3.8% (14/364) |   3.9% (13/336) |   9.7% |  16.6%
+   300-600   |  796 | +0.0051 | -0.0003 | -0.0071 | +0.0067 |   3.0% (12/398) |   2.5% (9/362) |  12.8% |  19.7%
+   600-1000  |  526 | +0.0111 | -0.0049 | +0.0219 | -0.0112 |   6.2% (13/210) |   8.0% (14/176) |  18.8% |  29.8%
+  1000-1000000000 |  134 | +0.0086 | -0.0049 | -0.0525 | -0.0046 |   2.9% (1/34) |  11.6% (5/43) |  35.1% |  28.4%
+
+=================== CPU 4k
+    L n= 123 area= 8.95%  median d=   299  <100:  21.1%  <300:  50.4%  area<300:  45.5%
+    G n=  26 area= 0.08%  median d=   258  <100:  30.8%  <300:  53.8%  area<300:  83.1%
+    S n= 158 area= 4.97%  median d=   240  <100:   5.1%  <300:  67.7%  area<300:  95.2%
+   NA n= 267 area= 3.46%  median d=   470  <100:   8.2%  <300:  33.7%  area<300:  36.5%
+   NB n= 683 area=11.71%  median d=   422  <100:  12.0%  <300:  37.6%  area<300:  43.9%
+   L1 n= 308 area=11.45%  median d=   398  <100:  13.3%  <300:  37.7%  area<300:  43.1%
+   L2 n= 301 area=11.81%  median d=   308  <100:  16.3%  <300:  48.5%  area<300:  46.6%
+   G1 n= 253 area= 5.46%  median d=   458  <100:  16.2%  <300:  34.4%  area<300:  41.4%
+   G2 n= 242 area= 3.74%  median d=   362  <100:  14.5%  <300:  43.0%  area<300:  48.3%
+  all n=2472 area=100.00%  median d=   377  <100:  13.1%  <300:  41.1%  area<300:  42.7%
+L vs matched draws from Apool: median d 299 (null median 273, 2.5-97.5% 239-301), p(null<=obs) 0.9744; frac<300 0.504 (null 0.569), p(null>=obs) 0.9744
+G vs matched draws from Bpool: median d 258 (null median 270, 2.5-97.5% 221-386), p(null<=obs) 0.3795; frac<300 0.538 (null 0.577), p(null>=obs) 0.7899
+AUC P(L closer than S) = 0.470
+AUC P(L closer than NA) = 0.657
+AUC P(G closer than S) = 0.524
+AUC P(G closer than NB) = 0.629
+AUC P(NA closer than S) = 0.306
+AUC P(NB closer than S) = 0.353
+control point sets, AUC(L closer than S) / AUC(G closer than S):
+        ours_sub: 0.471 / 0.523
+      shift_x+40: 0.478 / 0.512
+      shift_x-40: 0.467 / 0.530
+      shift_y+40: 0.465 / 0.515
+      shift_y-40: 0.476 / 0.522
+      shift_z+40: 0.485 / 0.524
+      shift_z-40: 0.462 / 0.518
+         rot_+30: 0.531 / 0.457
+         rot_-30: 0.516 / 0.460
+         rot_+60: 0.507 / 0.451
+         rot_-60: 0.491 / 0.602
+         rot_+90: 0.520 / 0.428
+         rot_-90: 0.375 / 0.566
+       human_all: 0.422 / 0.266
+  hum16 x200: L median 0.402 (2.5-97.5% 0.294-0.530), share >= ours 0.165; G median 0.330 (0.240-0.450), share >= ours 0.000
+distance bin | n | mean dFrac arm (B-A) | mean dFrac seed (s2-s1) | area-wtd arm | area-wtd seed | L rate in Apool | G rate in Bpool | noise-flip rate A | B
+     0-100   |  325 | -0.0086 | -0.0021 | -0.0735 | -0.0969 |  46.4% (26/56) |  42.1% (8/19) |   6.8% |  25.2%
+   100-300   |  691 | -0.0175 | -0.0101 | +0.0431 | -0.0553 |  18.8% (36/191) |   5.5% (6/109) |   9.8% |  25.3%
+   300-600   |  796 | +0.0197 | -0.0076 | +0.0044 | -0.0202 |  26.6% (41/154) |  16.9% (10/59) |  10.8% |  30.7%
+   600-1000  |  526 | -0.0143 | -0.0249 | +0.0406 | -0.0695 |  32.8% (20/61) |  14.3% (2/14) |  13.9% |  29.7%
+  1000-1000000000 |  134 | +0.0345 | -0.0274 | +0.0376 | +0.0643 |   0.0% (0/5) |   0.0% (0/1) |  13.4% |  19.4%

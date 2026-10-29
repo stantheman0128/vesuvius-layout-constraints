@@ -1,0 +1,41 @@
+gA1: 150 logged steps, first 0, last 29800
+gA2: 150 logged steps, first 0, last 29800
+gB1: 150 logged steps, first 0, last 29800
+gB2: 150 logged steps, first 0, last 29800
+cA1: 20 logged steps, first 0, last 3800
+cA2: 20 logged steps, first 0, last 3800
+cB1: 20 logged steps, first 0, last 3800
+cB2: 20 logged steps, first 0, last 3800
+
+=== GPU: mean of logged values over steps >= 25000
+term                                            A1        A2        B1        B2 |  B-A mean seed spread A seed spread B  sd/sqrt(n) per run
+loss                                        55.564    57.740    62.940    58.376 |    +4.006         2.176         4.564  3.356
+umbilicus                                    0.024     0.000     0.000     0.032 |    +0.004         0.024         0.032  0.013
+patch_radius                                11.228    11.916    12.116    12.064 |    +0.518         0.688         0.052  0.393
+patch_dt                                    19.280    21.904    23.816    22.520 |    +2.576         2.624         1.296  2.378
+sym_dirichlet                               10.676    10.592    11.080    10.652 |    +0.232         0.084         0.428  0.386
+rel_winding                                  4.744     4.308     5.088     3.588 |    -0.188         0.436         1.500  1.312
+abs_winding                                  2.724     2.092     2.756     2.192 |    +0.066         0.632         0.564  0.276
+dense_normals                                1.416     1.412     1.464     1.416 |    +0.026         0.004         0.048  0.018
+dense_spacing_winding_model_relative         1.300     1.336     1.220     1.292 |    -0.062         0.036         0.072  0.027
+dense_spacing_winding_model_density          0.268     0.264     0.252     0.260 |    -0.010         0.004         0.008  0.010
+min_spacing                                  0.000     0.000     0.000     0.000 |    +0.000         0.000         0.000  0.000
+unattached_pcl_radius                        0.276     0.232     0.428     0.500 |    +0.210         0.044         0.072  0.087 <-- B-A beyond both seed spreads
+unattached_pcl_dt                            3.572     3.648     4.636     3.816 |    +0.616         0.076         0.820  0.549
+shell_outer                                  0.048     0.060     0.040     0.028 |    -0.020         0.012         0.012  0.014
+
+=== CPU: mean of logged values over steps >= 3000
+term                                            A1        A2        B1        B2 |  B-A mean seed spread A seed spread B  sd/sqrt(n) per run
+loss                                        45.480    51.180    54.200    48.180 |    +2.860         5.700         6.020  6.319
+umbilicus                                    0.000     0.020     0.060     0.000 |    +0.020         0.020         0.060  0.024
+patch_radius                                19.560    25.860    25.160    22.740 |    +1.240         6.300         2.420  4.911
+patch_dt                                     0.000     0.000     0.000     0.000 |    +0.000         0.000         0.000  0.000
+sym_dirichlet                               13.660    14.420    14.760    14.300 |    +0.490         0.760         0.460  1.089
+rel_winding                                  5.460     4.860     7.020     4.480 |    +0.590         0.600         2.540  3.105
+abs_winding                                  4.260     3.240     4.040     3.400 |    -0.030         1.020         0.640  0.879
+dense_spacing_winding_model_relative         1.940     1.980     1.960     2.060 |    +0.050         0.040         0.100  0.068
+dense_spacing_winding_model_density          0.280     0.240     0.280     0.280 |    +0.020         0.040         0.000  0.024
+min_spacing                                  0.000     0.000     0.000     0.000 |    +0.000         0.000         0.000  0.000
+unattached_pcl_radius                        0.140     0.100     0.700     0.480 |    +0.470         0.040         0.220  0.146 <-- B-A beyond both seed spreads
+unattached_pcl_dt                            0.000     0.000     0.000     0.000 |    +0.000         0.000         0.000  0.000
+shell_outer                                  0.240     0.420     0.280     0.400 |    +0.010         0.180         0.120  0.176
